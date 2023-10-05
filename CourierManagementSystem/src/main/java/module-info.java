@@ -5,6 +5,6 @@ module bg.tu_varma.sit.couriermanagementsystem {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens bg.tu_varma.sit.couriermanagementsystem to javafx.fxml;
-    exports bg.tu_varma.sit.couriermanagementsystem;
+    opens bg.tu_varna.sit.couriermanagementsystem to javafx.fxml;
+    exports bg.tu_varna.sit.couriermanagementsystem;
 }

@@ -1,4 +1,4 @@
-package bg.tu_varma.sit.couriermanagementsystem;
+package bg.tu_varna.sit.couriermanagementsystem;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
