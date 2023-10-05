@@ -1,4 +1,4 @@
-module bg.tu_varma.sit.couriermanagementsystem {
+module bg.tu_varna.sit.couriermanagementsystem {
     requires javafx.controls;
     requires javafx.fxml;
 
