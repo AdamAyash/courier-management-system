@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/configmanager/ConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/SQLQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/CreateDatabaseScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/CreateDatabaseScript.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +29,8 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2WLyHtNOIAbd5XRdYBLKemyXCIe" />
   <component name="ProjectViewState">
@@ -54,8 +44,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Program Files/Microsoft JDBC Driver 12.4/sqljdbc_12.4/enu/jars/mssql-jdbc-12.4.1.jre11.jar",
-    "project.structure.last.edited": "Modules",
+    "last_opened_file_path": "C:/Users/Pavel/Desktop/courier-management-system/CourierManagementSystem",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.53908044",
     "settings.editor.selected.configurable": "preferences.sourceCode"
@@ -79,5 +69,16 @@
       <updated>1696526072633</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
