@@ -3,7 +3,6 @@ package bg.tu_varna.sit.couriermanagementsystem.database.connection;
 import bg.tu_varna.sit.couriermanagementsystem.configmanager.ConfigManager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;

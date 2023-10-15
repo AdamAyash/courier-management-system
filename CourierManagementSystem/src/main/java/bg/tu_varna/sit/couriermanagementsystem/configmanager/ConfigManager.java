@@ -17,7 +17,6 @@ public  class ConfigManager
     //-------------------------
     private Properties _properties;
     private FileInputStream  _fileInputStream;
-
     private String _configFilePath;
 
     //-------------------------

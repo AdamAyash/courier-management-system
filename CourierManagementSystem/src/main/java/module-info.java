@@ -9,6 +9,5 @@ module bg.tu_varna.sit.couriermanagementsystem {
     requires java.naming;
 
     opens bg.tu_varna.sit.couriermanagementsystem to javafx.fxml;
-    opens bg.tu_varna.sit.couriermanagementsystem.controllers to javafx.fxml;
     exports bg.tu_varna.sit.couriermanagementsystem;
 }
