@@ -7,7 +7,14 @@ module bg.tu_varna.sit.couriermanagementsystem {
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
     requires java.naming;
+    requires org.apache.logging.log4j;
+    requires password4j;
 
     opens bg.tu_varna.sit.couriermanagementsystem to javafx.fxml;
+    opens bg.tu_varna.sit.couriermanagementsystem.domainobjects to javafx.base;
+    opens bg.tu_varna.sit.couriermanagementsystem.controllers to javafx.fxml;
     exports bg.tu_varna.sit.couriermanagementsystem;
+    exports bg.tu_varna.sit.couriermanagementsystem.controllers;
+
+
 }

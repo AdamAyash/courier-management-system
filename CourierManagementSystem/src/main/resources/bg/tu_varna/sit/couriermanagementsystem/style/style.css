@@ -1,0 +1,31 @@
+.root{
+    -fx-padding: 5;
+    -fx-border-style: none;
+    -fx-border-width: 0;
+    -fx-border-insets: 0;
+}
+
+#menu{
+  -fx-background-color: #121212;
+}
+#menu-button{
+-fx-background-color:#121212;
+-fx-text-fill: white;
+-fx-alignment: left;
+}
+
+#menu-button:hover{
+-fx-background-color:#ff0266;
+-fx-opacity: 0.67;
+-fx-text-fill: white;
+}
+
+#login-form-textfields
+{
+    -fx-text-fill: white;
+}
+
+#login-button:hover
+{
+
+}

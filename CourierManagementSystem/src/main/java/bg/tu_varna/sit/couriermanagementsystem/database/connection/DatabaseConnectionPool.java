@@ -3,6 +3,9 @@ package bg.tu_varna.sit.couriermanagementsystem.database.connection;
 import bg.tu_varna.sit.couriermanagementsystem.configmanager.ConfigManager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,12 +19,15 @@ public final class DatabaseConnectionPool
     //Constants:
     //-------------------------
 
+    /*Референция към класа за логване на грешки*/
+    private static final Logger _logger = LogManager.getLogger();
+
     /*Интервал за тестване на връзката към базата при стартиране на приложението*/
     private final int _DATABASE_CONNECTION_TIMEOUT = 30;
 
     private static final int _DEFAULT_CONNECTION_POOL_SIZE = 10;
 
-    private final int _GET_CONNECTION_OFFSET = 1;
+    private final int GET_CONNECTION_OFFSET = 1;
 
     //-------------------------
     //Members:
@@ -34,10 +40,6 @@ public final class DatabaseConnectionPool
     private static ConfigManager _configManager;
 
     //-------------------------
-    //Properties:
-    //-------------------------
-
-    //-------------------------
     //Constructor/Destructor:
     //-------------------------
     private DatabaseConnectionPool()
@@ -48,35 +50,50 @@ public final class DatabaseConnectionPool
     //-------------------------
     //Methods:
     //-------------------------
-    public static synchronized DatabaseConnectionPool getInstance() throws IOException, SQLServerException
+    public static synchronized DatabaseConnectionPool getInstance()
     {
-        if (_databaseConnectionPoolInstance == null)
+        try
         {
-            _databaseConnectionPoolInstance = new DatabaseConnectionPool();
-            _configManager = new ConfigManager();
-            _connectionPool = new ArrayList<>();
-            _currentlyUsedConnections = new ArrayList<>();
+            if(_databaseConnectionPoolInstance == null)
+            {
+                _databaseConnectionPoolInstance = new DatabaseConnectionPool();
+                _configManager = new ConfigManager();
+                _connectionPool = new ArrayList<>();
+                _currentlyUsedConnections = new ArrayList<>();
+            }
+        }
+        catch (IOException exception)
+        {
+            _logger.error(exception.getMessage());
         }
 
         return _databaseConnectionPoolInstance;
     }
 
-    private boolean testDatabaseConnection() throws SQLException
+    private boolean testDatabaseConnection()
     {
-        Connection databaseConnection = _dataSource.getConnection();
-
-        if (!databaseConnection.isValid(_DATABASE_CONNECTION_TIMEOUT))
+        try
         {
+            Connection databaseConnection = _dataSource.getConnection();
+
+            if(!databaseConnection.isValid(_DATABASE_CONNECTION_TIMEOUT))
+            {
+                databaseConnection.close();
+                return false;
+            }
             databaseConnection.close();
+        }
+        catch (SQLException exception)
+        {
+            _logger.error(exception.getMessage());
             return false;
         }
-
-        databaseConnection.close();
         return true;
     }
 
-    public boolean connectToDatabase() throws SQLException
+    public boolean connectToDatabase()
     {
+
         _dataSource = new SQLServerDataSource();
         _dataSource.setUser(_configManager.getProperties().getProperty("User"));
         _dataSource.setPassword(_configManager.getProperties().getProperty("Password"));
@@ -85,49 +102,62 @@ public final class DatabaseConnectionPool
         _dataSource.setDatabaseName(_configManager.getProperties().getProperty("Catalog"));
         _dataSource.setTrustServerCertificate(true);
 
-        if (!testDatabaseConnection())
+        if(!testDatabaseConnection())
             return false;
 
         createConnections();
-
         return true;
     }
 
-    private static Connection createConnection() throws SQLServerException
+    private static Connection createConnection()
     {
-        return _dataSource.getConnection();
+        try
+        {
+            return _dataSource.getConnection();
+        }
+        catch (SQLServerException exception)
+        {
+            _logger.error(exception.getMessage());
+            return null;
+        }
     }
 
-    private static void createConnections() throws SQLServerException
+    private static void createConnections()
     {
-        for (int index = 0; index < _DEFAULT_CONNECTION_POOL_SIZE; index++)
+        for(int index = 0; index < _DEFAULT_CONNECTION_POOL_SIZE; index++)
         {
             _connectionPool.add(createConnection());
         }
     }
 
-    public boolean releaseCollection(Connection connection)
+    public boolean releaseConnection(Connection connection)
     {
         _connectionPool.add(connection);
         return _currentlyUsedConnections.remove(connection);
     }
 
-    public Connection getConnection() throws SQLException
+    public Connection getConnection()
     {
         Connection databaseConnection;
 
-        if (_currentlyUsedConnections.size() == _DEFAULT_CONNECTION_POOL_SIZE)
+        if(_currentlyUsedConnections.size() == _DEFAULT_CONNECTION_POOL_SIZE)
         {
-            databaseConnection = getConnection();
+            databaseConnection = createConnection();
         }
         else
         {
-            databaseConnection = _connectionPool.remove(_connectionPool.size() - _GET_CONNECTION_OFFSET);
+            databaseConnection = _connectionPool.remove(_connectionPool.size() - GET_CONNECTION_OFFSET);
         }
 
-        if(!databaseConnection.isValid(_DATABASE_CONNECTION_TIMEOUT))
-            databaseConnection = getConnection();
-
+        try
+        {
+            if(!databaseConnection.isValid(_DATABASE_CONNECTION_TIMEOUT))
+                databaseConnection = createConnection();
+        }
+        catch (SQLException exception)
+        {
+            _logger.error(exception.getMessage());
+        }
         _currentlyUsedConnections.add(databaseConnection);
         return databaseConnection;
     }

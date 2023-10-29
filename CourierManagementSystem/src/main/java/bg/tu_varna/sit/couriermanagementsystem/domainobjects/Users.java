@@ -1,41 +1,45 @@
-package bg.tu_varna.sit.couriermanagementsystem.configmanager;
+package bg.tu_varna.sit.couriermanagementsystem.domainobjects;
 
-public class City {
-//-------------------------
+/**/
+public class Users
+{
+    //-------------------------
     //Constants:
     //-------------------------
 
     //-------------------------
     //Members:
     //-------------------------
-
     private int _ID;
-
-    private String _name;
-
-    private String _state;
-
-    //-------------------------
-    //Properties:
-    //-------------------------
+    private String _username;
+    private String _password;
 
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public City()
+    public Users()
     {
 
     }
     //-------------------------
     //Methods:
     //-------------------------
+    public void setUsername(String username)
+    {
+        this._username = username;
+    }
+
+    public int getID()
+    {
+        return _ID;
+    }
+
+    public String getUsername()
+    {
+        return _username;
+    }
 
     //-------------------------
     //Overrides:
     //-------------------------
 }
-
-
-
-
-

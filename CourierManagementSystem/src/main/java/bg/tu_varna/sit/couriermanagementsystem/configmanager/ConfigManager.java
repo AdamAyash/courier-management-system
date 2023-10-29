@@ -19,9 +19,6 @@ public  class ConfigManager
     private FileInputStream  _fileInputStream;
     private String _configFilePath;
 
-    //-------------------------
-    //Properties:
-    //-------------------------
     public Properties getProperties()
     {
         return  _properties;
