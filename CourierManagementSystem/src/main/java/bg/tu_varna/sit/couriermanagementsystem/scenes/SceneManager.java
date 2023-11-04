@@ -6,15 +6,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/*Клаз за отговорен за смяна на различните екрани и техните контролери*/
 public class SceneManager
 {
     //-------------------------
     //Constants:
     //-------------------------
     private final Stage rootStage;
+
+    private static final Logger _logger = LogManager.getLogger();
     private final Map<String, Scene> scenes;
     private  final String CSS_FILE_NAME = "style/style.css";
 
@@ -47,7 +54,10 @@ public class SceneManager
                 BaseController controller = loader.getController();
 
                 if(controller != null)
-                controller.setSceneManager(this);
+                {
+                    controller.setSceneManager(this);
+                    controller.InitializeController();
+                }
 
                 return new Scene(parent);
             } catch (IOException exception) {

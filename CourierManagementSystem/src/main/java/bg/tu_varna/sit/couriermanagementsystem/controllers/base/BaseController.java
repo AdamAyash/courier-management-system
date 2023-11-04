@@ -1,8 +1,12 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.base;
 
 import bg.tu_varna.sit.couriermanagementsystem.scenes.SceneManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class BaseController
+import java.net.ProtocolException;
+
+public abstract class BaseController
 {
     //-------------------------
     //Constants:
@@ -11,7 +15,8 @@ public class BaseController
     //-------------------------
     //Members:
     //-------------------------
-    SceneManager sceneManager = null;
+    protected static final Logger _logger = LogManager.getLogger();
+    protected SceneManager sceneManager = null;
 
     //-------------------------
     //Constructor/Destructor:
@@ -20,6 +25,7 @@ public class BaseController
     //-------------------------
     //Methods:
     //-------------------------
+    public abstract void InitializeController();
 
     //-------------------------
     //Overrides:

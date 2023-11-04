@@ -1,7 +1,9 @@
-package bg.tu_varna.sit.couriermanagementsystem.domainobjects;
+package bg.tu_varna.sit.couriermanagementsystem.domainobjects.users;
 
-/**/
-public class Users
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
+
+/*Бизнес клас за потребител*/
+public class Users implements DomainObject
 {
     //-------------------------
     //Constants:
@@ -11,8 +13,10 @@ public class Users
     //Members:
     //-------------------------
     private int _ID;
+    private  int _updateCounter;
     private String _username;
     private String _password;
+    private int _accessID;
 
     //-------------------------
     //Constructor/Destructor:
@@ -21,6 +25,7 @@ public class Users
     {
 
     }
+
     //-------------------------
     //Methods:
     //-------------------------
@@ -37,6 +42,11 @@ public class Users
     public String getUsername()
     {
         return _username;
+    }
+
+    public String getPassword()
+    {
+        return _password;
     }
 
     //-------------------------

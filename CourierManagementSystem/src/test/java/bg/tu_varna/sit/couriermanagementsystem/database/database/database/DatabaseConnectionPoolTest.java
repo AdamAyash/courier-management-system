@@ -1,9 +1,11 @@
-package bg.tu_varna.sit.couriermanagementsystem.database.database;
+package bg.tu_varna.sit.couriermanagementsystem.database.database.database;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,6 +37,7 @@ class DatabaseConnectionPoolTest
 
          assertTrue(databaseConnectionPool.getConnection().isValid(CONNECTION_TIMEOUT));
     }
+
 
     //-------------------------
     //Overrides:

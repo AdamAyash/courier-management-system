@@ -2,16 +2,16 @@ package bg.tu_varna.sit.couriermanagementsystem.database.tables.base;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.*;
+import java.util.HashMap;
 import java.util.List;
 
 /*Абстрактен клас описващ таблица от базата данни*/
-public abstract class BaseTable<RecordType>
+public abstract class BaseTable<RecordType extends DomainObject>
 {
     //-------------------------
     //Constants:
@@ -123,9 +123,13 @@ public abstract class BaseTable<RecordType>
            StartTransaction();
 
            Statement statement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-           ResultSet newRecordQuery = statement.executeQuery("SELECT * FROM " + _dataMap.getTableName());
+           SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName());
+
+           ResultSet newRecordQuery = statement.executeQuery(sqlQuery.generateSQLStatement());
            newRecordQuery.moveToInsertRow();
+
            mapDomainObjectToNewRecord(newRecordQuery, newRecord);
+
            newRecordQuery.insertRow();
        }
        catch (SQLException exception)

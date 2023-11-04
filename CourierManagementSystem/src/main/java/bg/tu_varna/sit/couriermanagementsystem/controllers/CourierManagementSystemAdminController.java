@@ -2,16 +2,12 @@ package bg.tu_varna.sit.couriermanagementsystem.controllers;
 
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
 
+import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Tab;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import java.util.ArrayList;
-import java.util.List;
 
-public class CourierManagementSystemController extends BaseController
+public class CourierManagementSystemAdminController extends BaseController
 {
     //-------------------------
     //Constants:
@@ -22,6 +18,9 @@ public class CourierManagementSystemController extends BaseController
     //-------------------------
     @FXML
     private TabPane _tabPane;
+
+    @FXML
+    private Label _currentUser;
 
     //-------------------------
     //Constructor/Destructor:
@@ -61,10 +60,16 @@ public class CourierManagementSystemController extends BaseController
 //
 //        Tab citiesTab = new Tab("Градове");
 //        citiesTab.setContent(citiesTableView);
-//        //_tabPane.getTabs().add(citiesTab);
+//        //_tabPane.getTabs().add(citiesTab)
     }
 
     //-------------------------
     //Overrides:
     //-------------------------
+    @Override
+    public void InitializeController()
+    {
+        UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        _currentUser.setText("Welcome " + userAuthentication.getCurrentlyLoggedUser().getUsername());
+    }
 }

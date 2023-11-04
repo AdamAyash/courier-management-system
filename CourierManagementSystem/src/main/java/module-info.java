@@ -11,10 +11,10 @@ module bg.tu_varna.sit.couriermanagementsystem {
     requires password4j;
 
     opens bg.tu_varna.sit.couriermanagementsystem to javafx.fxml;
-    opens bg.tu_varna.sit.couriermanagementsystem.domainobjects to javafx.base;
     opens bg.tu_varna.sit.couriermanagementsystem.controllers to javafx.fxml;
     exports bg.tu_varna.sit.couriermanagementsystem;
     exports bg.tu_varna.sit.couriermanagementsystem.controllers;
+    opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.users to javafx.base;
 
 
 }

@@ -34,7 +34,6 @@ public final class DatabaseConnectionPool
     //-------------------------
     private static DatabaseConnectionPool _databaseConnectionPoolInstance = null;
     private static SQLServerDataSource _dataSource;
-
     private static List<Connection> _connectionPool;
     private static List<Connection> _currentlyUsedConnections;
     private static ConfigManager _configManager;
