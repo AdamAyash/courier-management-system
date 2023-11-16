@@ -6,6 +6,7 @@ import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.UpdatableDomainObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -141,9 +142,14 @@ public abstract class BaseTable<DomainObject>
 
             mapDomainObjectFields(databaseRecordResultSet, databaseRecord);
 
-            //Проверки.....
-
-           // newRecord.incrementCounter();
+            if(oldRecord instanceof UpdatableDomainObject)
+            {
+               if(! ((UpdatableDomainObject) oldRecord).CompareUpdateCounter((UpdatableDomainObject)databaseRecord))
+               {
+                   return false;
+               }
+                ((UpdatableDomainObject)newRecord).incrementCounter();
+            }
 
             Statement updateStatement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet resultSetUpdate = updateStatement.executeQuery(sqlQuery.generateSQLStatement());

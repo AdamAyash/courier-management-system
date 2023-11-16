@@ -1,10 +1,10 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.PrimaryKey;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.Updatable;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.UpdatableDomainObject;
 
 /*Бизнес клас за фирма*/
-public class Companies extends Updatable
+public class Companies extends UpdatableDomainObject
 {
     //-------------------------
     //Constants:
