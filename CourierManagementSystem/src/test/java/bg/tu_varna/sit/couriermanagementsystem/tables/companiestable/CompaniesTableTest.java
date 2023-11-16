@@ -59,7 +59,7 @@ public class CompaniesTableTest
 
         company.setPhoneNumber("024444");
 
-        assertTrue(companiesTable.updateRecord(companiesList.get(0), company));
+        assertTrue(companiesTable.updateRecord(company));
     }
 
     //-------------------------

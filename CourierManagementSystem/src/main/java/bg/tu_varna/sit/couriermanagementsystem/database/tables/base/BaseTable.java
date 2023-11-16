@@ -120,14 +120,14 @@ public abstract class BaseTable<DomainObject>
         return true;
     }
 
-    public boolean updateRecord(DomainObject oldRecord, DomainObject newRecord)
+    public boolean updateRecord(DomainObject newRecord)
     {
         try
         {
             OpenConnection();
             StartTransaction();
 
-            SQLQuery sqlQuery = FormSQLQueryByPrimaryKey(oldRecord, LockTypes.UPDATE);
+            SQLQuery sqlQuery = FormSQLQueryByPrimaryKey(newRecord, LockTypes.UPDATE);
 
             if(sqlQuery == null)
                 throw new SQLException();
@@ -142,9 +142,9 @@ public abstract class BaseTable<DomainObject>
 
             mapDomainObjectFields(databaseRecordResultSet, databaseRecord);
 
-            if(oldRecord instanceof UpdatableDomainObject)
+            if(newRecord instanceof UpdatableDomainObject)
             {
-               if(! ((UpdatableDomainObject) oldRecord).CompareUpdateCounter((UpdatableDomainObject)databaseRecord))
+               if(!((UpdatableDomainObject) newRecord).CompareUpdateCounter((UpdatableDomainObject)databaseRecord))
                {
                    return false;
                }
