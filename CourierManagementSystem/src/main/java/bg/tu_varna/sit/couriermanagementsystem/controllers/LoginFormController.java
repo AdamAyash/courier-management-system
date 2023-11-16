@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-
 /*Контролер за логин формата*/
 public class LoginFormController extends BaseController
 {
@@ -69,8 +68,10 @@ public class LoginFormController extends BaseController
     //Overrides:
     //-------------------------
     @Override
-    public void InitializeController()
+    public boolean InitializeController()
     {
         _userAuthentication = UserAuthentication.getInstance();
+
+        return true;
     }
 }

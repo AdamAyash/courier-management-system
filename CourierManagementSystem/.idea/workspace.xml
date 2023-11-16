@@ -5,27 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystemAdminView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/CourierManagementSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/CourierManagementSystemAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/CourierManagementSystemAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/CourierManagementSystemAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/LoginFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/connection/DatabaseConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/connection/DatabaseConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/BaseTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/BaseTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/Column.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/companiestable/CompaniesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/companiestable/CompaniesTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/userstable/UsersTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/userstable/UsersTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/users/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/base/DomainObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/base/DomainObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/companies/Companies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/companies/Companies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/scenes/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/scenes/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/userauthentication/UserAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/userauthentication/UserAuthentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystemView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystemAdminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystemAdminView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/LoginForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/LoginForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/images/login.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/images/loginform/login.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log-configuration/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/DatabaseConnectionPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/database/DatabaseConnectionPoolTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/UsersTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/UsersTableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/CreateCitiesTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/CreateCitiesTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Документация .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Документация .docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/UsersTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/userstable/UsersTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/database/DatabaseConnectionPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/connection/DatabaseConnectionPoolTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/CreateUsersTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/CreateUsersTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$кументация .docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~WRL0005.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Документация .docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,51 +111,65 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="All in CourierManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CompaniesTableTest.updateCompaniesTest">
+    <configuration name="CompaniesTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.database.database.database.tables.companiestable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database.database.tables.companiestable" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database.database.tables.companiestable.CompaniesTableTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersTableTest.selectAllUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompaniesTableTest.selectAllCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.database.database.database.*" />
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database" />
-      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database.UsersTableTest" />
-      <option name="METHOD_NAME" value="selectAllUsersTest" />
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.CompaniesTableTest" />
+      <option name="METHOD_NAME" value="selectAllCompaniesTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersTableTest.selectUserWhereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompaniesTableTest.updateCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.database.database.database.*" />
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database" />
-      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.database.UsersTableTest" />
-      <option name="METHOD_NAME" value="selectUserWhereTest" />
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.CompaniesTableTest" />
+      <option name="METHOD_NAME" value="updateCompaniesTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="database in CourierManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseConnectionPoolTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.connection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.connection" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.connection.DatabaseConnectionPoolTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UsersTableTest.selectAllUsersTest" />
-        <item itemvalue="JUnit.UsersTableTest.selectUserWhereTest" />
+        <item itemvalue="JUnit.CompaniesTableTest.updateCompaniesTest" />
+        <item itemvalue="JUnit.CompaniesTableTest.selectAllCompaniesTest" />
         <item itemvalue="JUnit.java in CourierManagementSystem" />
-        <item itemvalue="JUnit.All in CourierManagementSystem" />
-        <item itemvalue="JUnit.database in CourierManagementSystem" />
+        <item itemvalue="JUnit.DatabaseConnectionPoolTest" />
+        <item itemvalue="JUnit.CompaniesTableTest" />
       </list>
     </recent_temporary>
   </component>
@@ -191,23 +207,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.jdks/openjdk-19.0.2/lib/src.zip!/java.base/java/lang/Class.java</url>
-          <line>2658</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/scenes/SceneManager.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/database/UsersTableTest.java</url>
-          <line>32</line>
-          <properties class="bg.tu_varna.sit.couriermanagementsystem.database.database.UsersTableTest" method="selectAllUsersTest">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

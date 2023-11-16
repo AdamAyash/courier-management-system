@@ -1,7 +1,8 @@
-package bg.tu_varna.sit.couriermanagementsystem.domainobjects.base;
+package bg.tu_varna.sit.couriermanagementsystem.common;
 
-/*Маркиращ интерфейс описващ бизнес обект*/
-public interface DomainObject
+
+/*Помощен клас с полезни функции*/
+public class Utilities
 {
     //-------------------------
     //Constants:
@@ -27,5 +28,3 @@ public interface DomainObject
     //Overrides:
     //-------------------------
 }
-
-

@@ -1,7 +1,7 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.base;
 
-/*Маркиращ интерфейс описващ бизнес обект*/
-public interface DomainObject
+/**/
+public class Updatable implements DomainObject
 {
     //-------------------------
     //Constants:
@@ -10,6 +10,7 @@ public interface DomainObject
     //-------------------------
     //Members:
     //-------------------------
+    private int _updateCounter;
 
     //-------------------------
     //Properties:
@@ -27,5 +28,3 @@ public interface DomainObject
     //Overrides:
     //-------------------------
 }
-
-

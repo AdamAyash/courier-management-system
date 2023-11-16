@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.couriermanagementsystem.database.database.database;
+package bg.tu_varna.sit.couriermanagementsystem.connection;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import org.junit.jupiter.api.Test;
@@ -28,6 +28,14 @@ class DatabaseConnectionPoolTest
     //-------------------------
     //Methods:
     //-------------------------
+
+    @Test
+    public void connectToDatabaseTest()
+    {
+        DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
+        assertTrue(databaseConnectionPool.connectToDatabase());
+    }
+
     @Test
     public void getConnectionTest() throws SQLException, IOException
     {
@@ -35,8 +43,10 @@ class DatabaseConnectionPoolTest
         DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
 
-         assertTrue(databaseConnectionPool.getConnection().isValid(CONNECTION_TIMEOUT));
+        assertTrue(databaseConnectionPool.getConnection().isValid(CONNECTION_TIMEOUT));
     }
+
+
 
 
     //-------------------------

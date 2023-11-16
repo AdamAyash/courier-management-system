@@ -14,7 +14,9 @@ module bg.tu_varna.sit.couriermanagementsystem {
     opens bg.tu_varna.sit.couriermanagementsystem.controllers to javafx.fxml;
     exports bg.tu_varna.sit.couriermanagementsystem;
     exports bg.tu_varna.sit.couriermanagementsystem.controllers;
+    opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies to javafx.base;
     opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.users to javafx.base;
+    opens bg.tu_varna.sit.couriermanagementsystem.controllers.base to javafx.fxml;
 
 
 }

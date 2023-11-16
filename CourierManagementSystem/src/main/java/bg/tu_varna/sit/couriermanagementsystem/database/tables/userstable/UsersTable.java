@@ -41,7 +41,7 @@ public class UsersTable extends BaseTable<Users>
     //-------------------------
     public UsersTable()
     {
-        super();
+
     }
 
     //-------------------------

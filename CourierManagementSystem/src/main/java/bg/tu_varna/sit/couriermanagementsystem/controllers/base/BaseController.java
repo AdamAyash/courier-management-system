@@ -25,7 +25,7 @@ public abstract class BaseController
     //-------------------------
     //Methods:
     //-------------------------
-    public abstract void InitializeController();
+    public abstract boolean InitializeController();
 
     //-------------------------
     //Overrides:

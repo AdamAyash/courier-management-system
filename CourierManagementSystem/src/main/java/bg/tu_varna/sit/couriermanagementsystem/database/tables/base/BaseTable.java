@@ -1,17 +1,20 @@
 package bg.tu_varna.sit.couriermanagementsystem.database.tables.base;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.sql.*;
-import java.util.HashMap;
 import java.util.List;
 
 /*Абстрактен клас описващ таблица от базата данни*/
-public abstract class BaseTable<RecordType extends DomainObject>
+public abstract class BaseTable<DomainObject>
 {
     //-------------------------
     //Constants:
@@ -25,6 +28,8 @@ public abstract class BaseTable<RecordType extends DomainObject>
 
     //Дали сме в активна транзакция
     private boolean _isTransactionActive;
+
+    //Дали използваме локална сесия
     protected DataMap _dataMap;
 
     //-------------------------
@@ -38,23 +43,22 @@ public abstract class BaseTable<RecordType extends DomainObject>
     //-------------------------
     //Methods:
     //-------------------------
-
     protected abstract void loadDataMap();
 
-    public boolean selectAllRecords(List<RecordType> recordsList)
+    public boolean selectAllRecords(List<DomainObject> recordsList)
     {
         OpenConnection();
         try
         {
             Statement statement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName());
+            SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName(), LockTypes.READ_ONLY);
 
             ResultSet queryResult = statement.executeQuery(sqlQuery.generateSQLStatement());
             queryResult.beforeFirst();
 
             while (queryResult.next())
             {
-                RecordType record = (RecordType) _dataMap.getDomainCLass().newInstance();
+                DomainObject record = (DomainObject) _dataMap.getDomainCLass().newInstance();
                 mapDomainObjectFields(queryResult, record);
 
                 if(record == null)
@@ -85,7 +89,7 @@ public abstract class BaseTable<RecordType extends DomainObject>
         return true;
     }
 
-    public boolean selectRecordWhere(RecordType record, SQLQuery sqlQuery)
+    public boolean selectRecordWhere(DomainObject record, SQLQuery sqlQuery)
     {
         OpenConnection();
 
@@ -115,37 +119,145 @@ public abstract class BaseTable<RecordType extends DomainObject>
         return true;
     }
 
-    public boolean insertRecord(RecordType newRecord)
+    public boolean updateRecord(DomainObject oldRecord, DomainObject newRecord)
     {
-       try
-       {
-           OpenConnection();
-           StartTransaction();
+        try
+        {
+            OpenConnection();
+            StartTransaction();
 
-           Statement statement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-           SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName());
+            SQLQuery sqlQuery = FormSQLQueryByPrimaryKey(oldRecord, LockTypes.UPDATE);
 
-           ResultSet newRecordQuery = statement.executeQuery(sqlQuery.generateSQLStatement());
-           newRecordQuery.moveToInsertRow();
+            if(sqlQuery == null)
+                throw new SQLException();
 
-           mapDomainObjectToNewRecord(newRecordQuery, newRecord);
+            DomainObject databaseRecord = (DomainObject) _dataMap.getDomainCLass().newInstance();
+            Statement selectDatabaseRecordStatement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-           newRecordQuery.insertRow();
-       }
-       catch (SQLException exception)
-       {
-           _logger.error(exception.getMessage());
-           return  false;
-       }
-       finally
-       {
-           if(!CloseConnection())
-               return false;
-       }
-       return  true;
+            ResultSet databaseRecordResultSet = selectDatabaseRecordStatement.executeQuery(sqlQuery.generateSQLStatement());
+
+            if(!databaseRecordResultSet.first())
+                return false;
+
+            mapDomainObjectFields(databaseRecordResultSet, databaseRecord);
+
+            //Проверки.....
+
+           // newRecord.incrementCounter();
+
+            Statement updateStatement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet resultSetUpdate = updateStatement.executeQuery(sqlQuery.generateSQLStatement());
+
+            if(!resultSetUpdate.next())
+                return false;
+
+            mapDomainObjectToNewRecord(resultSetUpdate, newRecord);
+
+            resultSetUpdate.updateRow();
+        }
+        catch (SQLException exception)
+        {
+            _logger.error(exception.getMessage());
+            return false;
+        }
+        catch (NoSuchFieldException exception)
+        {
+            _logger.error(exception.getMessage());
+            return false;
+        }
+        catch (IllegalAccessException exception)
+        {
+            _logger.error(exception.getMessage());
+            return false;
+        }
+        catch (InstantiationException e)
+        {
+            throw new RuntimeException(e);
+        }
+        finally
+        {
+            if(!CloseConnection())
+                return false;
+        }
+        return true;
     }
 
-    private void mapDomainObjectFields(ResultSet resultSet, RecordType record)
+    public boolean insertRecord(DomainObject newRecord)
+    {
+        try
+        {
+            OpenConnection();
+            StartTransaction();
+
+            Statement statement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName(), LockTypes.UPDATE);
+
+            ResultSet newRecordQuery = statement.executeQuery(sqlQuery.generateSQLStatement());
+            newRecordQuery.moveToInsertRow();
+
+            mapDomainObjectToNewRecord(newRecordQuery, newRecord);
+
+            newRecordQuery.insertRow();
+        }
+        catch (SQLException exception)
+        {
+            _logger.error(exception.getMessage());
+            return false;
+        }
+        catch (NoSuchFieldException e)
+        {
+            throw new RuntimeException(e);
+        }
+        catch (IllegalAccessException e)
+        {
+            throw new RuntimeException(e);
+        }
+        finally
+        {
+            if(!CloseConnection())
+                return false;
+        }
+        return true;
+    }
+
+    public boolean deleteRecord(final int ID)
+    {
+        try
+        {
+            OpenConnection();
+            StartTransaction();
+
+            Statement statement = _databaseConnection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            SQLQuery sqlQuery = new SQLQuery(_dataMap.getTableName(), LockTypes.UPDATE);
+            sqlQuery.addCriteria(new SQLCriteria("ID", ComparisonTypes.EQUALS, ID));
+
+            ResultSet resultSet = statement.executeQuery(sqlQuery.generateSQLStatement());
+
+            if(!resultSet.first())
+            {
+                _logger.error(Messages.RECORD_DOES_NOT_EXIST + ID);
+                return false;
+            }
+
+            resultSet.deleteRow();
+
+        }
+        catch (SQLException exception)
+        {
+            _logger.error(exception.getMessage());
+            return false;
+        }
+        finally
+        {
+            if(!CloseConnection())
+                return false;
+        }
+
+        return true;
+    }
+
+    private void mapDomainObjectFields(ResultSet resultSet, DomainObject record)
     {
         try
         {
@@ -166,35 +278,52 @@ public abstract class BaseTable<RecordType extends DomainObject>
         }
     }
 
-    private void mapDomainObjectToNewRecord(ResultSet resultSet, RecordType record)
+    private void mapDomainObjectToNewRecord(ResultSet resultSet, DomainObject record) throws SQLException, NoSuchFieldException, IllegalAccessException
     {
-        try
+        for(int index = 0; index < _dataMap.getColumns().size(); index++)
         {
-            for(int index = 0; index < _dataMap.getColumns().size(); index++)
-            {
-                Column column = _dataMap.getColumns().get(index);
-                Field field = record.getClass().getDeclaredField(column.getFieldName());
-                field.setAccessible(true);
-                Object columnValue;
-                columnValue = field.get(record);
-                resultSet.updateObject(column.getColumnName(), columnValue);
-            }
-        }
-        catch (SQLException exception)
-        {
-            _logger.error(exception.getMessage());
-        }
-        catch (NoSuchFieldException exception)
-        {
-            _logger.error(exception.getMessage());
-        }
-        catch (IllegalAccessException exception)
-        {
-            _logger.error(exception.getMessage());
+            Column column = _dataMap.getColumns().get(index);
+            Field field = null;
+
+            if(column.getIsInheritedField())
+                field = record.getClass().getSuperclass().getDeclaredField(column.getFieldName());
+            else
+                field = record.getClass().getDeclaredField(column.getFieldName());
+
+            field.setAccessible(true);
+            Object columnValue;
+            columnValue = field.get(record);
+            resultSet.updateObject(column.getColumnName(), columnValue);
         }
     }
 
-    public String getTableName()
+    private SQLQuery FormSQLQueryByPrimaryKey(DomainObject record, LockTypes lockTypes) throws NoSuchFieldException, IllegalAccessException
+    {
+        SQLQuery sqlQuery = null;
+
+        for(int index = 0; index < _dataMap.getColumns().size(); index++)
+        {
+            Column column = _dataMap.getColumns().get(index);
+
+            Field field = null;
+
+            if(column.getIsInheritedField())
+                field = record.getClass().getSuperclass().getDeclaredField(column.getFieldName());
+            else
+                field = record.getClass().getDeclaredField(column.getFieldName());
+
+            if(field.isAnnotationPresent(PrimaryKey.class))
+            {
+                sqlQuery = new SQLQuery(getTableName(), lockTypes);
+                field.setAccessible(true);
+                sqlQuery.addCriteria(new SQLCriteria(column.getColumnName(), ComparisonTypes.EQUALS, field.get(record)));
+            }
+        }
+
+        return sqlQuery;
+    }
+
+    protected String getTableName()
     {
         return _dataMap.getTableName();
     }
@@ -215,9 +344,9 @@ public abstract class BaseTable<RecordType extends DomainObject>
         catch (SQLException exception)
         {
             _logger.error(exception.getMessage());
-            return  false;
+            return false;
         }
-        return  true;
+        return true;
     }
 
     private void OpenConnection()
@@ -234,12 +363,11 @@ public abstract class BaseTable<RecordType extends DomainObject>
         {
             if(!CloseTransaction())
                 _databaseConnection.rollback();
-
         }
         catch (SQLException exception)
         {
             _logger.error(exception.getMessage());
-            return  false;
+            return false;
         }
 
         final DatabaseConnectionPool databaseConnectionPool =

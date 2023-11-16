@@ -20,9 +20,8 @@ public class SceneManager
     //Constants:
     //-------------------------
     private final Stage rootStage;
-
     private static final Logger _logger = LogManager.getLogger();
-    private final Map<String, Scene> scenes;
+    private static final Map<String, Scene> _scenesMap =new HashMap<>();
     private  final String CSS_FILE_NAME = "style/style.css";
 
     //-------------------------
@@ -38,7 +37,6 @@ public class SceneManager
             throw new IllegalArgumentException();
         }
         this.rootStage = rootStage;
-        scenes = new HashMap<>();
     }
 
     //-------------------------
@@ -46,7 +44,7 @@ public class SceneManager
     //-------------------------
     public void switchScene(String path, Class callerClass)
     {
-        Scene scene = scenes.computeIfAbsent(path, p ->
+        Scene scene = _scenesMap.computeIfAbsent(path, p ->
         {
             FXMLLoader loader = new FXMLLoader(callerClass.getResource(p));
             try {

@@ -15,8 +15,8 @@ public class SQLQuery
     //Members:
     //-------------------------
     private final List<SQLCriteria> _sqlCriteriaList;
-
     private  String _tableName;
+    private LockTypes _lockType;
 
     //-------------------------
     //Properties:
@@ -25,10 +25,11 @@ public class SQLQuery
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public SQLQuery(String tableName)
+    public SQLQuery(String tableName, LockTypes lockType)
     {
         _sqlCriteriaList = new ArrayList<>();
         _tableName = tableName;
+        _lockType = lockType;
     }
 
     //-------------------------
@@ -55,7 +56,13 @@ public class SQLQuery
 
     public String generateSQLStatement() throws SQLException
     {
-        String sqlStatement = "SELECT * FROM " + _tableName + " WITH(NOLOCK)";
+        String sqlStatement = "SELECT * FROM " + _tableName;
+
+        switch (_lockType)
+        {
+            case READ_ONLY -> sqlStatement += " WITH(NOLOCK) ";
+            case UPDATE ->  sqlStatement += " WITH(UPDLOCK) ";
+        }
 
         if(_sqlCriteriaList.size() > 0)
         {
@@ -79,5 +86,6 @@ public class SQLQuery
     //-------------------------
     //Overrides:
     //-------------------------
+
 }
 

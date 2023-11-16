@@ -17,6 +17,7 @@ public class Column
     private String _fieldName;
     private Field _field;
     private DataMap _dataMap;
+    private boolean _isInheritedField;
 
     //-------------------------
     //Constructor/Destructor:
@@ -26,6 +27,15 @@ public class Column
         this._columnName = columnName;
         this._fieldName = fieldName;
         this._dataMap = dataMap;
+        initField();
+    }
+
+    public Column(String columnName, String fieldName, DataMap dataMap, boolean isInheritedField) throws NoSuchFieldException
+    {
+        this._columnName = columnName;
+        this._fieldName = fieldName;
+        this._dataMap = dataMap;
+        _isInheritedField = isInheritedField;
         initField();
     }
 
@@ -45,8 +55,16 @@ public class Column
     {
         try
         {
-            _field = _dataMap.getDomainCLass().getDeclaredField(getFieldName());
+            if(_isInheritedField)
+            {
+                _field = _dataMap.getDomainCLass().getSuperclass().getDeclaredField(getFieldName());
+            }
+            else
+            {
+                _field = _dataMap.getDomainCLass().getDeclaredField(getFieldName());
+            }
             _field.setAccessible(true);
+
         }
         catch (NoSuchFieldException e){
            e.printStackTrace();
@@ -56,6 +74,11 @@ public class Column
     public void setField(Object domainObject, Object columnValue) throws IllegalAccessException
     {
         _field.set(domainObject, columnValue);
+    }
+
+    public boolean getIsInheritedField()
+    {
+        return _isInheritedField;
     }
 
     //-------------------------

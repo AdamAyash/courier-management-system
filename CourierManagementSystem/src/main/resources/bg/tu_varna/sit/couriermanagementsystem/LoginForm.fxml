@@ -31,7 +31,7 @@
             <Image url="@images/loginform/login.png" />
          </image>
       </ImageView>
-      <Label id="login-form-output" fx:id="_loginFormOutput" layoutX="30.0" layoutY="340.0" prefHeight="69.0" prefWidth="325.0" textFill="#eeeeee">
+      <Label id="login-form-output" fx:id="_loginFormOutput" alignment="CENTER" layoutX="9.0" layoutY="340.0" prefHeight="69.0" prefWidth="356.0" textAlignment="CENTER" textFill="#eeeeee" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>

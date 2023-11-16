@@ -1,7 +1,8 @@
-package bg.tu_varna.sit.couriermanagementsystem.database.database;
+package bg.tu_varna.sit.couriermanagementsystem.tables.userstable;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.userstable.UsersTable;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,7 +31,7 @@ public class UsersTableTest
     //-------------------------
 
     @Test
-    public void selectAllUsersTest()
+    public void selectUserViaFormedSQLQueryTest()
     {
         final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
