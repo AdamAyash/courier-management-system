@@ -2,6 +2,7 @@ package bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.PrimaryKey;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.UpdatableDomainObject;
+import java.sql.Date;
 
 /*Бизнес клас за фирма*/
 public class Companies extends UpdatableDomainObject
@@ -20,6 +21,7 @@ public class Companies extends UpdatableDomainObject
     private int _cityID;
     private String _phoneNumber;
     private String _email;
+    private Date _dateEstablished;
 
     //-------------------------
     //Properties:
@@ -90,7 +92,21 @@ public class Companies extends UpdatableDomainObject
         _cityID = cityID;
     }
 
+    public Date getDateEstablished()
+    {
+        return _dateEstablished;
+    }
+    public void setDateEstablished(Date dateEstablished)
+    {
+        _dateEstablished = dateEstablished;
+    }
+
     //-------------------------
     //Overrides:
     //-------------------------
+    @Override
+    public String toString()
+    {
+        return _name;
+    }
 }

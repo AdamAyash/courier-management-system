@@ -1,21 +1,21 @@
-package bg.tu_varna.sit.couriermanagementsystem.controllers;
+package bg.tu_varna.sit.couriermanagementsystem.controllers.companies.offices;
 
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.Companies;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.offices.Offices;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-/**/
-public class CompanyDialogController extends DialogController
+public class OfficeDialogController extends DialogController
 {
-
     //-------------------------
     //Constants:
     //-------------------------
@@ -23,17 +23,16 @@ public class CompanyDialogController extends DialogController
     //-------------------------
     //Members:
     //-------------------------
-    private Companies _companyRecord;
+    private Offices _officesRecord;
+
     @FXML
-    private TextField _companyName;
+    private TextField _officeName;
     @FXML
-    private TextField _phoneNumber;
-    @FXML
-    private TextField _EGFN;
+    private TextField _address;
     @FXML
     private ComboBox<Cities> _citiesComboBox;
     @FXML
-    private TextField _email;
+    private DatePicker _dateEstablished;
 
     //-------------------------
     //Properties:
@@ -42,10 +41,10 @@ public class CompanyDialogController extends DialogController
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public CompanyDialogController(Companies companyRecord, DialogMode dialogMode)
+    public OfficeDialogController(Offices officesRecord, DialogMode dialogMode)
     {
         super(dialogMode);
-        _companyRecord = companyRecord;
+        _officesRecord = officesRecord;
     }
 
     //-------------------------
@@ -55,35 +54,31 @@ public class CompanyDialogController extends DialogController
     //-------------------------
     //Overrides:
     //-------------------------
-
     @Override
     public void setControls()
     {
-
+        super.setControls();
     }
 
     @Override
     public void setDataToControls()
     {
-        _companyName.setText(_companyRecord.getName());
-        _EGFN.setText(_companyRecord.getEGFN());
-        _email.setText(_companyRecord.getEmail());
-        _phoneNumber.setText(_companyRecord.getPhoneNumber());
+        _address.setText(_officesRecord.getAddress());
+        _officeName.setText(_officesRecord.getOfficeName());
+        _dateEstablished.setValue(_officesRecord.getDateEstablished().toLocalDate());
     }
 
     @Override
     public void setControlsToData()
     {
-        _companyRecord.setName(_companyName.getText());
-        _companyRecord.setEGFN(_EGFN.getText());
+        _officesRecord.setAddress(_address.getText());
+        _officesRecord.setOfficeName(_officeName.getText());
 
-        Cities city = _citiesComboBox.getValue();
-        if(city == null)
-            return;
+        Cities cities =  _citiesComboBox.getSelectionModel().getSelectedItem();
 
-        _companyRecord.setCityID(city.getID());
-        _companyRecord.setEmail(_email.getText());
-        _companyRecord.setPhoneNumber(_phoneNumber.getText());
+        if(cities != null)
+        _officesRecord.setCityID(cities.getID());
+        _officesRecord.setDateEstablished(Date.valueOf(_dateEstablished.getValue()));
     }
 
     @Override
@@ -98,19 +93,19 @@ public class CompanyDialogController extends DialogController
         CitiesTable citiesTable = new CitiesTable();
 
         List<Cities> citiesList = new ArrayList<>();
+
         if(!citiesTable.selectAllRecords(citiesList))
             return false;
 
-        if(!_citiesComboBox.getItems().setAll(citiesList))
+        if(!_citiesComboBox.getItems().addAll(citiesList))
             return false;
 
         for(int cityIndex = 0; cityIndex < citiesList.size(); cityIndex++)
         {
             Cities currentCity = citiesList.get(cityIndex);
-           if(currentCity.getID() == _companyRecord.getCityID())
+            if(currentCity.getID() == _officesRecord.getCityID())
                 _citiesComboBox.setValue(currentCity);
         }
-
 
         return true;
     }

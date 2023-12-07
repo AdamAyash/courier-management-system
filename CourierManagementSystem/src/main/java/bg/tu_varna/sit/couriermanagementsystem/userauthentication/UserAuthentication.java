@@ -50,7 +50,7 @@ public class UserAuthentication
 
         return  _userAuthenticationInstance;
     }
-    private String hashPassword(String password)
+    public String hashPassword(String password)
     {
         Hash hashFunction = Password.hash(password).addRandomSalt().withArgon2();
         return hashFunction.getResult();
@@ -58,8 +58,9 @@ public class UserAuthentication
 
     private  boolean verifyPassword(String password, String hash)
     {
-        return  Password.check(password, hash).withArgon2();
+        return Password.check(password, hash).withArgon2();
     }
+
 
     private static void loadUsersIdentityMap(List<Users> _usersList)
     {

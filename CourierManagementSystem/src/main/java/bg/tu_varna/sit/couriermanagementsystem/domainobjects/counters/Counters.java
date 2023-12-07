@@ -1,9 +1,10 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.counters;
 
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.PrimaryKey;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 
 /*Дискова структура за системния брояч*/
-public class Counters implements DomainObject
+public final class Counters implements DomainObject
 {
     //-------------------------
     //Constants:
@@ -13,6 +14,8 @@ public class Counters implements DomainObject
     //Members:
     //-------------------------
     private String _counterName;
+
+    @PrimaryKey
     private String _tableName;
     private String _primaryKeyColumnName;
     private int _startIndex;
@@ -106,7 +109,10 @@ public class Counters implements DomainObject
         this._description = _description;
     }
 
-
+    public void incrementID()
+    {
+        _currentIndexPosition += _indexStep;
+    }
     //-------------------------
     //Overrides:
     //-------------------------

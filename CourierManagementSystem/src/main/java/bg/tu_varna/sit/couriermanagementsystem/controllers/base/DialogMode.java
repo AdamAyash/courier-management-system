@@ -4,4 +4,5 @@ public enum DialogMode
 {
     DIALOG_MODE_PREVIEW,
     DIALOG_MODE_INSERT,
+    DIALOG_MODE_UPDATE,
 }

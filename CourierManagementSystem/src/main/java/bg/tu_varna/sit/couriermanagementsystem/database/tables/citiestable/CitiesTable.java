@@ -5,8 +5,6 @@ import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.Column;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.DataMap;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
 
-
-
 /**/
 public class CitiesTable extends BaseTable<Cities>
 {
@@ -17,7 +15,8 @@ public class CitiesTable extends BaseTable<Cities>
     {
         ID("ID"),
         NAME("NAME"),
-        STATE("STATE");
+        STATE("STATE"),
+        POST_CODE("POST_CODE");
 
         private String _columnName;
 
@@ -59,6 +58,7 @@ public class CitiesTable extends BaseTable<Cities>
             _dataMap.addNewColumn(new Column(CitiesTableColumns.ID.getColumnName(),                 "_ID",                  _dataMap));
             _dataMap.addNewColumn(new Column(CitiesTableColumns.NAME.getColumnName(),               "_name",                _dataMap));
             _dataMap.addNewColumn(new Column(CitiesTableColumns.STATE.getColumnName(),              "_state",               _dataMap));
+            _dataMap.addNewColumn(new Column(CitiesTableColumns.POST_CODE.getColumnName(),          "_postCode",            _dataMap));
         }
         catch (NoSuchFieldException exception)
         {

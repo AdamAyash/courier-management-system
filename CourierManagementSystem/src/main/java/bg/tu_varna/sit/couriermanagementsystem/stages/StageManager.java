@@ -61,6 +61,7 @@ public class StageManager
         Scene newScene = new Scene(parent);
         Stage newStage = new Stage();
         newStage.setScene(newScene);
+        newStage.setResizable(false);
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.setTitle(_title);
         newStage.showAndWait();

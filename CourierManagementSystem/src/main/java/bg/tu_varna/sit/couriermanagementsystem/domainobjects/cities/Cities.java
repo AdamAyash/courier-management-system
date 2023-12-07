@@ -12,11 +12,11 @@ public class Cities implements DomainObject
     //-------------------------
     //Members:
     //-------------------------
+
     private int _ID;
-
     private String _name;
-
     private String _state;
+    private String _postCode;
 
     //-------------------------
     //Properties:
@@ -25,6 +25,7 @@ public class Cities implements DomainObject
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
+
     public Cities()
     {
 
@@ -33,28 +34,29 @@ public class Cities implements DomainObject
     //-------------------------
     //Methods:
     //-------------------------
+
     public int getID()
     {
         return _ID;
     }
-
     public String getName()
     {
         return _name;
     }
-
     public String getState()
     {
         return _state;
     }
+    public String getPostCode() {return _postCode;}
 
     //-------------------------
     //Overrides:
     //-------------------------
+
     @Override
     public String toString()
     {
-        return _ID + " - " + _name;
+        return _name;
     }
 
 }

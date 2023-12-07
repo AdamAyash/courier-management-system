@@ -75,7 +75,17 @@ public class SQLQuery
 
             sqlStatement += sqlCriteria.getColumnName();
             sqlStatement += getComparisonTypeOperator(sqlCriteria.getComparisonType());
-            sqlStatement += sqlCriteria.getKey();
+
+            if(sqlCriteria.getKey() instanceof String)
+            {
+                sqlStatement += "\'";
+                sqlStatement += sqlCriteria.getKey();
+                sqlStatement += "\'";
+            }
+            else
+            {
+                sqlStatement += sqlCriteria.getKey();
+            }
 
             if(index != _sqlCriteriaList.size() - 1)
                 sqlStatement += " AND ";

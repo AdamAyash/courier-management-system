@@ -21,7 +21,7 @@ public class SceneManager
     //-------------------------
     private final Stage rootStage;
     private static final Logger _logger = LogManager.getLogger();
-    private static final Map<String, Scene> _scenesMap =new HashMap<>();
+    private static final Map<String, Scene> _scenesMap = new HashMap<>();
     private  final String CSS_FILE_NAME = "style/style.css";
 
     //-------------------------
@@ -56,14 +56,21 @@ public class SceneManager
                     controller.setSceneManager(this);
                     controller.InitializeController();
                 }
-
                 return new Scene(parent);
-            } catch (IOException exception) {
-                throw new RuntimeException(exception);
+            }
+            catch (IOException exception)
+            {
+                _logger.error(exception.getMessage());
+                return null;
             }
         });
         scene.getStylesheets().add(CourierManagementSystem.class.getResource(CSS_FILE_NAME).toExternalForm());
         rootStage.setScene(scene);
+    }
+
+    public void exitStage()
+    {
+        rootStage.close();
     }
 
     //-------------------------

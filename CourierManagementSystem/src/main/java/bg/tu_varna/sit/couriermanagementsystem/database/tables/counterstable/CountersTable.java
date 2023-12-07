@@ -1,14 +1,14 @@
-package bg.tu_varna.sit.couriermanagementsystem.database.tables.counters;
+package bg.tu_varna.sit.couriermanagementsystem.database.tables.counterstable;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.BaseTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.Column;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.DataMap;
-import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.counters.Counters;
 
+import java.sql.Connection;
+
 /*Табличен клас за системния брояч*/
-public class CountersTable extends BaseTable<Counters>
+public final class CountersTable extends BaseTable<Counters>
 {
     //-------------------------
     //Constants:
@@ -43,9 +43,9 @@ public class CountersTable extends BaseTable<Counters>
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    protected CountersTable(boolean supportUpdateCounter)
+    public CountersTable(Connection databaseConnection)
     {
-
+        super(databaseConnection);
     }
 
     //-------------------------

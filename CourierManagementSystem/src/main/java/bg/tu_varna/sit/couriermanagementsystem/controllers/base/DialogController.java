@@ -16,7 +16,10 @@ public abstract class DialogController extends BaseController
     //-------------------------
     @FXML
     private Button _applyButton;
+    @FXML
+    private Button _closeButton;
     protected DialogMode _dialogMode;
+    protected DialogResult _dialogResult;
 
     //-------------------------
     //Properties:
@@ -33,22 +36,45 @@ public abstract class DialogController extends BaseController
     //-------------------------
     //Methods:
     //-------------------------
-    public abstract void setControls();
     public abstract void setDataToControls();
     public abstract void setControlsToData();
     public abstract boolean validateControls();
     public abstract boolean LoadData();
 
+    private void CloseWindow()
+    {
+        Stage currentWindow =  (Stage)_applyButton.getScene().getWindow();
+        currentWindow.close();
+    }
+
+    protected void setControls()
+    {
+        if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
+            _applyButton.setVisible(false);
+    }
+
+    public DialogResult getDialogResult()
+    {
+        return _dialogResult;
+    }
+
     @FXML
-    public void OnApplyClicked()
+    protected void OnApplyClicked()
     {
         if(!validateControls())
             return;
 
-        setControlsToData();
+        _dialogResult = DialogResult.DIALOG_RESULT_APPLY;
 
-        Stage currentWindow =  (Stage)_applyButton.getScene().getWindow();
-        currentWindow.close();
+        setControlsToData();
+        CloseWindow();
+    }
+
+    @FXML
+    public void OnCloseClicked()
+    {
+        _dialogResult = DialogResult.DIALOG_RESULT_CANCEL;
+        CloseWindow();
     }
 
     //-------------------------
@@ -62,6 +88,7 @@ public abstract class DialogController extends BaseController
         if(!LoadData())
             return false;
 
+        if(_dialogMode != DialogMode.DIALOG_MODE_INSERT)
         setDataToControls();
 
         return true;

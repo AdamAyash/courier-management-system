@@ -64,6 +64,17 @@ public class DataMap
         return columnsList.toString();
     }
 
+    public Column getPrimaryKeyColumn()
+    {
+        for(Column column: _columns)
+        {
+            if(column.getIsPrimaryKeyColumn())
+                return column;
+        }
+
+        return null;
+    }
+
     //-------------------------
     //Overrides:
     //-------------------------

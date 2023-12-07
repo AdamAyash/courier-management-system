@@ -1,7 +1,11 @@
-package bg.tu_varna.sit.couriermanagementsystem.controllers;
+package bg.tu_varna.sit.couriermanagementsystem.controllers.loginform;
 
-import bg.tu_varna.sit.couriermanagementsystem.CourierManagementSystem;
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.admin.CourierManagementSystemAdminController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.employees.CourierManagementSystemEmployeeController;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.AccessRights;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,7 +18,6 @@ public class LoginFormController extends BaseController
     //-------------------------
     //Constants:
     //-------------------------
-    private final String UNSUCCESSFUL_LOGIN_MESSAGE = "You have entered an invalid username or password.";
 
     //-------------------------
     //Members:
@@ -26,7 +29,6 @@ public class LoginFormController extends BaseController
     @FXML
     private Label _loginFormOutput;
 
-    private UserAuthentication _userAuthentication;
 
     //-------------------------
     //Properties:
@@ -49,19 +51,29 @@ public class LoginFormController extends BaseController
         String username = _username.getText();
         String password = _password.getText();
 
-        if(!_userAuthentication.authenticateUser(username, password))
+        UserAuthentication userAuthentication = UserAuthentication.getInstance();
+
+        if(!userAuthentication.authenticateUser(username, password))
         {
-            _loginFormOutput.setText(UNSUCCESSFUL_LOGIN_MESSAGE);
+            _loginFormOutput.setText(Messages.UNSUCCESSFUL_LOGIN_MESSAGE);
             return;
         }
 
-        if(_userAuthentication.getCurrentlyLoggedUser() == null)
-        {
-            //TO DO съобщение
+        Users currentUser = userAuthentication.getCurrentlyLoggedUser();
+        if(currentUser == null)
             return;
-        }
 
-        sceneManager.switchScene("CourierManagementSystemAdminView.fxml", CourierManagementSystem.class);
+        switch (currentUser.getAccessID())
+        {
+            case 0:
+                sceneManager.switchScene("CourierManagementSystemAdminView.fxml", CourierManagementSystemAdminController.class);
+                break;
+            case 1:
+                sceneManager.switchScene("CourierManagementSystemEmployeeView.fxml", CourierManagementSystemEmployeeController.class);
+                break;
+            default:
+                throw new RuntimeException();
+        }
     }
 
     //-------------------------
@@ -70,8 +82,6 @@ public class LoginFormController extends BaseController
     @Override
     public boolean InitializeController()
     {
-        _userAuthentication = UserAuthentication.getInstance();
-
         return true;
     }
 }

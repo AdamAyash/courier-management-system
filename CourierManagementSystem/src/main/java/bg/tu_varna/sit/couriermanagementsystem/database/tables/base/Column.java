@@ -18,6 +18,7 @@ public class Column
     private Field _field;
     private DataMap _dataMap;
     private boolean _isInheritedField;
+    private boolean _isPrimaryKeyColumn;
 
     //-------------------------
     //Constructor/Destructor:
@@ -27,6 +28,7 @@ public class Column
         this._columnName = columnName;
         this._fieldName = fieldName;
         this._dataMap = dataMap;
+        _isPrimaryKeyColumn = false;
         initField();
     }
 
@@ -36,6 +38,7 @@ public class Column
         this._fieldName = fieldName;
         this._dataMap = dataMap;
         _isInheritedField = isInheritedField;
+        _isPrimaryKeyColumn = false;
         initField();
     }
 
@@ -47,27 +50,27 @@ public class Column
     {
         return this._fieldName;
     }
+
     public String getColumnName()
     {
-        return  this._columnName;
+        return this._columnName;
     }
-    private void initField()
-    {
-        try
-        {
-            if(_isInheritedField)
-            {
-                _field = _dataMap.getDomainCLass().getSuperclass().getDeclaredField(getFieldName());
-            }
-            else
-            {
-                _field = _dataMap.getDomainCLass().getDeclaredField(getFieldName());
-            }
-            _field.setAccessible(true);
 
+    private void initField() throws NoSuchFieldException
+    {
+        if(_isInheritedField)
+        {
+            _field = _dataMap.getDomainCLass().getSuperclass().getDeclaredField(getFieldName());
         }
-        catch (NoSuchFieldException e){
-           e.printStackTrace();
+        else
+        {
+            _field = _dataMap.getDomainCLass().getDeclaredField(getFieldName());
+        }
+        _field.setAccessible(true);
+
+        if(_field.isAnnotationPresent(PrimaryKey.class))
+        {
+            _isPrimaryKeyColumn = true;
         }
     }
 
@@ -79,6 +82,11 @@ public class Column
     public boolean getIsInheritedField()
     {
         return _isInheritedField;
+    }
+
+    public boolean getIsPrimaryKeyColumn()
+    {
+        return _isPrimaryKeyColumn;
     }
 
     //-------------------------
