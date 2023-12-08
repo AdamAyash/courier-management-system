@@ -603,4 +603,5 @@ public abstract class BaseTable<RecordType extends DomainObject>
     //-------------------------
     //Overrides:
     //-------------------------
+
 }

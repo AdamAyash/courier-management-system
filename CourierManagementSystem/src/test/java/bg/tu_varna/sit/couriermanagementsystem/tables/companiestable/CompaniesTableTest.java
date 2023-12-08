@@ -1,6 +1,5 @@
 package bg.tu_varna.sit.couriermanagementsystem.tables.companiestable;
 
-import bg.tu_varna.sit.couriermanagementsystem.CourierManagementSystem;
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.Companies;
@@ -39,7 +38,7 @@ public class CompaniesTableTest
         final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
 
-        CompaniesTable companiesTable = new CompaniesTable();
+        final CompaniesTable companiesTable = new CompaniesTable();
         List<Companies> companiesList = new ArrayList<>();
         assertTrue(companiesTable.selectAllRecords(companiesList));
     }
@@ -51,13 +50,13 @@ public class CompaniesTableTest
         final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
 
-        CompaniesTable companiesTable = new CompaniesTable();
+        final CompaniesTable companiesTable = new CompaniesTable();
+
         List<Companies> companiesList = new ArrayList<>();
         companiesTable.selectAllRecords(companiesList);
 
         Companies company = companiesList.get(0);
-
-        company.setPhoneNumber("024444");
+        company.setPhoneNumber("0882712568");
 
         assertTrue(companiesTable.updateRecord(company));
     }

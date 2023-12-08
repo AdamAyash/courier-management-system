@@ -17,7 +17,6 @@ import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,9 +65,9 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
             if(employeeRecord == null)
                 return;
 
-            if(!_extendedRecordTable.selectRecordByID(employeeRecord, employeeRecord.getID()))
+            if(!_table.selectRecordByID(employeeRecord, employeeRecord.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -77,7 +76,7 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
 
             if(!usersTable.selectRecordByID(employeeUserAccount, employeeRecord.getUserID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -108,11 +107,11 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
                 EmployeesData employeesData = new EmployeesData();
                 if(!employeesData.insertEmployee(employeeDetails))
                 {
-                    MessageBox.Error(Messages.INSERT_RECORD_FAILED_MESSAGE);
+                    MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
                 }
 
                 if(!refreshTableView())
-                    MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
 
         });
 
@@ -123,9 +122,9 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
             if(employeeRecord == null)
                 return;
 
-            if(!_extendedRecordTable.selectRecordByID(employeeRecord, employeeRecord.getID()))
+            if(!_table.selectRecordByID(employeeRecord, employeeRecord.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -134,7 +133,7 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
 
             if(!usersTable.selectRecordByID(employeeAccount, employeeRecord.getUserID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -153,11 +152,11 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
                 EmployeesData employeesData = new EmployeesData();
                 if(!employeesData.updateEmployee(employeeDetails))
                 {
-                    MessageBox.Error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+                    MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
                 }
 
                 if(!refreshTableView())
-                    MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
         _menuItemDelete.setOnAction(action ->
@@ -167,9 +166,9 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
             if(employeesRecord == null)
                 return;
 
-            if(!_extendedRecordTable.selectRecordByID(employeesRecord,employeesRecord.getID()))
+            if(!_table.selectRecordByID(employeesRecord,employeesRecord.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -178,11 +177,11 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
             Users employeeAccount = new Users();
             if(!usersTable.selectRecordByID(employeeAccount, employeesRecord.getUserID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
-            if(!MessageBox.Confirmation(Messages.DELETE_RECORD_QUESTION))
+            if(!MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION))
                 return;
 
             EmployeeDetails employeeDetails = new EmployeeDetails(employeesRecord, employeeAccount);
@@ -190,12 +189,12 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
             EmployeesData employeesData = new EmployeesData();
             if(!employeesData.deleteEmployee(employeeDetails))
             {
-                MessageBox.Error(Messages.DELETE_RECORD_FAILED_MESSAGE);
+                MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
                 return;
             }
 
             if(!refreshTableView())
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
     }
 
@@ -250,18 +249,17 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
     @Override
     protected boolean loadData()
     {
-
         CitiesTable citiesTable = new CitiesTable();
         _citiesList = new ArrayList<>();
         if(!citiesTable.selectAllRecords(_citiesList))
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
 
         if(!refreshTableView())
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
 

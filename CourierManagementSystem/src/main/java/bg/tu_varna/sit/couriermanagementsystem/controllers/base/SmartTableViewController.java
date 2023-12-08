@@ -8,7 +8,6 @@ import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import javafx.scene.control.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +24,13 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
     //Members:
     //-------------------------
     protected TableView<ExtendedRecordType> _tableView;
-    protected BaseTable<ExtendedRecordType> _extendedRecordTable;
+    protected BaseTable<ExtendedRecordType> _table;
     protected ContextMenu _contextMenu;
     protected MenuItem _menuItemPreview;
     protected MenuItem _menuItemInsert;
     protected MenuItem _menuItemUpdate;
     protected MenuItem _menuItemDelete;
+    protected MenuItem _menuItemRefresh;
 
     //-------------------------
     //Properties:
@@ -42,10 +42,10 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
     public SmartTableViewController(BaseTable<ExtendedRecordType> extendedRecordTable)
     {
         _tableView = new TableView<>();
-        _extendedRecordTable = extendedRecordTable;
+        _table = extendedRecordTable;
 
         if(!loadData())
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
 
         InitTableViewColumns();
         setContextMenu();
@@ -66,11 +66,19 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
         _menuItemInsert = new MenuItem("Insert");
         _menuItemUpdate = new MenuItem("Update");
         _menuItemDelete = new MenuItem("Delete");
+        _menuItemRefresh = new MenuItem("Refresh");
+
+        _menuItemRefresh.setOnAction(action ->
+        {
+            if(!refreshTableView())
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+        });
 
         _contextMenu.getItems().add(_menuItemPreview);
         _contextMenu.getItems().add(_menuItemInsert);
         _contextMenu.getItems().add(_menuItemUpdate);
         _contextMenu.getItems().add(_menuItemDelete);
+        _contextMenu.getItems().add(_menuItemRefresh);
 
         _tableView.setContextMenu(_contextMenu);
     }
@@ -93,7 +101,7 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
     {
         List<ExtendedRecordType> recordsList = new ArrayList<>();
 
-        if(!_extendedRecordTable.selectAllRecords(recordsList))
+        if(!_table.selectAllRecords(recordsList))
         {
             return false;
         }

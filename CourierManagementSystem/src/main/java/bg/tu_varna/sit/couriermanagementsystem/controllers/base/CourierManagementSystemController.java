@@ -35,7 +35,7 @@ public class CourierManagementSystemController extends BaseController
     @FXML
     private void OnLogOutButton()
     {
-        if(MessageBox.Confirmation(Messages.LOG_OUT_QUESTION))
+        if(MessageBox.confirmation(Messages.LOG_OUT_QUESTION))
             sceneManager.exitStage();
     }
 

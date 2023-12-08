@@ -50,13 +50,13 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
 
             if(clientRecord == null)
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
-            if(!_extendedRecordTable.selectRecordByID(clientRecord, clientRecord.getID()))
+            if(!_table.selectRecordByID(clientRecord, clientRecord.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -65,7 +65,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
 
             if(!usersTable.selectRecordByID(clientAccount, clientRecord.getUserID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
             ClientsDetails clientsDetails = new ClientsDetails(clientAccount, clientRecord);
@@ -93,13 +93,109 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
             ClientsData clientsData = new ClientsData();
             if(!clientsData.insertClient(clientsDetails))
             {
-                MessageBox.Error(Messages.INSERT_RECORD_FAILED_MESSAGE);
+                MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
                 return;
             }
 
             if(!refreshTableView())
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            }
+
+        });
+
+        _menuItemUpdate.setOnAction(action ->
+        {
+            Clients clientRecord = _tableView.getSelectionModel().getSelectedItem();
+
+            if(clientRecord == null)
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!_table.selectRecordByID(clientRecord, clientRecord.getID()))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            Users clientAccount = new Users();
+            UsersTable usersTable = new UsersTable();
+
+            if(!usersTable.selectRecordByID(clientAccount, clientRecord.getUserID()))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            ClientsDetails clientsDetails = new ClientsDetails(clientAccount, clientRecord);
+            ClientDialogController clientDialogController = new ClientDialogController(clientsDetails, DialogMode.DIALOG_MODE_UPDATE);
+
+            StageManager stageManager =
+                    new StageManager("ClientsDialog.fxml", Messages.CLIENTS_TITLE, clientDialogController, ClientDialogController.class);
+
+            if(!OpenDialog(stageManager))
+                return;
+
+            if(clientDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
+                return;
+
+            ClientsData clientsData = new ClientsData();
+            if(!clientsData.updateClient(clientsDetails))
+            {
+                MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!refreshTableView())
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+        });
+
+        _menuItemDelete.setOnAction(action ->
+        {
+            Clients clientRecord = _tableView.getSelectionModel().getSelectedItem();
+
+            if(clientRecord == null)
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!_table.selectRecordByID(clientRecord, clientRecord.getID()))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            Users clientAccount = new Users();
+            UsersTable usersTable = new UsersTable();
+
+            if(!usersTable.selectRecordByID(clientAccount, clientRecord.getUserID()))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            ClientsDetails clientsDetails = new ClientsDetails(clientAccount, clientRecord);
+            ClientsData clientsData = new ClientsData();
+
+            if(!MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION))
+                return;
+
+            if(!clientsData.deleteClient(clientsDetails))
+            {
+                MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!refreshTableView())
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
             }
 
         });
@@ -119,7 +215,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
         super.setContextMenu();
 
         if(!refreshTableView())
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
     }
 
     @Override
@@ -167,13 +263,13 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
         CompaniesTable companiesTable = new CompaniesTable();
         if(!companiesTable.selectAllRecords(_companiesList))
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
 
         if(!refreshTableView())
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
 

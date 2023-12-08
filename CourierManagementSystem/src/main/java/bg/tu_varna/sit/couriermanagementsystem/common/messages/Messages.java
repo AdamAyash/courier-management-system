@@ -20,4 +20,5 @@ public class Messages
     public static final String FEMALE_MESSAGE = "Female";
     public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "You have entered an invalid username or password.";
     public static final String LOG_OUT_QUESTION = "Are you sure you wish to exit?";
+    public static final String INVALID_FIELD_MESSAGE = "Please, enter a valid ";
 }

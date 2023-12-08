@@ -20,7 +20,7 @@ public class CourierManagementSystem extends Application
         DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         if(!databaseConnectionPool.connectToDatabase())
         {
-            MessageBox.Error(Messages.DATABASE_CONNECTION_ERROR_MESSAGE);
+            MessageBox.error(Messages.DATABASE_CONNECTION_ERROR_MESSAGE);
             logger.error(Messages.DATABASE_CONNECTION_ERROR_MESSAGE);
             return;
         }

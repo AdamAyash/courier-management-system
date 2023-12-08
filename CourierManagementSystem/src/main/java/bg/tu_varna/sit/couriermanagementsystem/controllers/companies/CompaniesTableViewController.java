@@ -71,7 +71,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!companiesTable.selectRecordByID(companyRecord, companyView.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -83,7 +83,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!officesTable.selectAllRecordsWhere(officesList, sqlQuery))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -109,7 +109,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!companiesTable.selectRecordByID(company, companyView.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -121,7 +121,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!officesTable.selectAllRecordsWhere(officesList, sqlQuery))
             {
-               MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+               MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -139,12 +139,12 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
                 CompaniesData companiesData = new CompaniesData();
                 if(!companiesData.updateCompany(companyDetails))
                 {
-                    MessageBox.Error(Messages.UPDATE_RECORD_FAILED_MESSAGE );
+                    MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE );
                     return;
                 }
 
                 if(!refreshTableView())
-                    MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
        _menuItemInsert.setOnAction(action ->
@@ -165,11 +165,11 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
                 if(!companiesData.insertCompany(newCompaniesDetails))
                 {
-                    MessageBox.Error(Messages.INSERT_RECORD_FAILED_MESSAGE);
+                    MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
                 }
 
                 if(!refreshTableView())
-                    MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
         _menuItemDelete.setOnAction(action ->
@@ -184,21 +184,21 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!companiesTable.selectRecordByID(company, companyView.getID()))
             {
-                MessageBox.Error(Messages.RECORD_DOES_NOT_EXIST_MESSAGE);
+                MessageBox.error(Messages.RECORD_DOES_NOT_EXIST_MESSAGE);
                 return;
             }
 
-            if(!MessageBox.Confirmation(Messages.DELETE_RECORD_QUESTION))
+            if(!MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION))
                 return;
 
             if(!companiesTable.deleteRecord(company))
             {
-                MessageBox.Error(Messages.DELETE_RECORD_FAILED_MESSAGE);
+                MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
                 return;
             }
 
             if(!refreshTableView())
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
     }
     @Override
@@ -243,13 +243,13 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
         if(!companiesViewTable.selectAllRecords(companiesViewList))
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
 
         if(!refreshTableView())
         {
-            MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
         return true;

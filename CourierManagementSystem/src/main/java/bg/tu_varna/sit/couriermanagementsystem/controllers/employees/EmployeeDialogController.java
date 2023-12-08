@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.employees;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
@@ -76,8 +77,6 @@ public class EmployeeDialogController extends DialogController
     @Override
     public void setDataToControls()
     {
-
-
          List<Cities> citiesList = _citiesComboBox.getItems();
 
          Cities citiesRecord = new Cities();
@@ -130,8 +129,95 @@ public class EmployeeDialogController extends DialogController
     }
 
     @Override
+    protected void setControls()
+    {
+        super.setControls();
+
+        if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
+        {
+            _firstName.setDisable(true);
+            _middleName.setDisable(true);
+            _lastName.setDisable(true);
+            _userName.setDisable(true);
+            _password.setDisable(true);
+            _UCN.setDisable(true);
+            _phoneNumber.setDisable(true);
+            _emailAddress.setDisable(true);
+            _gender.setDisable(true);
+            _dateOfBirth.setDisable(true);
+            _companiesComboBox.setDisable(true);
+        }
+    }
+
+    @Override
     public boolean validateControls()
     {
+        if(_firstName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"First name.\"");
+            return false;
+        }
+
+        if(_middleName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Middle name.\"");
+            return false;
+        }
+
+        if(_lastName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Last name.\"");
+            return false;
+        }
+
+        if(_userName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Username.\"");
+            return false;
+        }
+
+        if(_password.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Password.\"");
+            return false;
+        }
+
+        if(_UCN.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"UCN.\"");
+            return false;
+        }
+
+        if(_phoneNumber.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Phone number.\"");
+            return false;
+        }
+
+        if(_emailAddress.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Email address.\"");
+            return false;
+        }
+
+        if(_gender.getSelectionModel().getSelectedItem().isEmpty())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Gender.\"");
+            return false;
+        }
+
+        if(_companiesComboBox.getSelectionModel().isEmpty())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Company.\"");
+            return false;
+        }
+
+        if(_citiesComboBox.getSelectionModel().isEmpty())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"City.\"");
+            return false;
+        }
+
         return true;
     }
 

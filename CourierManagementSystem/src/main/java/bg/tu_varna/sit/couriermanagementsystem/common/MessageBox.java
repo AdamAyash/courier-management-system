@@ -26,13 +26,13 @@ public class MessageBox
     //-------------------------
     //Methods:
     //-------------------------
-    public static void Error(String message)
+    public static void error(String message)
     {
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.setTitle(Messages.APPLICATION_NAME);
         alert.show();
     }
-    public static boolean Confirmation(String message)
+    public static boolean confirmation(String message)
     {
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, message);
         confirmation.setTitle(Messages.APPLICATION_NAME);
@@ -42,6 +42,13 @@ public class MessageBox
             return false;
 
         return true;
+    }
+
+    public static void warning(String message)
+    {
+        Alert warning = new Alert(Alert.AlertType.WARNING, message);
+        warning.setTitle(Messages.APPLICATION_NAME);
+        warning.showAndWait();
     }
 
     //-------------------------

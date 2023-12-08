@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.clients;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
@@ -62,6 +64,77 @@ public class ClientDialogController extends DialogController
     //-------------------------
     //Overrides:
     //-------------------------
+
+    @Override
+    protected void setControls()
+    {
+        super.setControls();
+        if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
+        {
+            _firstName.setDisable(true);
+            _middleName.setDisable(true);
+            _lastName.setDisable(true);
+            _UCN.setDisable(true);
+            _phoneNumber.setDisable(true);
+            _username.setDisable(true);
+            _password.setDisable(true);
+            _companiesComboBox.setDisable(true);
+        }
+    }
+
+    @Override
+    public boolean validateControls()
+    {
+        if(_firstName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"First name.\"");
+            return false;
+        }
+
+        if(_middleName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Middle name.\"");
+            return false;
+        }
+
+        if(_lastName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Last name.\"");
+            return false;
+        }
+
+        if(_UCN.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"UCN.\"");
+            return false;
+        }
+
+        if(_phoneNumber.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Phone number.\"");
+            return false;
+        }
+        if(_username.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Username.\"");
+            return false;
+        }
+
+        if(_password.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Password.\"");
+            return false;
+        }
+
+        if(_companiesComboBox.getSelectionModel().isEmpty())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Company.\"");
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     public void setDataToControls()
     {
@@ -96,12 +169,6 @@ public class ClientDialogController extends DialogController
         _clientsDetails.getClientRecord().setCompanyID(_companiesComboBox.getSelectionModel().getSelectedItem().getID());
         _clientsDetails.getClientAccount().setUsername(_username.getText());
         _clientsDetails.getClientAccount().setPassword(_password.getText());
-    }
-
-    @Override
-    public boolean validateControls()
-    {
-        return true;
     }
 
     @Override

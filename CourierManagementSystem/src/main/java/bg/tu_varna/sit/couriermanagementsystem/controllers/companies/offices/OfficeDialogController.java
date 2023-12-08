@@ -24,7 +24,6 @@ public class OfficeDialogController extends DialogController
     //Members:
     //-------------------------
     private Offices _officesRecord;
-
     @FXML
     private TextField _officeName;
     @FXML
@@ -58,6 +57,14 @@ public class OfficeDialogController extends DialogController
     public void setControls()
     {
         super.setControls();
+
+        if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
+        {
+            _address.setDisable(true);
+            _officeName.setDisable(true);
+            _citiesComboBox.setDisable(true);
+            _dateEstablished.setDisable(true);
+        }
     }
 
     @Override

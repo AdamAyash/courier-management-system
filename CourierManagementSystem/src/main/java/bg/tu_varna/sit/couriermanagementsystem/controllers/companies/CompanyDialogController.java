@@ -50,6 +50,10 @@ public class CompanyDialogController extends DialogController
     private TableView<Offices> _officesTableView;
     @FXML
     private DatePicker _dateEstablished;
+    private MenuItem _menuItemPreview;
+    private MenuItem _menuItemInsert;
+    private MenuItem _menuItemUpdate;
+    private MenuItem _menuItemDelete;
 
 
     //-------------------------
@@ -72,18 +76,18 @@ public class CompanyDialogController extends DialogController
     private void setContextMenu()
     {
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem menuItemPreview = new MenuItem("Preview");
-        MenuItem menuItemInsert = new MenuItem("Insert");
-        MenuItem menuItemUpdate = new MenuItem("Update");
-        MenuItem menuItemDelete = new MenuItem("Delete");
+        _menuItemPreview = new MenuItem("Preview");
+        _menuItemInsert = new MenuItem("Insert");
+        _menuItemUpdate = new MenuItem("Update");
+        _menuItemDelete = new MenuItem("Delete");
 
-        contextMenu.getItems().add(menuItemPreview);
-        contextMenu.getItems().add(menuItemInsert);
-        contextMenu.getItems().add(menuItemUpdate);
-        contextMenu.getItems().add(menuItemDelete);
+        contextMenu.getItems().add(_menuItemPreview);
+        contextMenu.getItems().add(_menuItemInsert);
+        contextMenu.getItems().add(_menuItemUpdate);
+        contextMenu.getItems().add(_menuItemDelete);
 
 
-        menuItemPreview.setOnAction(action ->
+        _menuItemPreview.setOnAction(action ->
         {
             Offices office = _officesTableView.getSelectionModel().getSelectedItem();
 
@@ -93,7 +97,7 @@ public class CompanyDialogController extends DialogController
             OfficesTable officesTable = new OfficesTable();
             if(!officesTable.selectRecordByID(office, office.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -111,7 +115,7 @@ public class CompanyDialogController extends DialogController
             }
         });
 
-        menuItemUpdate.setOnAction(action ->
+        _menuItemUpdate.setOnAction(action ->
         {
             if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
                 return;
@@ -125,7 +129,7 @@ public class CompanyDialogController extends DialogController
 
             if(!officesTable.selectRecordByID(office, office.getID()))
             {
-                MessageBox.Error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
@@ -146,11 +150,11 @@ public class CompanyDialogController extends DialogController
                 return;
 
             if(!officesTable.updateRecord(office))
-                MessageBox.Error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+                MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
 
         });
 
-        menuItemInsert.setOnAction(action ->
+        _menuItemInsert.setOnAction(action ->
         {
             if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
                 return;
@@ -177,7 +181,7 @@ public class CompanyDialogController extends DialogController
             OfficesTable officesTable = new OfficesTable();
             if(!officesTable.insertRecord(newOfficeRecord))
             {
-                MessageBox.Error(Messages.INSERT_RECORD_FAILED_MESSAGE);
+                MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
                 return;
             }
 
@@ -186,12 +190,12 @@ public class CompanyDialogController extends DialogController
 
         });
 
-        menuItemDelete.setOnAction(action ->
+        _menuItemDelete.setOnAction(action ->
         {
             if(_dialogMode != DialogMode.DIALOG_MODE_PREVIEW)
                 return;
 
-            MessageBox.Confirmation(Messages.DELETE_RECORD_QUESTION);
+            MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION);
 
             Offices office = _officesTableView.getSelectionModel().getSelectedItem();
             if(!_companyDetails.getOfficesList().remove(office))
@@ -241,7 +245,14 @@ public class CompanyDialogController extends DialogController
         if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
         {
             _companyName.setDisable(true);
+            _citiesComboBox.setDisable(true);
+            _dateEstablished.setDisable(true);
+            _email.setDisable(true);
+            _phoneNumber.setDisable(true);
             _EGFN.setDisable(true);
+            _menuItemDelete.setDisable(true);
+            _menuItemInsert.setDisable(true);
+            _menuItemUpdate.setDisable(true);
         }
     }
 
@@ -253,6 +264,42 @@ public class CompanyDialogController extends DialogController
         _email.setText(_companyDetails.getCompaniesRecord().getEmail());
         _phoneNumber.setText(_companyDetails.getCompaniesRecord().getPhoneNumber());
         _dateEstablished.setValue(_companyDetails.getCompaniesRecord().getDateEstablished().toLocalDate());
+    }
+
+    @Override
+    public boolean validateControls()
+    {
+        if(_companyName.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Company name.\"");
+            return false;
+        }
+
+        if(_EGFN.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"EGFN.\"");
+            return false;
+        }
+
+        if(_email.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Email address.\"");
+            return false;
+        }
+
+        if(_phoneNumber.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Phone number.\"");
+            return false;
+        }
+
+        if(_citiesComboBox.getSelectionModel().isEmpty())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"City.\"");
+            return false;
+        }
+
+            return true;
     }
 
     @Override
@@ -269,12 +316,6 @@ public class CompanyDialogController extends DialogController
         _companyDetails.getCompaniesRecord().setEmail(_email.getText());
         _companyDetails.getCompaniesRecord().setPhoneNumber(_phoneNumber.getText());
         _companyDetails.getCompaniesRecord().setDateEstablished(Date.valueOf(_dateEstablished.getValue()));
-    }
-
-    @Override
-    public boolean validateControls()
-    {
-        return true;
     }
 
     @Override
