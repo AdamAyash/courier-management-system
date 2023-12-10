@@ -11,22 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/CourierManagementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/MessageBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/MessageBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/CourierManagementSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/CourierManagementSystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/SmartTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/base/SmartTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/offices/OfficeDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/offices/OfficeDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeeDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeeDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/BaseTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/base/BaseTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/connection/DatabaseConnectionPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/DatabaseConnectionPoolTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/userstable/UsersTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/userstable/UsersTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,23 +66,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Development",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/mobir/Documents/Projects/courier-management-system/CourierManagementSystem/src/main/resources/bg/tu_varna/sit/couriermanagementsystem",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.53908044",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mobir/Documents/Projects/courier-management-system/CourierManagementSystem/src/main/resources/bg/tu_varna/sit/couriermanagementsystem&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.53908044&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem" />
@@ -125,7 +109,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompaniesTableTest.updateCompaniesTest">
+  <component name="RunManager">
     <configuration name="CompaniesTableTest.selectAllCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
