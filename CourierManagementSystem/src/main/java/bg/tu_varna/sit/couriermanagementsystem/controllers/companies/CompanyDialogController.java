@@ -173,7 +173,7 @@ public class CompanyDialogController extends DialogController
                 _logger.error(exception.getMessage());
             }
 
-            if(!(officeDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY))
+            if(officeDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
                 return;
 
             newOfficeRecord.setCompanyID(_companyDetails.getCompaniesRecord().getID());
