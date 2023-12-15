@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +215,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
           <line>158</line>
           <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java</url>
+          <line>257</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/employees/EmployeesData.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="172" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />

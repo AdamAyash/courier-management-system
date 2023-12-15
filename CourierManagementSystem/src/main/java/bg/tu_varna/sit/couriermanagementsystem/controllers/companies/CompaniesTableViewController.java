@@ -19,7 +19,6 @@ import bg.tu_varna.sit.couriermanagementsystem.domainobjects.offices.Offices;
 import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
