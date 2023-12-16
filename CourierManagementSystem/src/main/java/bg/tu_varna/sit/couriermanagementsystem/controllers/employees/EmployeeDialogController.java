@@ -146,6 +146,7 @@ public class EmployeeDialogController extends DialogController
             _gender.setDisable(true);
             _dateOfBirth.setDisable(true);
             _companiesComboBox.setDisable(true);
+            _citiesComboBox.setDisable(true);
         }
     }
 

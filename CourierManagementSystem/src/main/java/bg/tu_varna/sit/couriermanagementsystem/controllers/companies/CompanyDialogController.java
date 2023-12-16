@@ -27,7 +27,6 @@ import java.util.Spliterator;
 /**/
 public class CompanyDialogController extends DialogController
 {
-
     //-------------------------
     //Constants:
     //-------------------------
@@ -149,8 +148,7 @@ public class CompanyDialogController extends DialogController
             if(officeDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
                 return;
 
-            if(!officesTable.updateRecord(office))
-                MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+            _officesTableView.refresh();
 
         });
 
@@ -175,15 +173,6 @@ public class CompanyDialogController extends DialogController
 
             if(officeDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
                 return;
-
-            newOfficeRecord.setCompanyID(_companyDetails.getCompaniesRecord().getID());
-
-            OfficesTable officesTable = new OfficesTable();
-            if(!officesTable.insertRecord(newOfficeRecord))
-            {
-                MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
-                return;
-            }
 
             _companyDetails.getOfficesList().add(newOfficeRecord);
             _officesTableView.getItems().add(newOfficeRecord);
