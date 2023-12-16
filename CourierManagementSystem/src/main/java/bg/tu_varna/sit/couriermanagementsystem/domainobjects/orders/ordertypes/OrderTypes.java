@@ -1,7 +1,9 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.ordertypes;
 
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
+
 /**/
-public class OrderTypes
+public class OrderTypes implements DomainObject
 {
     //-------------------------
     //Constants:

@@ -187,10 +187,25 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
                 return;
             }
 
+            OfficesTable officesTable = new OfficesTable();
+            List<Offices> officesList = new ArrayList<>();
+
+            SQLQuery sqlQuery = new SQLQuery(officesTable.getTableName(), LockTypes.READ_ONLY);
+            sqlQuery.addCriteria(new SQLCriteria(OfficesTable.OfficesTableColumns.COMPANY_ID.getColumnName(), ComparisonTypes.EQUALS, company.getID()));
+
+            if(!officesTable.selectAllRecordsWhere(officesList, sqlQuery))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
             if(!MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION))
                 return;
 
-            if(!companiesTable.deleteRecord(company))
+            CompaniesDetails companiesDetails = new CompaniesDetails(company, officesList);
+            CompaniesData companiesData = new CompaniesData();
+
+            if(!companiesData.deleteCompany(companiesDetails))
             {
                 MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
                 return;

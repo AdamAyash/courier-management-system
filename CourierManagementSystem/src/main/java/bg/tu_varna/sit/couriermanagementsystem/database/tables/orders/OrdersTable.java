@@ -16,6 +16,7 @@ public class OrdersTable extends BaseTable<Orders>
         ID("ID"),
         UPDATE_COUNTER("UPDATE_COUNTER"),
         OFFICE_ID("OFFICE_ID"),
+        COMPANY_ID("COMPANY_ID"),
         ORDER_TYPE_ID("ORDER_TYPE_ID"),
         EMPLOYEE_ID("EMPLOYEE_ID"),
         CLIENT_ID("CLIENT_ID"),
@@ -66,6 +67,7 @@ public class OrdersTable extends BaseTable<Orders>
             _dataMap.addNewColumn(new Column(OrdersTableColumns.ID.getColumnName(),                    "_ID",                   _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.UPDATE_COUNTER.getColumnName(),        "_updateCounter",        _dataMap, true));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.OFFICE_ID.getColumnName(),             "_officeID",             _dataMap));
+            _dataMap.addNewColumn(new Column(OrdersTableColumns.COMPANY_ID.getColumnName(),             "_companyID",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.ORDER_TYPE_ID.getColumnName(),         "_orderTypeID",          _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.EMPLOYEE_ID.getColumnName(),           "_employeeID",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.CLIENT_ID.getColumnName(),             "_clientID",             _dataMap));

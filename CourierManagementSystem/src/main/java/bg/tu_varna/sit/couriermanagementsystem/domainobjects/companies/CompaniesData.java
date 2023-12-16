@@ -7,6 +7,8 @@ import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.officestable.OfficesTable;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.offices.Offices;
+
 import java.sql.Connection;
 
 /**/
@@ -78,6 +80,33 @@ public class CompaniesData
                 companiesDetails.getCompaniesRecord().getID()));
 
         if(!officesTable.SynchronizeRecords(companiesDetails.getOfficesList(), sqlQuery))
+            return false;
+
+        if(!companiesTable.CommitTransaction())
+            return false;
+
+        if(!databaseConnectionPool.releaseConnection(connection))
+            return false;
+
+        return  true;
+    }
+
+    public boolean deleteCompany(CompaniesDetails companiesDetails)
+    {
+        DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
+        Connection connection = databaseConnectionPool.getConnection();
+
+        CompaniesTable companiesTable = new CompaniesTable(connection);
+
+        OfficesTable officesTable = new OfficesTable(connection);
+
+        for(Offices currentOffice : companiesDetails.getOfficesList())
+        {
+            if(!officesTable.deleteRecord(currentOffice))
+                return false;
+        }
+
+        if(!companiesTable.deleteRecord(companiesDetails.getCompaniesRecord()))
             return false;
 
         if(!companiesTable.CommitTransaction())

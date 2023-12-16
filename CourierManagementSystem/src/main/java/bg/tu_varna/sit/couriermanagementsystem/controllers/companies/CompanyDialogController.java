@@ -9,20 +9,16 @@ import bg.tu_varna.sit.couriermanagementsystem.controllers.companies.offices.Off
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.officestable.OfficesTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.Companies;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.CompaniesDetails;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.offices.Offices;
 import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.apache.logging.log4j.message.Message;
-
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Spliterator;
 
 /**/
 public class CompanyDialogController extends DialogController
@@ -174,6 +170,8 @@ public class CompanyDialogController extends DialogController
             if(officeDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
                 return;
 
+            newOfficeRecord.setCompanyID(_companyDetails.getCompaniesRecord().getID());
+
             _companyDetails.getOfficesList().add(newOfficeRecord);
             _officesTableView.getItems().add(newOfficeRecord);
 
@@ -181,7 +179,7 @@ public class CompanyDialogController extends DialogController
 
         _menuItemDelete.setOnAction(action ->
         {
-            if(_dialogMode != DialogMode.DIALOG_MODE_PREVIEW)
+            if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
                 return;
 
             MessageBox.confirmation(Messages.DELETE_RECORD_QUESTION);
@@ -191,7 +189,6 @@ public class CompanyDialogController extends DialogController
             {
 
             }
-
             _officesTableView.getItems().remove(office);
         });
 

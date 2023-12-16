@@ -1,10 +1,7 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.users;
 
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.PrimaryKey;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.UpdatableDomainObject;
-
-import java.nio.file.AccessMode;
 
 /*Бизнес клас за потребител*/
 public class Users extends UpdatableDomainObject
@@ -37,29 +34,23 @@ public class Users extends UpdatableDomainObject
     {
         this._username = username;
     }
-
     public void setPassword(String password)
     {
         this._password = password;
     }
-
     public void setAccess(AccessRights accessRight){this._accessID = accessRight.ordinal();}
-
     public int getID()
     {
         return _ID;
     }
-
     public String getUsername()
     {
         return _username;
     }
-
     public String getPassword()
     {
         return _password;
     }
-
     public int getAccessID()
     {
         return _accessID;

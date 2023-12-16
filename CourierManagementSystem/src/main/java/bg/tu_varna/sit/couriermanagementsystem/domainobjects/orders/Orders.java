@@ -18,6 +18,7 @@ public class Orders extends UpdatableDomainObject
     @PrimaryKey
     private int _ID;
     private int _officeID;
+    private int _companyID;
     private int _orderTypeID;
     private int _employeeID;
     private int _clientID;
@@ -38,7 +39,7 @@ public class Orders extends UpdatableDomainObject
     //-------------------------
     //Methods:
     //-------------------------
-    public int get_ID()
+    public int getID()
     {
         return _ID;
     }
@@ -51,6 +52,16 @@ public class Orders extends UpdatableDomainObject
     public int getOfficeID()
     {
         return _officeID;
+    }
+
+    public int getCompanyID()
+    {
+        return _companyID;
+    }
+
+    public void setCompanyID(int companyID)
+    {
+        _companyID = companyID;
     }
 
     public void setOfficeID(int officeID)
@@ -103,11 +114,10 @@ public class Orders extends UpdatableDomainObject
         return _status;
     }
 
-    public void set_status(short status)
+    public void setStatus(short status)
     {
         this._status = status;
     }
-
     //-------------------------
     //Overrides:
     //-------------------------
