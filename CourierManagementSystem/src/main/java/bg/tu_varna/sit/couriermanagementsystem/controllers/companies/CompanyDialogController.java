@@ -243,13 +243,15 @@ public class CompanyDialogController extends DialogController
     }
 
     @Override
-    public void setDataToControls()
+    public boolean setDataToControls()
     {
         _companyName.setText(_companyDetails.getCompaniesRecord().getName());
         _EGFN.setText(_companyDetails.getCompaniesRecord().getEGFN());
         _email.setText(_companyDetails.getCompaniesRecord().getEmail());
         _phoneNumber.setText(_companyDetails.getCompaniesRecord().getPhoneNumber());
         _dateEstablished.setValue(_companyDetails.getCompaniesRecord().getDateEstablished().toLocalDate());
+
+        return true;
     }
 
     @Override

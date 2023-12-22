@@ -9,32 +9,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="371.0" style="-fx-background-color: #250a29;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.couriermanagementsystem.controllers.loginform.LoginFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="371.0" style="-fx-background-color: #250a29;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.couriermanagementsystem.controllers.loginform.LoginFormController">
    <children>
-      <TextField id="login-form-text-fields" fx:id="_username" layoutX="34.0" layoutY="169.0" prefHeight="30.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 15px; -fx-background-color: #360f3c;">
+      <TextField id="login-form-text-fields" fx:id="_username" layoutX="33.0" layoutY="201.0" prefHeight="30.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 15px; -fx-background-color: #360f3c;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <PasswordField id="login-form-text-fields" fx:id="_password" layoutX="35.0" layoutY="212.0" prefHeight="30.0" prefWidth="300.0" promptText="Password" style="-fx-background-radius: 15px; -fx-background-color: #360f3c;">
+      <PasswordField id="login-form-text-fields" fx:id="_password" layoutX="34.0" layoutY="244.0" prefHeight="30.0" prefWidth="300.0" promptText="Password" style="-fx-background-radius: 15px; -fx-background-color: #360f3c;">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button id="login-button" fx:id="_login" layoutX="134.0" layoutY="275.0" mnemonicParsing="false" onAction="#OnLoginButtonClicked" onMouseClicked="#OnLoginButtonClicked" prefHeight="32.0" prefWidth="100.0" text="Log In" textFill="WHITE">
+      <Button id="login-button" fx:id="_login" layoutX="133.0" layoutY="302.0" mnemonicParsing="false" onAction="#OnLoginButtonClicked" onMouseClicked="#OnLoginButtonClicked" prefHeight="32.0" prefWidth="100.0" text="Log In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView layoutX="138.0" layoutY="39.0" opacity="0.81">
+      <ImageView layoutX="137.0" layoutY="71.0" opacity="0.81">
          <image>
             <Image url="@../../images/loginform/login.png" />
          </image>
       </ImageView>
-      <Label id="login-form-output" fx:id="_loginFormOutput" alignment="CENTER" layoutX="9.0" layoutY="340.0" prefHeight="69.0" prefWidth="356.0" textAlignment="CENTER" textFill="#eeeeee" wrapText="true">
+      <Label id="login-form-output" fx:id="_loginFormOutput" alignment="CENTER" layoutX="8.0" layoutY="367.0" prefHeight="69.0" prefWidth="356.0" textAlignment="CENTER" textFill="#eeeeee" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <AnchorPane prefHeight="39.0" prefWidth="371.0" style="-fx-background-color: #360f3c;">
+         <children>
+            <ImageView id="close-button" fitHeight="25.0" fitWidth="25.0" layoutX="335.0" layoutY="7.0" onMouseClicked="#OnCloseButton">
+               <image>
+                  <Image url="@../../images/loginform/close-button.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

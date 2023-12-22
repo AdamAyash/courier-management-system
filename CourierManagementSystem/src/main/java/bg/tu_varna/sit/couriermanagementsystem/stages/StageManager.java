@@ -1,14 +1,16 @@
 package bg.tu_varna.sit.couriermanagementsystem.stages;
 
 
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 
 
@@ -51,10 +53,7 @@ public class StageManager
 
         if(!_baseController.InitializeController())
         {
-            Alert processDataError = new Alert(Alert.AlertType.ERROR, Messages.PROCESS_DATA_ERROR_MESSAGE);
-            processDataError.setTitle(Messages.APPLICATION_NAME);
-            processDataError.show();
-
+            MessageBox.error(Messages.PROCESS_DATA_ERROR_MESSAGE);
             return;
         }
 
@@ -63,6 +62,7 @@ public class StageManager
         newStage.setScene(newScene);
         newStage.setResizable(false);
         newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.initStyle(StageStyle.UNDECORATED);
         newStage.setTitle(_title);
         newStage.showAndWait();
     }

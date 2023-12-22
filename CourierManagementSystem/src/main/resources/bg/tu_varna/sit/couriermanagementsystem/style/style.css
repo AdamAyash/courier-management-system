@@ -48,6 +48,19 @@
    -fx-background-radius: 15px;
 }
 
+#close-button
+{
+
+}
+
+#close-button:hover
+{
+    -fx-cursor: hand;
+    -fx-fill: black;
+    -fx-background-color: #d16915;
+    -fx-scale-y: 1.1;
+}
+
 #login-button:hover
 {
     -fx-cursor: hand;

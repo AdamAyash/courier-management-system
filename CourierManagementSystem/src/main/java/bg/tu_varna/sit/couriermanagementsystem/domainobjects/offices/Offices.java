@@ -69,7 +69,6 @@ public class Offices extends UpdatableDomainObject
     {
         this._address = address;
     }
-
     public int getCompanyID()
     {
         return _companyID;
@@ -96,6 +95,12 @@ public class Offices extends UpdatableDomainObject
     public void setOfficeName(String officeName)
     {
         _officeName = officeName;
+    }
+
+    @Override
+    public String toString()
+    {
+        return _ID +  " - "  + _address;
     }
 
     @Override

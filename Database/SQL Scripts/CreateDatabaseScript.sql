@@ -34,4 +34,7 @@ ALTER DATABASE [<database_name, ,database_name>]
 	COLLATE Cyrillic_General_CI_AS
 GO
 
+ALTER DATABASE [<database_name, ,database_name>] SET AUTO_CLOSE OFF WITH NO_WAIT
+GO
+
 

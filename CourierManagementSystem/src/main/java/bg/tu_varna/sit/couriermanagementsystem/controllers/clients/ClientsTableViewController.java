@@ -243,6 +243,9 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
              return new SimpleStringProperty(filteredCompaniesList.get(0).toString());
         });
 
+        TableColumn<Clients, String> clientAddressColumn = new TableColumn<>("Address");
+        clientAddressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+
         TableColumn<Clients, String> clientPhoneNumberColumn = new TableColumn<>("Phone number");
         clientPhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
@@ -252,6 +255,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
         _tableView.getColumns().add(clientLastNameColumn);
         _tableView.getColumns().add(clientUCNColumn);
         _tableView.getColumns().add(clientCompanyColumn);
+        _tableView.getColumns().add(clientAddressColumn);
         _tableView.getColumns().add(clientPhoneNumberColumn);
     }
 

@@ -14,7 +14,7 @@ public class OrderTypes implements DomainObject
     //-------------------------
     private int _ID;
     private String _name;
-    private float _price;
+    private double _price;
 
     //-------------------------
     //Properties:
@@ -52,12 +52,12 @@ public class OrderTypes implements DomainObject
         this._name = name;
     }
 
-    public float getPrice()
+    public double getPrice()
     {
         return _price;
     }
 
-    public void setPrice(float price)
+    public void setPrice(double price)
     {
         this._price = price;
     }
@@ -65,4 +65,10 @@ public class OrderTypes implements DomainObject
     //-------------------------
     //Overrides:
     //-------------------------
+
+    @Override
+    public String toString()
+    {
+        return _ID  + " - " + _name;
+    }
 }

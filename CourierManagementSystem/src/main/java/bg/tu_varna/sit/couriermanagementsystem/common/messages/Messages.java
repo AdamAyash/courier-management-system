@@ -16,6 +16,7 @@ public class Messages
     public static final String COMPANIES_TITLE = "Companies";
     public static final String EMPLOYEES_TITLE = "Employees";
     public static final String CLIENTS_TITLE = "Clients";
+    public static final String ORDERS_TITLE = "Orders";
     public static final String MALE_MESSAGE = "Male";
     public static final String FEMALE_MESSAGE = "Female";
     public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "You have entered an invalid username or password.";

@@ -22,6 +22,7 @@ public class Orders extends UpdatableDomainObject
     private int _orderTypeID;
     private int _employeeID;
     private int _clientID;
+    private Date _deliveryDate;
     private Date _dateRegistered;
     private short _status;
 
@@ -58,66 +59,63 @@ public class Orders extends UpdatableDomainObject
     {
         return _companyID;
     }
-
     public void setCompanyID(int companyID)
     {
         _companyID = companyID;
     }
-
+    public Date getDeliveryDate()
+    {
+        return _deliveryDate;
+    }
+    public void setDeliveryDate(Date deliveryDate)
+    {
+        _deliveryDate = deliveryDate;
+    }
     public void setOfficeID(int officeID)
     {
         this._officeID = officeID;
     }
-
     public int getOrderTypeID()
     {
         return _orderTypeID;
     }
-
     public void setOrderTypeID(int orderTypeID)
     {
         this._orderTypeID = orderTypeID;
     }
-
     public int getEmployeeID()
     {
         return _employeeID;
     }
-
     public void setEmployeeID(int employeeID)
     {
         this._employeeID = employeeID;
     }
-
     public int getClientID()
     {
         return _clientID;
     }
-
     public void setClientID(int clientID)
     {
         this._clientID = clientID;
     }
-
     public Date getDateRegistered()
     {
         return _dateRegistered;
     }
-
     public void setDateRegistered(Date dateRegistered)
     {
         this._dateRegistered = dateRegistered;
     }
-
     public short getStatus()
     {
         return _status;
     }
-
     public void setStatus(short status)
     {
         this._status = status;
     }
+
     //-------------------------
     //Overrides:
     //-------------------------

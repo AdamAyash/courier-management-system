@@ -22,6 +22,7 @@ public class ClientsTable extends BaseTable<Clients>
         UCN("UCN"),
         COMPANY_ID("COMPANY_ID"),
         USER_ID("USER_ID"),
+        ADDRESS("ADDRESS"),
         PHONE_NUMBER("PHONE_NUMBER");
 
         private String _columnName;
@@ -75,6 +76,7 @@ public class ClientsTable extends BaseTable<Clients>
             _dataMap.addNewColumn(new Column(ClientsTableColumns.UCN.getColumnName(),              "_UCN",                  _dataMap));
             _dataMap.addNewColumn(new Column(ClientsTableColumns.COMPANY_ID.getColumnName(),       "_companyID",            _dataMap));
             _dataMap.addNewColumn(new Column(ClientsTableColumns.USER_ID.getColumnName(),          "_userID",               _dataMap));
+            _dataMap.addNewColumn(new Column(ClientsTableColumns.ADDRESS.getColumnName(),          "_address",              _dataMap));
             _dataMap.addNewColumn(new Column(ClientsTableColumns.PHONE_NUMBER.getColumnName(),     "_phoneNumber",          _dataMap));
 
         }

@@ -2,10 +2,14 @@ package bg.tu_varna.sit.couriermanagementsystem.controllers.base;
 
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.loginform.LoginFormController;
+import bg.tu_varna.sit.couriermanagementsystem.scenes.SceneManager;
+import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
+import javafx.stage.StageStyle;
 
 public class CourierManagementSystemController extends BaseController
 {
@@ -36,7 +40,7 @@ public class CourierManagementSystemController extends BaseController
     private void OnLogOutButton()
     {
         if(MessageBox.confirmation(Messages.LOG_OUT_QUESTION))
-            sceneManager.exitStage();
+            sceneManager.switchScene("LoginForm.fxml", LoginFormController.class);
     }
 
     //-------------------------

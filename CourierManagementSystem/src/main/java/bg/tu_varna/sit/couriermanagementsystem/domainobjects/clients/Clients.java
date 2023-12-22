@@ -21,6 +21,7 @@ public class Clients extends UpdatableDomainObject
     private String _UCN;
     private int _companyID;
     private int _userID;
+    private String _address;
     private String _phoneNumber;
 
     //-------------------------
@@ -47,6 +48,15 @@ public class Clients extends UpdatableDomainObject
     public int getCompanyID() {return _companyID;}
     public int getUserID(){return _userID;}
     public String getPhoneNumber() {return _phoneNumber;}
+
+    public String getAddress()
+    {
+        return _address;
+    }
+    public void setAddress(String address)
+    {
+        _address = address;
+    }
     public void setUCN (String UCN) {_UCN = UCN;}
     public void setCompanyID (int CompanyID) {_companyID = CompanyID;}
     public void setUserID(int userID)
@@ -69,4 +79,10 @@ public class Clients extends UpdatableDomainObject
     //-------------------------
     //Overrides:
     //-------------------------
+
+    @Override
+    public String toString()
+    {
+        return _firstName + " - " + _lastName;
+    }
 }

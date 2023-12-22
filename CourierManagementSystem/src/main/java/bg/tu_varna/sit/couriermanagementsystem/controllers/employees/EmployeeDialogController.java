@@ -75,7 +75,7 @@ public class EmployeeDialogController extends DialogController
     //Overrides:
     //-------------------------
     @Override
-    public void setDataToControls()
+    public boolean setDataToControls()
     {
          List<Cities> citiesList = _citiesComboBox.getItems();
 
@@ -86,13 +86,17 @@ public class EmployeeDialogController extends DialogController
                 citiesRecord = city;
         }
 
+        //TO DO.....
         List<Companies> companiesList = _companiesComboBox.getItems();
 
         Companies companyRecord = new Companies();
         for(Companies company : companiesList)
         {
             if(company.getID() == _employeeDetails.getEmployeeRecord().getCompanyID())
+            {
                 companyRecord = company;
+                break;
+            }
         }
 
         _companiesComboBox.setValue(companyRecord);
@@ -108,6 +112,8 @@ public class EmployeeDialogController extends DialogController
         _emailAddress.setText(_employeeDetails.getEmployeeRecord().getEmail());
         _middleName.setText(_employeeDetails.getEmployeeRecord().getMiddleName());
         _UCN.setText(_employeeDetails.getEmployeeRecord().getUCN());
+
+        return true;
     }
 
     @Override

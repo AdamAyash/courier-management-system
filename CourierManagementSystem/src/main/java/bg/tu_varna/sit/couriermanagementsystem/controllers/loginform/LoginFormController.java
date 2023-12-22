@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 /*Контролер за логин формата*/
 public class LoginFormController extends BaseController
@@ -29,7 +30,6 @@ public class LoginFormController extends BaseController
     @FXML
     private Label _loginFormOutput;
 
-
     //-------------------------
     //Properties:
     //-------------------------
@@ -39,6 +39,7 @@ public class LoginFormController extends BaseController
     //-------------------------
     public LoginFormController()
     {
+
     }
 
     //-------------------------
@@ -76,9 +77,16 @@ public class LoginFormController extends BaseController
         }
     }
 
+    @FXML
+    private void OnCloseButton()
+    {
+        sceneManager.exitStage();
+    }
+
     //-------------------------
     //Overrides:
     //-------------------------
+
     @Override
     public boolean InitializeController()
     {

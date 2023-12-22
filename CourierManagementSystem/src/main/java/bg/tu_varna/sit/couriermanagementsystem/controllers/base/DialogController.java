@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.base;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -36,7 +38,7 @@ public abstract class DialogController extends BaseController
     //-------------------------
     //Methods:
     //-------------------------
-    public abstract void setDataToControls();
+    public abstract boolean setDataToControls();
     public abstract void setControlsToData();
     public abstract boolean validateControls();
     public abstract boolean LoadData();
@@ -89,7 +91,13 @@ public abstract class DialogController extends BaseController
             return false;
 
         if(_dialogMode != DialogMode.DIALOG_MODE_INSERT)
-        setDataToControls();
+        {
+            if(!setDataToControls())
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return false;
+            }
+        }
 
         return true;
     }

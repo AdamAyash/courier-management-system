@@ -7,6 +7,7 @@ import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConne
 import bg.tu_varna.sit.couriermanagementsystem.scenes.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,10 +26,12 @@ public class CourierManagementSystem extends Application
             return;
         }
 
+
         SceneManager sceneManager = new SceneManager(stage);
         sceneManager.switchScene("LoginForm.fxml", LoginFormController.class);
         stage.setTitle(Messages.APPLICATION_NAME);
         stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 

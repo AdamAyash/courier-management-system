@@ -68,11 +68,13 @@ public class OfficeDialogController extends DialogController
     }
 
     @Override
-    public void setDataToControls()
+    public boolean setDataToControls()
     {
         _address.setText(_officesRecord.getAddress());
         _officeName.setText(_officesRecord.getOfficeName());
         _dateEstablished.setValue(_officesRecord.getDateEstablished().toLocalDate());
+
+        return true;
     }
 
     @Override

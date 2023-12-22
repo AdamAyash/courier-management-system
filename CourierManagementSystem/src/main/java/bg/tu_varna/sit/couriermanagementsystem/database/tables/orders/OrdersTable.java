@@ -21,6 +21,7 @@ public class OrdersTable extends BaseTable<Orders>
         EMPLOYEE_ID("EMPLOYEE_ID"),
         CLIENT_ID("CLIENT_ID"),
         DATE_REGISTERED("DATE_REGISTERED"),
+        DELIVERY_DATE("DELIVERY_DATE"),
         STATUS("STATUS");
         private String _columnName;
         OrdersTableColumns(String columnName)  {_columnName = columnName;}
@@ -72,6 +73,7 @@ public class OrdersTable extends BaseTable<Orders>
             _dataMap.addNewColumn(new Column(OrdersTableColumns.EMPLOYEE_ID.getColumnName(),           "_employeeID",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.CLIENT_ID.getColumnName(),             "_clientID",             _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.DATE_REGISTERED.getColumnName(),       "_dateRegistered",       _dataMap));
+            _dataMap.addNewColumn(new Column(OrdersTableColumns.DELIVERY_DATE.getColumnName(),         "_deliveryDate",         _dataMap));
             _dataMap.addNewColumn(new Column(OrdersTableColumns.STATUS.getColumnName(),                "_status",               _dataMap));
         }
         catch (NoSuchFieldException exception)

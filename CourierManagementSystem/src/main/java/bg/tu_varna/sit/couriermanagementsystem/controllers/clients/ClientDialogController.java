@@ -40,6 +40,8 @@ public class ClientDialogController extends DialogController
     private PasswordField _password;
     @FXML
     private ComboBox<Companies> _companiesComboBox;
+    @FXML
+    private TextField _address;
     private List<Companies> _companiesList;
     private ClientsDetails _clientsDetails;
 
@@ -79,6 +81,7 @@ public class ClientDialogController extends DialogController
             _username.setDisable(true);
             _password.setDisable(true);
             _companiesComboBox.setDisable(true);
+            _address.setDisable(true);
         }
     }
 
@@ -132,11 +135,17 @@ public class ClientDialogController extends DialogController
             return false;
         }
 
+        if(_address.getText().isBlank())
+        {
+            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Address.\"");
+            return false;
+        }
+
         return true;
     }
 
     @Override
-    public void setDataToControls()
+    public boolean setDataToControls()
     {
 
         List<Companies> companiesList = _companiesComboBox.getItems();
@@ -147,6 +156,8 @@ public class ClientDialogController extends DialogController
             if(company.getID() == _clientsDetails.getClientRecord().getCompanyID())
                 companyRecord = company;
         }
+
+
         _companiesComboBox.setValue(companyRecord);
 
         _firstName.setText(_clientsDetails.getClientRecord().getFirstName());
@@ -156,6 +167,9 @@ public class ClientDialogController extends DialogController
         _phoneNumber.setText(_clientsDetails.getClientRecord().getPhoneNumber());
         _username.setText(_clientsDetails.getClientAccount().getUsername());
         _password.setText(_clientsDetails.getClientAccount().getPassword());
+        _address.setText(_clientsDetails.getClientRecord().getAddress());
+
+        return true;
     }
 
     @Override
@@ -169,6 +183,7 @@ public class ClientDialogController extends DialogController
         _clientsDetails.getClientRecord().setCompanyID(_companiesComboBox.getSelectionModel().getSelectedItem().getID());
         _clientsDetails.getClientAccount().setUsername(_username.getText());
         _clientsDetails.getClientAccount().setPassword(_password.getText());
+        _clientsDetails.getClientRecord().setAddress(_address.getText());
     }
 
     @Override

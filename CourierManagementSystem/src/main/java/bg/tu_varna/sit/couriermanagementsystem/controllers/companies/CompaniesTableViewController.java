@@ -253,9 +253,8 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
     public boolean loadData()
     {
         List<CompaniesView> companiesViewList = new ArrayList<>();
-        CompaniesViewTable companiesViewTable = new CompaniesViewTable();
 
-        if(!companiesViewTable.selectAllRecords(companiesViewList))
+        if(!_table.selectAllRecords(companiesViewList))
         {
             MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;

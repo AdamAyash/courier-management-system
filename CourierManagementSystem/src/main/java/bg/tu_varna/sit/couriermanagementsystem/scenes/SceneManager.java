@@ -2,9 +2,11 @@ package bg.tu_varna.sit.couriermanagementsystem.scenes;
 
 import bg.tu_varna.sit.couriermanagementsystem.CourierManagementSystem;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +25,8 @@ public class SceneManager
     private static final Logger _logger = LogManager.getLogger();
     private static final Map<String, Scene> _scenesMap = new HashMap<>();
     private  final String CSS_FILE_NAME = "style/style.css";
+    private double xOffset;
+    private double yOffset;
 
     //-------------------------
     //Members:
@@ -36,6 +40,9 @@ public class SceneManager
         if (rootStage == null) {
             throw new IllegalArgumentException();
         }
+        xOffset = 0;
+        yOffset = 0;
+
         this.rootStage = rootStage;
     }
 
@@ -50,6 +57,21 @@ public class SceneManager
             try {
                 Parent parent = loader.load();
                 BaseController controller = loader.getController();
+
+                parent.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        xOffset = event.getSceneX();
+                        yOffset = event.getSceneY();
+                    }
+                });
+                parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        rootStage.setX(event.getScreenX() - xOffset);
+                        rootStage.setY(event.getScreenY() - yOffset);
+                    }
+                });
 
                 if(controller != null)
                 {
