@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem;
 
+import bg.tu_varna.sit.couriermanagementsystem.Tasks.AutoUpdateOrdersTask;
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.loginform.LoginFormController;
@@ -26,6 +27,8 @@ public class CourierManagementSystem extends Application
             return;
         }
 
+        AutoUpdateOrdersTask autoUpdateOrdersTask = new AutoUpdateOrdersTask();
+        autoUpdateOrdersTask.start();
 
         SceneManager sceneManager = new SceneManager(stage);
         sceneManager.switchScene("LoginForm.fxml", LoginFormController.class);

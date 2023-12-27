@@ -49,6 +49,7 @@ public class SceneManager
     //-------------------------
     //Methods:
     //-------------------------
+
     public void switchScene(String path, Class callerClass)
     {
         Scene scene = _scenesMap.computeIfAbsent(path, p ->

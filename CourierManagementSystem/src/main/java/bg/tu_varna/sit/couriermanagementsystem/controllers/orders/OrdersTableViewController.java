@@ -104,7 +104,41 @@ public class OrdersTableViewController extends SmartTableViewController<Orders, 
 
         _menuItemUpdate.setOnAction(action ->
         {
+            Orders ordersRecord = new Orders();
+            final OrdersView ordersViewRecord = _tableView.getSelectionModel().getSelectedItem();
 
+            if(ordersViewRecord == null)
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            final OrdersTable ordersTable = new OrdersTable();
+            if(!ordersTable.selectRecordByID(ordersRecord, ordersViewRecord.getOrderID()))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            OrdersDialogController ordersDialogController = new OrdersDialogController(ordersRecord, DialogMode.DIALOG_MODE_UPDATE);
+
+            StageManager stageManager =
+                    new StageManager("OrdersDialog.fxml", Messages.ORDERS_TITLE, ordersDialogController, OrdersDialogController.class);
+
+            if(!OpenDialog(stageManager))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!ordersTable.updateRecord(ordersRecord))
+            {
+                MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+                return;
+            }
+
+            if(!refreshTableView())
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
         _menuItemDelete.setOnAction(action ->

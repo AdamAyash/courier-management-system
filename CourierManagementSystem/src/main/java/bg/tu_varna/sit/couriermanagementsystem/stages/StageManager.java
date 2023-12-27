@@ -1,6 +1,5 @@
 package bg.tu_varna.sit.couriermanagementsystem.stages;
 
-
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
@@ -9,8 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
 
@@ -62,9 +59,9 @@ public class StageManager
         newStage.setScene(newScene);
         newStage.setResizable(false);
         newStage.initModality(Modality.APPLICATION_MODAL);
-        newStage.initStyle(StageStyle.UNDECORATED);
         newStage.setTitle(_title);
         newStage.showAndWait();
+
     }
 
     //-------------------------

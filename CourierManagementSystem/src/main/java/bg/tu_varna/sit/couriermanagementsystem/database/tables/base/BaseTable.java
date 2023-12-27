@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.database.tables.base;
 
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
-import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
@@ -10,28 +9,22 @@ import bg.tu_varna.sit.couriermanagementsystem.database.tables.counterstable.Cou
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.UpdatableDomainObject;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.counters.Counters;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /*Абстрактен клас описващ таблица от базата данни*/
-public abstract class BaseTable<RecordType extends DomainObject>
+public abstract class BaseTable<RecordType extends DomainObject> extends DatabaseObject
 {
     //-------------------------
     //Constants:
     //-------------------------
     private final int INVALID_ID = -1;
-    protected static final Logger _logger = LogManager.getLogger();
 
     //-------------------------
     //Members:
     //-------------------------
-    private Connection _databaseConnection;
-
-    private boolean _isLocalSession;
 
     //Дали сме в активна транзакция
     private boolean _isTransactionActive;
@@ -44,14 +37,13 @@ public abstract class BaseTable<RecordType extends DomainObject>
     //-------------------------
     protected BaseTable()
     {
+        super();
         loadDataMap();
-        _isLocalSession = true;
     }
 
     protected BaseTable(Connection databaseConnection)
     {
-        _databaseConnection = databaseConnection;
-        _isLocalSession = false;
+        super(databaseConnection);
         loadDataMap();
     }
 
@@ -524,6 +516,7 @@ public abstract class BaseTable<RecordType extends DomainObject>
                 sqlQuery = new SQLQuery(getTableName(), lockTypes);
                 field.setAccessible(true);
                 sqlQuery.addCriteria(new SQLCriteria(column.getColumnName(), ComparisonTypes.EQUALS, field.get(record)));
+                return sqlQuery;
             }
         }
 
@@ -535,70 +528,6 @@ public abstract class BaseTable<RecordType extends DomainObject>
         return _dataMap.getTableName();
     }
 
-    private void StartTransaction() throws SQLException
-    {
-        _databaseConnection.setAutoCommit(false);
-        _isTransactionActive = true;
-    }
-
-    public boolean CommitTransaction()
-    {
-        try
-        {
-            if(_isTransactionActive)
-                _databaseConnection.commit();
-        }
-        catch (SQLException exception)
-        {
-            _logger.error(exception.getMessage());
-            Rollback();
-            return false;
-        }
-        return true;
-    }
-
-    private void OpenLocalConnection()
-    {
-        if(_databaseConnection != null)
-            return;
-
-        final DatabaseConnectionPool databaseConnectionPool =
-                DatabaseConnectionPool.getInstance();
-
-        _databaseConnection = databaseConnectionPool.getConnection();
-    }
-
-    private void Rollback()
-    {
-        try
-        {
-            _isTransactionActive = false;
-            _databaseConnection.rollback();
-        }
-        catch (SQLException exception)
-        {
-            _logger.error(exception);
-        }
-    }
-
-    private boolean CloseLocalConnection()
-    {
-        if(!_isLocalSession)
-            return true;
-
-        if(!CommitTransaction())
-            Rollback();
-
-        final DatabaseConnectionPool databaseConnectionPool =
-                DatabaseConnectionPool.getInstance();
-
-        if(!databaseConnectionPool.releaseConnection(_databaseConnection))
-            return false;
-
-        _databaseConnection = null;
-
-        return true;
-    }
 
     //-------------------------
     //Overrides:

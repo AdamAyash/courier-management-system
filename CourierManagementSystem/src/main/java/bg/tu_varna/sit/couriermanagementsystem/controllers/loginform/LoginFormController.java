@@ -3,15 +3,14 @@ package bg.tu_varna.sit.couriermanagementsystem.controllers.loginform;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.admin.CourierManagementSystemAdminController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.BaseController;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.clients.CourierManagementSystemClientController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.employees.CourierManagementSystemEmployeeController;
-import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.AccessRights;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 /*Контролер за логин формата*/
 public class LoginFormController extends BaseController
@@ -64,6 +63,7 @@ public class LoginFormController extends BaseController
         if(currentUser == null)
             return;
 
+        //TO DO factory
         switch (currentUser.getAccessID())
         {
             case 0:
@@ -72,15 +72,12 @@ public class LoginFormController extends BaseController
             case 1:
                 sceneManager.switchScene("CourierManagementSystemEmployeeView.fxml", CourierManagementSystemEmployeeController.class);
                 break;
+            case 2:
+                sceneManager.switchScene("CourierManagementSystemClientView.fxml", CourierManagementSystemClientController.class);
+                break;
             default:
                 throw new RuntimeException();
         }
-    }
-
-    @FXML
-    private void OnCloseButton()
-    {
-        sceneManager.exitStage();
     }
 
     //-------------------------

@@ -3,13 +3,10 @@ package bg.tu_varna.sit.couriermanagementsystem.controllers.base;
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.loginform.LoginFormController;
-import bg.tu_varna.sit.couriermanagementsystem.scenes.SceneManager;
-import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
-import javafx.stage.StageStyle;
 
 public class CourierManagementSystemController extends BaseController
 {
@@ -24,6 +21,7 @@ public class CourierManagementSystemController extends BaseController
     private Label _currentUser;
     @FXML
     protected TabPane _listControl;
+    protected  UserAuthentication _userAuthentication;
 
     //-------------------------
     //Properties:
@@ -49,8 +47,8 @@ public class CourierManagementSystemController extends BaseController
     @Override
     public boolean InitializeController()
     {
-        UserAuthentication userAuthentication = UserAuthentication.getInstance();
-        _currentUser.setText("Welcome " + userAuthentication.getCurrentlyLoggedUser().getUsername());
+        _userAuthentication = UserAuthentication.getInstance();
+        _currentUser.setText("Welcome " + _userAuthentication.getCurrentlyLoggedUser().getUsername());
 
         return true;
     }

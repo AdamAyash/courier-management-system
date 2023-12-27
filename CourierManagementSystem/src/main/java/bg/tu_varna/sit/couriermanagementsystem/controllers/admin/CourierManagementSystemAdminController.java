@@ -1,12 +1,12 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.admin;
 
-import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.CourierManagementSystemController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.companies.CompaniesTableViewController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.employees.EmployeesTableViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 public class CourierManagementSystemAdminController extends CourierManagementSystemController
 {
     //-------------------------
@@ -48,7 +48,6 @@ public class CourierManagementSystemAdminController extends CourierManagementSys
 
         _listControl.getTabs().add(newTab);
     }
-
     //-------------------------
     //Overrides:
     //-------------------------
