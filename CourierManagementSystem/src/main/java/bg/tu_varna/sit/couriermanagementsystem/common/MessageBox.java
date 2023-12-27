@@ -51,6 +51,12 @@ public class MessageBox
         warning.showAndWait();
     }
 
+    public static void information(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
+        alert.setTitle(Messages.APPLICATION_NAME);
+        alert.show();
+    }
     //-------------------------
     //Overrides:
     //-------------------------

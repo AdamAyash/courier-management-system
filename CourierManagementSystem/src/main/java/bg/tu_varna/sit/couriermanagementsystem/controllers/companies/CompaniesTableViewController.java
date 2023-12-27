@@ -142,6 +142,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
                     return;
                 }
 
+
                 if(!refreshTableView())
                     MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
