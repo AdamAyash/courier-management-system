@@ -12,11 +12,7 @@
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/Properties.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/Properties.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersTableViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,11 +93,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pavel\Desktop\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermanagmentsystememployeeview" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\clients" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\employees" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermanagmentsystememployeeview" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\admin" />
-      <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermangementsystemadminview" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="bg.tu_varna.sit.couriermanagementsystem.database.connection" />
@@ -189,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CompaniesTableTest.updateCompaniesTest" />
         <item itemvalue="JUnit.CompaniesTableTest.selectAllCompaniesTest" />
+        <item itemvalue="JUnit.CompaniesTableTest.updateCompaniesTest" />
         <item itemvalue="JUnit.java in CourierManagementSystem" />
         <item itemvalue="JUnit.UsersTableTest" />
         <item itemvalue="JUnit.UsersTableTest.deleteUserTest" />
@@ -249,7 +245,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java</url>
-          <line>100</line>
+          <line>102</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -264,12 +260,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java</url>
-          <line>137</line>
+          <line>139</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersTableViewController.java</url>
-          <line>81</line>
+          <line>89</line>
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
