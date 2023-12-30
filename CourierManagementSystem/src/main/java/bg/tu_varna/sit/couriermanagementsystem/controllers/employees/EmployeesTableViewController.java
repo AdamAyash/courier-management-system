@@ -110,6 +110,8 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
                     MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
                 }
 
+                    MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
+
                 if(!refreshTableView())
                     MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
 

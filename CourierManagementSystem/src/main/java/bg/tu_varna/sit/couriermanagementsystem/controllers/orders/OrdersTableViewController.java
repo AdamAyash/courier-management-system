@@ -98,6 +98,8 @@ public class OrdersTableViewController extends SmartTableViewController<Orders, 
                 return;
             }
 
+                MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
+
             if(!refreshTableView())
                 MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
