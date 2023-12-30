@@ -44,9 +44,6 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
         _tableView = new TableView<>();
         _table = extendedRecordTable;
 
-        if(!loadData())
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
-
         InitTableViewColumns();
         setContextMenu();
     }
@@ -57,7 +54,13 @@ public abstract class SmartTableViewController<RecordType, ExtendedRecordType ex
 
     protected abstract void InitTableViewColumns();
 
-    protected abstract boolean loadData();
+    public boolean loadData()
+    {
+        if(!refreshTableView())
+            return false;
+
+        return true;
+    }
 
     protected void setContextMenu()
     {

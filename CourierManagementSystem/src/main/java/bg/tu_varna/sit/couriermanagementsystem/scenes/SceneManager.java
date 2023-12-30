@@ -50,44 +50,55 @@ public class SceneManager
     //Methods:
     //-------------------------
 
+    private Scene getScene(String path, Class callerClass)
+    {
+        FXMLLoader loader = new FXMLLoader(callerClass.getResource(path));
+        try {
+            Parent parent = loader.load();
+            BaseController controller = loader.getController();
+
+            parent.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset = event.getSceneX();
+                    yOffset = event.getSceneY();
+                }
+            });
+            parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    rootStage.setX(event.getScreenX() - xOffset);
+                    rootStage.setY(event.getScreenY() - yOffset);
+                }
+            });
+
+            if(controller != null)
+            {
+                controller.setSceneManager(this);
+                controller.InitializeController();
+            }
+
+            Scene newScene = new Scene(parent);
+            newScene.getStylesheets().add(CourierManagementSystem.class.getResource(CSS_FILE_NAME).toExternalForm());
+
+            return newScene;
+        }
+        catch (IOException exception)
+        {
+            _logger.error(exception.getMessage());
+            return null;
+        }
+    }
+
     public void switchScene(String path, Class callerClass)
     {
-        Scene scene = _scenesMap.computeIfAbsent(path, p ->
-        {
-            FXMLLoader loader = new FXMLLoader(callerClass.getResource(p));
-            try {
-                Parent parent = loader.load();
-                BaseController controller = loader.getController();
+        Scene scene = _scenesMap.computeIfAbsent(path, action -> getScene(path, callerClass));
+        rootStage.setScene(scene);
+    }
 
-                parent.setOnMousePressed(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        xOffset = event.getSceneX();
-                        yOffset = event.getSceneY();
-                    }
-                });
-                parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        rootStage.setX(event.getScreenX() - xOffset);
-                        rootStage.setY(event.getScreenY() - yOffset);
-                    }
-                });
-
-                if(controller != null)
-                {
-                    controller.setSceneManager(this);
-                    controller.InitializeController();
-                }
-                return new Scene(parent);
-            }
-            catch (IOException exception)
-            {
-                _logger.error(exception.getMessage());
-                return null;
-            }
-        });
-        scene.getStylesheets().add(CourierManagementSystem.class.getResource(CSS_FILE_NAME).toExternalForm());
+    public void reloadScene(String path, Class callerClass)
+    {
+        Scene scene = getScene(path, callerClass);
         rootStage.setScene(scene);
     }
 

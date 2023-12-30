@@ -1,4 +1,5 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.companies;
+
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
@@ -19,6 +20,7 @@ import bg.tu_varna.sit.couriermanagementsystem.domainobjects.offices.Offices;
 import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,15 +92,15 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
             CompanyDialogController companyDialogController = new CompanyDialogController(companyDetails, DialogMode.DIALOG_MODE_PREVIEW);
 
             StageManager stageManager =
-                    new StageManager("CompanyDialog.fxml",  Messages.COMPANIES_TITLE, companyDialogController, CompanyDialogController.class);
+                    new StageManager("CompanyDialog.fxml", Messages.COMPANIES_TITLE, companyDialogController, CompanyDialogController.class);
 
-          OpenDialog(stageManager);
+            OpenDialog(stageManager);
 
         });
 
         _menuItemUpdate.setOnAction(action ->
         {
-            CompaniesView companyView =  _tableView.getSelectionModel().getSelectedItem();
+            CompaniesView companyView = _tableView.getSelectionModel().getSelectedItem();
 
             if(companyView == null)
                 return;
@@ -120,35 +122,35 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
 
             if(!officesTable.selectAllRecordsWhere(officesList, sqlQuery))
             {
-               MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
                 return;
             }
 
             CompaniesDetails companyDetails = new CompaniesDetails(company, officesList);
             CompanyDialogController companyDialogController = new CompanyDialogController(companyDetails, DialogMode.DIALOG_MODE_UPDATE);
             StageManager stageManager =
-                    new StageManager("CompanyDialog.fxml",  Messages.COMPANIES_TITLE, companyDialogController, CompanyDialogController.class);
+                    new StageManager("CompanyDialog.fxml", Messages.COMPANIES_TITLE, companyDialogController, CompanyDialogController.class);
 
             if(!OpenDialog(stageManager))
                 return;
 
-                if(companyDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
-                    return;
+            if(companyDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
+                return;
 
-                CompaniesData companiesData = new CompaniesData();
-                if(!companiesData.updateCompany(companyDetails))
-                {
-                    MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE );
-                    return;
-                }
+            CompaniesData companiesData = new CompaniesData();
+            if(!companiesData.updateCompany(companyDetails))
+            {
+                MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
+                return;
+            }
 
-                    MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
+            MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
 
-                if(!refreshTableView())
-                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            if(!refreshTableView())
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
-       _menuItemInsert.setOnAction(action ->
+        _menuItemInsert.setOnAction(action ->
         {
             CompaniesDetails newCompaniesDetails = new CompaniesDetails();
 
@@ -159,18 +161,21 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
             if(!OpenDialog(stageManager))
                 return;
 
-                if(companyDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
-                    return;
+            if(companyDialogController.getDialogResult() != DialogResult.DIALOG_RESULT_APPLY)
+                return;
 
-                CompaniesData companiesData = new CompaniesData();
+            CompaniesData companiesData = new CompaniesData();
 
-                if(!companiesData.insertCompany(newCompaniesDetails))
-                {
-                    MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
-                }
+            if(!companiesData.insertCompany(newCompaniesDetails))
+            {
+                MessageBox.error(Messages.INSERT_RECORD_FAILED_MESSAGE);
+            }
 
-                if(!refreshTableView())
-                    MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
+
+
+            if(!refreshTableView())
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
 
         _menuItemDelete.setOnAction(action ->
@@ -217,6 +222,7 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
                 MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
     }
+
     @Override
     public void InitTableViewColumns()
     {
@@ -241,13 +247,13 @@ public class CompaniesTableViewController extends SmartTableViewController<Compa
         TableColumn<CompaniesView, String> companyStateColumn = new TableColumn<>("State");
         companyStateColumn.setCellValueFactory(new PropertyValueFactory<>("state"));
 
-       _tableView.getColumns().add(companyIDColumn);
-       _tableView.getColumns().add(companyNameColumn);
-       _tableView.getColumns().add(companyEGFNColumn);
-       _tableView.getColumns().add(companyPhoneNumberColumn);
-       _tableView.getColumns().add(companyEmailColumn);
-       _tableView.getColumns().add(companyCityColumn);
-       _tableView.getColumns().add(companyStateColumn);
+        _tableView.getColumns().add(companyIDColumn);
+        _tableView.getColumns().add(companyNameColumn);
+        _tableView.getColumns().add(companyEGFNColumn);
+        _tableView.getColumns().add(companyPhoneNumberColumn);
+        _tableView.getColumns().add(companyEmailColumn);
+        _tableView.getColumns().add(companyCityColumn);
+        _tableView.getColumns().add(companyStateColumn);
     }
 
 

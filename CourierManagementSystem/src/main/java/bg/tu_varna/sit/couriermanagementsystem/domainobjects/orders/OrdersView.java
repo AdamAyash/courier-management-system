@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders;
 
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.base.PrimaryKey;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.base.DomainObject;
 import java.sql.Date;
 
@@ -20,7 +21,9 @@ public class OrdersView implements DomainObject
     private String _officeName;
     private String _companyName;
     private String _companyEGFN;
+    private int _employeeID;
     private String _employeeFullName;
+    private int _clientID;
     private String _clientFullName;
     private String _clientUCN;
     private Date _dateRegistered;
@@ -159,6 +162,21 @@ public class OrdersView implements DomainObject
     public void setDeliveryDate(Date _deliveryDate)
     {
         this._deliveryDate = _deliveryDate;
+    }
+
+    public void setClientID(int clientID)
+    {
+        _clientID = clientID;
+    }
+    public int getClientID() {return _clientID;}
+
+    public int getEmployeeID()
+    {
+        return _employeeID;
+    }
+    public void setEmployeeID(int employeeID)
+    {
+        _employeeID = employeeID;
     }
 
     //-------------------------

@@ -38,7 +38,7 @@ public class CourierManagementSystemController extends BaseController
     private void OnLogOutButton()
     {
         if(MessageBox.confirmation(Messages.LOG_OUT_QUESTION))
-            sceneManager.switchScene("LoginForm.fxml", LoginFormController.class);
+            sceneManager.reloadScene("LoginForm.fxml", LoginFormController.class);
     }
 
     //-------------------------

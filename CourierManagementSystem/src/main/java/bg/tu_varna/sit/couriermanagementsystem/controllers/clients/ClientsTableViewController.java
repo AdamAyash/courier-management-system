@@ -263,7 +263,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
     }
 
     @Override
-    protected boolean loadData()
+    public boolean loadData()
     {
         _companiesList = new ArrayList<>();
 

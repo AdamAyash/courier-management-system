@@ -11,6 +11,8 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +30,8 @@ public class ClientNotificationsTask
     //-------------------------
     private final long THREAD_TIMEOUT = 600000;
     private static final Logger _logger = LogManager.getLogger();
+
+    private final String CHECK_ICON_URL = "https://img.icons8.com/emoji/48/check-mark-emoji.png";
     private Users _currentlyLoggedUser;
 
     //-------------------------
@@ -57,7 +61,6 @@ public class ClientNotificationsTask
 
     public void run()
     {
-
         final List<Notifications> notificationsList = new ArrayList<>();
         final NotificationsTable notificationsTable = new NotificationsTable();
 
@@ -72,8 +75,10 @@ public class ClientNotificationsTask
 
         for(Notifications notification : notificationsList)
         {
+            Image notificationIcon = new Image(CHECK_ICON_URL);
             org.controlsfx.control.Notifications notifications = org.controlsfx.control.Notifications.create()
                     .text(notification.getMessage())
+                    .graphic(new ImageView(notificationIcon))
                     .position(Pos.BOTTOM_LEFT);
             notifications.show();
 

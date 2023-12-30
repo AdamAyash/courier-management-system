@@ -10,7 +10,7 @@ public class AutoUpdateOrdersTask extends Thread
     //-------------------------
     //Constants:
     //-------------------------
-    private final String STORED_PROCEDURE_NAME = "SP_UPDATE_ORDER_STATUSES";
+    private final String SP_UPDATE_ORDER_STATUSES = "SP_UPDATE_ORDER_STATUSES";
     private final  long THREAD_TIMEOUT = 60000;  //Една минута
     private static final Logger _logger = LogManager.getLogger();
 
@@ -37,7 +37,7 @@ public class AutoUpdateOrdersTask extends Thread
         {
             try
             {
-                StoredProcedure storedProcedure = new StoredProcedure(STORED_PROCEDURE_NAME);
+                StoredProcedure storedProcedure = new StoredProcedure(SP_UPDATE_ORDER_STATUSES);
                 storedProcedure.executeStoredProcedure();
                 Thread.sleep(THREAD_TIMEOUT);
             }

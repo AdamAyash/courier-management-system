@@ -249,7 +249,7 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
     }
 
     @Override
-    protected boolean loadData()
+    public boolean loadData()
     {
         CitiesTable citiesTable = new CitiesTable();
         _citiesList = new ArrayList<>();

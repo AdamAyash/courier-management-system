@@ -5,11 +5,19 @@ import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogResult;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.SmartTableViewController;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.employees.EmployeesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.orders.OrdersTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.orders.OrdersViewTable;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.employees.Employees;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.Orders;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.OrdersView;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
+import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.ArrayList;
@@ -231,15 +239,48 @@ public class OrdersTableViewController extends SmartTableViewController<Orders, 
     }
 
     @Override
+    protected boolean refreshTableView()
+    {
+        List<OrdersView> recordsList = new ArrayList<>();
+
+        Users currentlyLoggedUser;
+       final UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        currentlyLoggedUser = userAuthentication.getCurrentlyLoggedUser();
+
+        if(currentlyLoggedUser == null)
+            return false;
+
+        final EmployeesTable employeesTable = new EmployeesTable();
+
+        SQLQuery selectCurrentlyLoggedEmployee = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
+        selectCurrentlyLoggedEmployee.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(),
+                ComparisonTypes.EQUALS ,currentlyLoggedUser.getID()));
+
+        Employees currentlyLoggedEmployee = new Employees();
+        if(!employeesTable.selectRecordWhere(currentlyLoggedEmployee, selectCurrentlyLoggedEmployee))
+            return false;
+
+        if(currentlyLoggedEmployee == null)
+            return  false;
+
+        SQLQuery selectAllOrdersManagedByCurrentEmployee = new SQLQuery(_table.getTableName(), LockTypes.READ_ONLY);
+        selectAllOrdersManagedByCurrentEmployee.addCriteria(new SQLCriteria(OrdersViewTable.OrdersViewTableColumns.EMPLOYEE_ID.getColumnName(),
+                ComparisonTypes.EQUALS, currentlyLoggedEmployee.getID()));
+
+        if(!_table.selectAllRecordsWhere(recordsList, selectAllOrdersManagedByCurrentEmployee))
+            return false;
+
+        _tableView.getItems().clear();
+
+        if(!_tableView.getItems().addAll(recordsList) && recordsList.size() > 0)
+            return false;
+
+        return true;
+    }
+
+    @Override
     public boolean loadData()
     {
-        List<OrdersView> ordersViewList = new ArrayList<>();
-        if(!_table.selectAllRecords(ordersViewList))
-        {
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
-            return false;
-        }
-
         if(!refreshTableView())
         {
             MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);

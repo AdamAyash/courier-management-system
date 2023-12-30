@@ -30,6 +30,7 @@ module bg.tu_varna.sit.couriermanagementsystem {
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.clients to  javafx.fxml;
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.orders to  javafx.fxml;
     opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders to javafx.base;
+    opens bg.tu_varna.sit.couriermanagementsystem.controllers.common to  javafx.fxml;
 
 
 }

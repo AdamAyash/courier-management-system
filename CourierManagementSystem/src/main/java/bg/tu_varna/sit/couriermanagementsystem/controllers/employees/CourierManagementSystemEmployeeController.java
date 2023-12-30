@@ -1,4 +1,5 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.employees;
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.CourierManagementSystemController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.clients.ClientsTableViewController;
@@ -32,6 +33,12 @@ public class CourierManagementSystemEmployeeController extends CourierManagement
     private void OnClientsButtonClicked()
     {
        ClientsTableViewController clientsTableViewController = new ClientsTableViewController();
+        if(!clientsTableViewController.loadData())
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return;
+        }
+
         Tab newTab = new Tab();
         newTab.setText(Messages.CLIENTS_TITLE);
         newTab.setContent(clientsTableViewController.getTableView());
@@ -43,6 +50,12 @@ public class CourierManagementSystemEmployeeController extends CourierManagement
     private void OnOrdersButtonClicked()
     {
         OrdersTableViewController ordersTableViewController = new OrdersTableViewController();
+        if(!ordersTableViewController.loadData())
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return;
+        }
+
         Tab newTab = new Tab();
         newTab.setText(Messages.ORDERS_TITLE);
         newTab.setContent(ordersTableViewController.getTableView());

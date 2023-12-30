@@ -21,7 +21,9 @@ public class OrdersViewTable extends BaseTable<OrdersView>
         OFFICE_NAME("OFFICE_NAME"),
         COMPANY_NAME("COMPANY_NAME"),
         COMPANY_BULSTAT("COMPANY_BULSTAT"),
+        EMPLOYEE_ID("EMPLOYEE_ID"),
         EMPLOYEE_FULL_NAME("EMPLOYEE_FULL_NAME"),
+        CLIENT_ID("CLIENT_ID"),
         CLIENT_FULL_NAME("CLIENT_FULL_NAME"),
         CLIENT_UCN("CLIENT_UCN"),
         DATE_REGISTERED("DATE_REGISTERED"),
@@ -68,7 +70,9 @@ public class OrdersViewTable extends BaseTable<OrdersView>
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.OFFICE_NAME.getColumnName(),        "_officeName",          _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.COMPANY_NAME.getColumnName(),       "_companyName",         _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.COMPANY_BULSTAT.getColumnName(),    "_companyEGFN",         _dataMap));
+            _dataMap.addNewColumn(new Column(OrdersViewTableColumns.EMPLOYEE_ID.getColumnName(),        "_employeeID",          _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.EMPLOYEE_FULL_NAME.getColumnName(), "_employeeFullName",    _dataMap));
+            _dataMap.addNewColumn(new Column(OrdersViewTableColumns.CLIENT_ID.getColumnName(),          "_clientID",            _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.CLIENT_FULL_NAME.getColumnName(),   "_clientFullName",      _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.CLIENT_UCN.getColumnName(),         "_clientUCN",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.DATE_REGISTERED.getColumnName(),    "_dateRegistered",      _dataMap));

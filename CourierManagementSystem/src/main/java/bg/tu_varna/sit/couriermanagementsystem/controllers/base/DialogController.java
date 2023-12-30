@@ -41,7 +41,10 @@ public abstract class DialogController extends BaseController
     public abstract boolean setDataToControls();
     public abstract void setControlsToData();
     public abstract boolean validateControls();
-    public abstract boolean LoadData();
+    public boolean LoadData()
+    {
+        return true;
+    }
 
     private void CloseWindow()
     {

@@ -15,12 +15,18 @@ public class Messages
     public static final String DELETE_RECORD_QUESTION = "Are you sure you wish to delete this record?";
     public static final String COMPANIES_TITLE = "Companies";
     public static final String EMPLOYEES_TITLE = "Employees";
+    public static final String EMPLOYEES_REPORT = "Employees report";
+    public static final String COMPANIES_REPORT = "Companies report";
     public static final String CLIENTS_TITLE = "Clients";
     public static final String ORDERS_TITLE = "Orders";
     public static final String MALE_MESSAGE = "Male";
     public static final String FEMALE_MESSAGE = "Female";
+    public static final String PERIOD_TITLE = "Period";
+    public static final String TRACK_ORDER_TITLE = "Track order";
     public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "You have entered an invalid username or password.";
     public static final String LOG_OUT_QUESTION = "Are you sure you wish to exit?";
     public static final String INVALID_FIELD_MESSAGE = "Please, enter a valid ";
     public static final String SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE = "You have successfully added a new record";
+    public static final String SUCCESSFULLY_UPDATED_NEW_RECORD_MESSAGE = "You have successfully updated a new record.";
+
 }
