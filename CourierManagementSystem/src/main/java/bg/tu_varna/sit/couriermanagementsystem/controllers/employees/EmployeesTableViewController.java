@@ -23,7 +23,6 @@ import java.util.List;
 /**/
 public class EmployeesTableViewController extends SmartTableViewController<Employees, Employees>
 {
-
     //-------------------------
     //Constants:
     //-------------------------
@@ -157,6 +156,8 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
                     MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
                 }
 
+            MessageBox.information(Messages.SUCCESSFULLY_UPDATED_RECORD_MESSAGE);
+
                 if(!refreshTableView())
                     MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
@@ -194,6 +195,8 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
                 MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
                 return;
             }
+
+            MessageBox.information(Messages.SUCCESSFULLY_DELETED_RECORD_MESSAGE);
 
             if(!refreshTableView())
                 MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);

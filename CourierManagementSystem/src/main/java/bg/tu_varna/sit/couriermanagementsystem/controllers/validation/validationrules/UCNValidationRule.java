@@ -1,8 +1,9 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 
-/**/
-public abstract class ValidationRule<ValidationType>
+public class UCNValidationRule extends ValidationRule<String>
 {
     //-------------------------
     //Constants:
@@ -11,7 +12,6 @@ public abstract class ValidationRule<ValidationType>
     //-------------------------
     //Members:
     //-------------------------
-    protected ValidationType _validationValue;
 
     //-------------------------
     //Properties:
@@ -20,18 +20,27 @@ public abstract class ValidationRule<ValidationType>
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public ValidationRule(ValidationType validationValue)
+    public UCNValidationRule(String validationValue)
     {
-        _validationValue = validationValue;
+        super(validationValue);
     }
 
     //-------------------------
     //Methods:
     //-------------------------
-    public abstract boolean validate();
 
     //-------------------------
     //Overrides:
     //-------------------------
-
+    @Override
+    public boolean validate()
+    {
+        _validationValue.trim();
+        if(!_validationValue.matches("^[0-9]{10}$") || _validationValue.isBlank())
+        {
+            MessageBox.information(Messages.INVALID_UCN_EGFN_MESSAGE);
+            return false;
+        }
+        return true;
+    }
 }

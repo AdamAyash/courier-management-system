@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules;
 
-
-/**/
-public abstract class ValidationRule<ValidationType>
+public class NameValidationRule extends ValidationRule<String>
 {
     //-------------------------
     //Constants:
@@ -11,7 +9,6 @@ public abstract class ValidationRule<ValidationType>
     //-------------------------
     //Members:
     //-------------------------
-    protected ValidationType _validationValue;
 
     //-------------------------
     //Properties:
@@ -20,18 +17,22 @@ public abstract class ValidationRule<ValidationType>
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public ValidationRule(ValidationType validationValue)
+    public NameValidationRule(String validationValue)
     {
-        _validationValue = validationValue;
+        super(validationValue);
     }
 
     //-------------------------
     //Methods:
     //-------------------------
-    public abstract boolean validate();
 
     //-------------------------
     //Overrides:
     //-------------------------
+    @Override
+    public boolean validate()
+    {
+        return false;
+    }
 
 }

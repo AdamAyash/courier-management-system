@@ -19,6 +19,8 @@ public class OrdersViewTable extends BaseTable<OrdersView>
         ORDER_TYPE("ORDER_TYPE"),
         ORDER_PRICE("ORDER_PRICE"),
         OFFICE_NAME("OFFICE_NAME"),
+
+        COMPANY_ID("COMPANY_ID"),
         COMPANY_NAME("COMPANY_NAME"),
         COMPANY_BULSTAT("COMPANY_BULSTAT"),
         EMPLOYEE_ID("EMPLOYEE_ID"),
@@ -68,6 +70,7 @@ public class OrdersViewTable extends BaseTable<OrdersView>
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.ORDER_TYPE.getColumnName(),         "_orderType",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.ORDER_PRICE.getColumnName(),        "_orderPrice",          _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.OFFICE_NAME.getColumnName(),        "_officeName",          _dataMap));
+            _dataMap.addNewColumn(new Column(OrdersViewTableColumns.COMPANY_ID.getColumnName(),         "_companyID",           _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.COMPANY_NAME.getColumnName(),       "_companyName",         _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.COMPANY_BULSTAT.getColumnName(),    "_companyEGFN",         _dataMap));
             _dataMap.addNewColumn(new Column(OrdersViewTableColumns.EMPLOYEE_ID.getColumnName(),        "_employeeID",          _dataMap));

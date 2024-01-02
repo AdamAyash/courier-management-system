@@ -9,6 +9,7 @@ public class Messages
     public static final String INSERT_RECORD_FAILED_MESSAGE = "An error occurred while trying to insert a new record.";
     public static final String RECORD_DOES_NOT_EXIST = "An error occurred while trying to select record with ID = ";
     public static final String DELETE_RECORD_FAILED_MESSAGE = "An error occurred while trying to delete the current record.";
+
     public static final String LOAD_RECORDS_FAILED_MESSAGE = "An error occurred while trying to load the current record.";
     public static final String UPDATE_RECORD_FAILED_MESSAGE = "An error occurred while trying to update the current record.";
     public static final String RECORD_DOES_NOT_EXIST_MESSAGE = "The record you are trying to select does not exist.";
@@ -27,6 +28,9 @@ public class Messages
     public static final String LOG_OUT_QUESTION = "Are you sure you wish to exit?";
     public static final String INVALID_FIELD_MESSAGE = "Please, enter a valid ";
     public static final String SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE = "You have successfully added a new record";
-    public static final String SUCCESSFULLY_UPDATED_NEW_RECORD_MESSAGE = "You have successfully updated a new record.";
+    public static final String SUCCESSFULLY_DELETED_RECORD_MESSAGE = "You have successfully deleted the current record";
+    public static final String SUCCESSFULLY_UPDATED_RECORD_MESSAGE = "You have successfully updated a new record.";
+    public static final String INVALID_UCN_EGFN_MESSAGE = "You have entered and invalid UCN/EGFN, please try again.";
+    public static final String INVALID_PHONE_NUMBER_MESSAGE = "You have entered and invalid phone number, please try again.";
 
 }

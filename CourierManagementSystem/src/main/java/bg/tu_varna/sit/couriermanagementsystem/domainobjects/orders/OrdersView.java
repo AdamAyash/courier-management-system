@@ -19,6 +19,7 @@ public class OrdersView implements DomainObject
     private String _orderType;
     private double _orderPrice;
     private String _officeName;
+    private int _companyID;
     private String _companyName;
     private String _companyEGFN;
     private int _employeeID;
@@ -48,128 +49,103 @@ public class OrdersView implements DomainObject
     {
         return _orderStatus;
     }
-
     public void setOrderStatus(String orderStatus)
     {
         _orderStatus = orderStatus;
     }
-
     public int getOrderID()
     {
         return _orderID;
     }
-
     public void setOrderID(int orderID)
     {
         this._orderID = orderID;
     }
-
     public String getOrderType()
     {
         return _orderType;
     }
-
     public void setOrderType(String orderType)
     {
         this._orderType = orderType;
     }
-
     public double getOrderPrice()
     {
         return _orderPrice;
     }
-
     public void setOrderPrice(double orderPrice)
     {
         this._orderPrice = orderPrice;
     }
-
     public String getOfficeName()
     {
         return _officeName;
     }
-
     public void setOfficeName(String officeName)
     {
         this._officeName = officeName;
     }
-
     public String getCompanyName()
     {
         return _companyName;
     }
-
     public void setCompanyName(String companyName)
     {
         this._companyName = companyName;
     }
-
     public String getCompanyEGFN()
     {
         return _companyEGFN;
     }
-
     public void setCompanyEGFN(String companyEGFN)
     {
         this._companyEGFN = companyEGFN;
     }
-
     public String getEmployeeFullName()
     {
         return _employeeFullName;
     }
-
     public void setEmployeeFullName(String employeeFullName)
     {
         this._employeeFullName = employeeFullName;
     }
-
     public String getClientFullName()
     {
         return _clientFullName;
     }
-
     public void setClientFullName(String clientFullName)
     {
         this._clientFullName = clientFullName;
     }
-
     public String getClientUCN()
     {
         return _clientUCN;
     }
-
     public void setClientUCN(String clientUCN)
     {
         this._clientUCN = clientUCN;
     }
-
     public Date getDateRegistered()
     {
         return _dateRegistered;
     }
-
     public void setDateRegistered(Date _dateRegistered)
     {
         this._dateRegistered = _dateRegistered;
     }
-
     public Date getDeliveryDate()
     {
         return _deliveryDate;
     }
-
     public void setDeliveryDate(Date _deliveryDate)
     {
         this._deliveryDate = _deliveryDate;
     }
-
     public void setClientID(int clientID)
     {
         _clientID = clientID;
     }
     public int getClientID() {return _clientID;}
-
     public int getEmployeeID()
     {
         return _employeeID;
@@ -177,6 +153,15 @@ public class OrdersView implements DomainObject
     public void setEmployeeID(int employeeID)
     {
         _employeeID = employeeID;
+    }
+    public int getCompanyID()
+    {
+        return _companyID;
+    }
+
+    public void setCompanyID(int companyID)
+    {
+        _companyID = companyID;
     }
 
     //-------------------------

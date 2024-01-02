@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.controllers.validation;
 
 import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.ValidationRule;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +31,12 @@ public class Validator
     //-------------------------
     //Methods:
     //-------------------------
+
+    public void addValidationRule(ValidationRule validationRule)
+    {
+        _validationRulesList.add(validationRule);
+    }
+
     public boolean validate()
     {
         for(ValidationRule rule : _validationRulesList)

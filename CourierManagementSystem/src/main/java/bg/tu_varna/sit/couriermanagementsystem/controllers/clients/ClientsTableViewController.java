@@ -97,7 +97,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
                 return;
             }
 
-                MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
+            MessageBox.information(Messages.SUCCESSFULLY_ADDED_NEW_RECORD_MESSAGE);
 
 
             if(!refreshTableView())
@@ -151,6 +151,8 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
                 return;
             }
 
+            MessageBox.information(Messages.SUCCESSFULLY_UPDATED_RECORD_MESSAGE);
+
             if(!refreshTableView())
             {
                 MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
@@ -194,6 +196,8 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
                 MessageBox.error(Messages.DELETE_RECORD_FAILED_MESSAGE);
                 return;
             }
+
+            MessageBox.information(Messages.SUCCESSFULLY_DELETED_RECORD_MESSAGE);
 
             if(!refreshTableView())
             {

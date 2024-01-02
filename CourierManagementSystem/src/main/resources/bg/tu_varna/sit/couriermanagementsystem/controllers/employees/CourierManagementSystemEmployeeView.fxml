@@ -82,7 +82,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button id="menu-button" graphicTextGap="10.0" layoutY="470.0" mnemonicParsing="false" onAction="#OnOrdersButtonClicked" prefHeight="68.0" prefWidth="263.0" text="All Orders" textFill="WHITE">
+                              <Button id="menu-button" graphicTextGap="10.0" layoutY="470.0" mnemonicParsing="false" onAction="#OnOrdersReportButtonClicked" prefHeight="68.0" prefWidth="263.0" text="All Orders" textFill="WHITE">
                                  <font>
                                     <Font name="Arial Black" size="16.0" />
                                  </font>
