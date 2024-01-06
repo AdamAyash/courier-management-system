@@ -15,6 +15,7 @@ import bg.tu_varna.sit.couriermanagementsystem.database.tables.clientstable.Clie
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.orders.OrdersTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.orders.OrdersViewTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.clients.Clients;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.OrderStatuses;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.Orders;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.OrdersView;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
@@ -122,6 +123,12 @@ public class ClientOrdersTableViewController extends OrdersTableViewController
 
             if(ordersView == null)
                 return;
+
+            if(ordersView.getOrderStatus() == OrderStatuses.REJECTED.getStatusName())
+            {
+                MessageBox.information(Messages.CANNOT_REJECT_DELIVERED_ORDER_MESSAGE);
+                return;
+            }
 
             final UserAuthentication userAuthentication = UserAuthentication.getInstance();
 

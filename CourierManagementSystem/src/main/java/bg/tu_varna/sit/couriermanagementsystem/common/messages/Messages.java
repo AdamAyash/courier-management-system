@@ -32,5 +32,6 @@ public class Messages
     public static final String SUCCESSFULLY_UPDATED_RECORD_MESSAGE = "You have successfully updated a new record.";
     public static final String INVALID_UCN_EGFN_MESSAGE = "You have entered and invalid UCN/EGFN, please try again.";
     public static final String INVALID_PHONE_NUMBER_MESSAGE = "You have entered and invalid phone number, please try again.";
+    public static final String CANNOT_REJECT_DELIVERED_ORDER_MESSAGE = "You're trying to reject an already delivered order.";
 
 }

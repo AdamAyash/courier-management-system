@@ -30,7 +30,6 @@ import java.util.List;
 /**/
 public class ClientsTableViewController extends SmartTableViewController<Clients, Clients>
 {
-
     //-------------------------
     //Constants:
     //-------------------------
@@ -287,7 +286,6 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
             MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;
         }
-
         return true;
     }
 
