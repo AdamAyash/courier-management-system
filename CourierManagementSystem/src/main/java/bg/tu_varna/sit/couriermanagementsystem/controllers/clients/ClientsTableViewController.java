@@ -5,15 +5,22 @@ import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogResult;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.SmartTableViewController;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.clientstable.ClientsTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.employees.EmployeesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.userstable.UsersTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.clients.Clients;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.clients.ClientsData;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.clients.ClientsDetails;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.Companies;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.employees.Employees;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import bg.tu_varna.sit.couriermanagementsystem.stages.StageManager;
+import bg.tu_varna.sit.couriermanagementsystem.userauthentication.UserAuthentication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -269,6 +276,9 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
     @Override
     public boolean loadData()
     {
+        if(!refreshTableView())
+            return false;
+
         _companiesList = new ArrayList<>();
 
         CompaniesTable companiesTable = new CompaniesTable();
@@ -278,11 +288,41 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
             return false;
         }
 
-        if(!refreshTableView())
-        {
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+        return true;
+    }
+
+    @Override
+    public boolean refreshTableView()
+    {
+        final UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        final Users currentlyLoggedUser  = userAuthentication.getCurrentlyLoggedUser();
+
+        if(currentlyLoggedUser == null)
             return false;
-        }
+
+        Employees currentlyLoggedEmployee = new Employees();
+        final EmployeesTable employeesTable = new EmployeesTable();
+
+        SQLQuery selectEmployeeByUserID = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
+        selectEmployeeByUserID.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(),
+                ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
+
+        if(!employeesTable.selectRecordWhere(currentlyLoggedEmployee, selectEmployeeByUserID))
+            return false;
+
+
+        List<Clients> recordsList = new ArrayList<>();
+        SQLQuery sqlClientByCompanyID = new SQLQuery(_table.getTableName(), LockTypes.READ_ONLY);
+        sqlClientByCompanyID.addCriteria(new SQLCriteria(ClientsTable.ClientsTableColumns.COMPANY_ID.getColumnName(),
+                ComparisonTypes.EQUALS, currentlyLoggedEmployee.getCompanyID()));
+
+        if(!_table.selectAllRecordsWhere(recordsList, sqlClientByCompanyID))
+            return false;
+
+        _tableView.getItems().clear();
+
+        if(!_tableView.getItems().addAll(recordsList) && recordsList.size() > 0)
+            return false;
 
         return true;
     }
