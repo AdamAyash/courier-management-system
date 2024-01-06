@@ -124,7 +124,7 @@ public class ClientOrdersTableViewController extends OrdersTableViewController
             if(ordersView == null)
                 return;
 
-            if(ordersView.getOrderStatus() == OrderStatuses.REJECTED.getStatusName())
+            if(ordersView.getOrderStatus().equals(OrderStatuses.DELIVERED.getStatusName()))
             {
                 MessageBox.information(Messages.CANNOT_REJECT_DELIVERED_ORDER_MESSAGE);
                 return;
