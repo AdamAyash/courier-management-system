@@ -114,6 +114,11 @@
                                     <Image url="@../../images/common/logo.png" />
                                  </image>
                               </ImageView>
+                              <ImageView id="close-button" fitHeight="20.0" fitWidth="20.0" layoutX="1156.0" layoutY="5.0" onMouseClicked="#OnCloseButton">
+                                 <image>
+                                    <Image url="@../../images/loginform/close-button.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>

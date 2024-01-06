@@ -15,7 +15,7 @@
     <children>
         <VBox layoutY="-5.0" prefHeight="793.0" prefWidth="1180.0">
             <children>
-                <BorderPane prefHeight="825.0" prefWidth="1180.0">
+                <BorderPane prefHeight="778.0" prefWidth="1180.0">
                     <left>
                         <VBox id="menu" prefHeight="755.0" prefWidth="248.0" BorderPane.alignment="CENTER">
                             <children>
@@ -86,12 +86,17 @@
                     <top>
                         <VBox prefHeight="52.0" prefWidth="1209.0" style="-fx-background-color: #360f3c;" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane prefHeight="53.0" prefWidth="1180.0">
+                                <AnchorPane prefHeight="28.0" prefWidth="1180.0">
                                     <children>
                                         <Button layoutX="1121.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: transperent;" />
                               <ImageView fitHeight="47.0" fitWidth="232.0" layoutX="14.0" layoutY="5.0">
                                  <image>
                                     <Image url="@../../images/common/logo.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="close-button" fitHeight="20.0" fitWidth="20.0" layoutX="1156.0" layoutY="4.0" onMouseClicked="#OnCloseButton">
+                                 <image>
+                                    <Image url="@../../images/loginform/close-button.png" />
                                  </image>
                               </ImageView>
                                     </children>
