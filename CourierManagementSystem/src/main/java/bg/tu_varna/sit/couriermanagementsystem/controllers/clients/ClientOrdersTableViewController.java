@@ -130,6 +130,12 @@ public class ClientOrdersTableViewController extends OrdersTableViewController
                 return;
             }
 
+            if(ordersView.getOrderStatus().equals(OrderStatuses.REJECTED.getStatusName()))
+            {
+                MessageBox.information(Messages.CANNOT_REJECT_REJECTED_ORDER_MESSAGE);
+                return;
+            }
+
             final UserAuthentication userAuthentication = UserAuthentication.getInstance();
 
             StoredProcedure storedProcedure = new StoredProcedure(SP_REJECT_ORDER);
