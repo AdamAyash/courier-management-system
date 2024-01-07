@@ -99,6 +99,11 @@
                                     <Image url="@../../images/loginform/close-button.png" />
                                  </image>
                               </ImageView>
+                              <ImageView id="close-button" layoutX="1124.0" layoutY="3.0" onMouseClicked="#OnMinimizeButton">
+                                 <image>
+                                    <Image url="@../../images/common/minimize-icon.png" />
+                                 </image>
+                              </ImageView>
                                     </children>
                                 </AnchorPane>
                             </children>
