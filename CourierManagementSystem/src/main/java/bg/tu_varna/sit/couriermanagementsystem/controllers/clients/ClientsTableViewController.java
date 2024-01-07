@@ -38,6 +38,7 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
     //Members:
     //-------------------------
     private List<Companies> _companiesList;
+    private Employees _currentlyLoggedEmployee;
 
     //-------------------------
     //Properties:
@@ -99,6 +100,8 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
         _menuItemInsert.setOnAction(action ->
         {
             ClientsDetails clientsDetails = new ClientsDetails();
+            clientsDetails.getClientRecord().setCompanyID(_currentlyLoggedEmployee.getCompanyID());
+
             ClientDialogController clientDialogController = new ClientDialogController(clientsDetails, DialogMode.DIALOG_MODE_INSERT);
 
             StageManager stageManager =
@@ -295,21 +298,21 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
         if(currentlyLoggedUser == null)
             return false;
 
-        Employees currentlyLoggedEmployee = new Employees();
+        _currentlyLoggedEmployee = new Employees();
         final EmployeesTable employeesTable = new EmployeesTable();
 
         SQLQuery selectEmployeeByUserID = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
         selectEmployeeByUserID.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(),
                 ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
 
-        if(!employeesTable.selectRecordWhere(currentlyLoggedEmployee, selectEmployeeByUserID))
+        if(!employeesTable.selectRecordWhere(_currentlyLoggedEmployee, selectEmployeeByUserID))
             return false;
 
 
         List<Clients> recordsList = new ArrayList<>();
         SQLQuery sqlClientByCompanyID = new SQLQuery(_table.getTableName(), LockTypes.READ_ONLY);
         sqlClientByCompanyID.addCriteria(new SQLCriteria(ClientsTable.ClientsTableColumns.COMPANY_ID.getColumnName(),
-                ComparisonTypes.EQUALS, currentlyLoggedEmployee.getCompanyID()));
+                ComparisonTypes.EQUALS, _currentlyLoggedEmployee.getCompanyID()));
 
         if(!_table.selectAllRecordsWhere(recordsList, sqlClientByCompanyID))
             return false;

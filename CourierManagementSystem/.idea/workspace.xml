@@ -11,21 +11,17 @@
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Properties.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/Properties.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompaniesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/validation/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/validation/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/validation/validationrules/ValidationRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/validation/validationrules/ValidationRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/ComparisonTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/ComparisonTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLCriteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/orders/OrdersViewTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/tables/orders/OrdersViewTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/orders/OrdersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/orders/OrdersView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/OrdersView.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/OrdersView.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$кументация.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Презентация.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../Презентация.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -92,6 +87,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompaniesTableTest.selectAllCompaniesTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -99,11 +96,18 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mobir/Documents/Projects/courier-management-system/CourierManagementSystem/src&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mobir/Documents/Projects/courier-management-system/CourierManagementSystem&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.53908044&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -114,6 +118,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\common" />
       <recent name="C:\Users\Pavel\Desktop\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermanagmentsystememployeeview" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\clients" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\employees" />
@@ -121,7 +126,6 @@
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\admin" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermangementsystemadminview" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermangementsystemadminview" />
-      <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\common" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\loginform" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\images\couriermanagmentsystememployeeview" />
       <recent name="C:\Users\mobir\Documents\Projects\courier-management-system\CourierManagementSystem\src\main\resources\bg\tu_varna\sit\couriermanagementsystem\controllers\orders" />
@@ -145,8 +149,21 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="CompaniesTableTest.selectAllCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.CourierManagementSystem">
+    <configuration name="CourierManagementSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.CourierManagementSystem" />
+      <module name="CourierManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompaniesTableTest.deleteCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -156,54 +173,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable" />
       <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.CompaniesTableTest" />
-      <option name="METHOD_NAME" value="selectAllCompaniesTest" />
+      <option name="METHOD_NAME" value="deleteCompaniesTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompaniesTableTest.updateCompaniesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SQLQueryTest.generateSelectQueryForCitiesTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.*" />
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable" />
-      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.CompaniesTableTest" />
-      <option name="METHOD_NAME" value="updateCompaniesTest" />
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.SQLQueryTest" />
+      <option name="METHOD_NAME" value="generateSelectQueryForCitiesTable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SQLQueryTest.generateSelectQueryForCitiesTableWithWhereClause" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CourierManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable.*" />
+          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable" />
-      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable.UsersTableTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsersTableTest.deleteUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CourierManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable" />
-      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.tables.userstable.UsersTableTest" />
-      <option name="METHOD_NAME" value="deleteUserTest" />
+      <option name="PACKAGE_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database" />
+      <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.database.SQLQueryTest" />
+      <option name="METHOD_NAME" value="generateSelectQueryForCitiesTableWithWhereClause" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -219,13 +221,20 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CompaniesTableTest.selectAllCompaniesTest" />
-        <item itemvalue="JUnit.CompaniesTableTest.updateCompaniesTest" />
+        <item itemvalue="Application.CourierManagementSystem" />
         <item itemvalue="JUnit.java in CourierManagementSystem" />
-        <item itemvalue="JUnit.UsersTableTest" />
-        <item itemvalue="JUnit.UsersTableTest.deleteUserTest" />
+        <item itemvalue="JUnit.SQLQueryTest.generateSelectQueryForCitiesTableWithWhereClause" />
+        <item itemvalue="JUnit.SQLQueryTest.generateSelectQueryForCitiesTable" />
+        <item itemvalue="JUnit.CompaniesTableTest.deleteCompaniesTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-f644763e9732-1e16d6ec" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -235,8 +244,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696526072633</updated>
+      <workItem from="1704554959351" duration="7541000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -253,13 +266,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientsTableViewController.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>157</line>
+          <line>158</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -274,7 +282,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>119</line>
+          <line>120</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -284,12 +292,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>131</line>
+          <line>132</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>177</line>
+          <line>178</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -303,16 +311,6 @@
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/CourierManagementSystemClientController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="202" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/TrackOrderDialogController.java</url>
           <line>37</line>
           <option name="timeStamp" value="203" />
@@ -324,13 +322,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>265</line>
+          <line>267</line>
           <option name="timeStamp" value="208" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/CourierManagementSystemEmployeeController.java</url>
@@ -339,31 +332,71 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/OrdersReportTableViewController.java</url>
-          <line>81</line>
+          <line>80</line>
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/OrdersReportTableViewController.java</url>
-          <line>77</line>
+          <line>76</line>
           <option name="timeStamp" value="215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="217" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="220" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="222" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/SQLQuery.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/database/SQLQuery.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="225" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="148" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/queries/SQLQuery.java</url>
-          <line>62</line>
-          <properties class="bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery" method="processKey">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/tu_varna/sit/couriermanagementsystem/tables/companiestable/CompaniesTableTest.java</url>
+          <line>48</line>
+          <properties class="bg.tu_varna.sit.couriermanagementsystem.tables.companiestable.CompaniesTableTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="210" />
+          <option name="timeStamp" value="218" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CourierManagementSystem$java_in_CourierManagementSystem.ic" NAME="java in CourierManagementSystem Coverage Results" MODIFIED="1704642166184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CourierManagementSystem$UsersTableTest.ic" NAME="UsersTableTest Coverage Results" MODIFIED="1702053531883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>bg.tu_varna.sit.couriermanagementsystem.tables.userstable.*</FILTER>
     </SUITE>

@@ -5,7 +5,10 @@ import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
 import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.notificationstable.NotificationsTable;
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.orders.OrdersTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.notifications.Notifications;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.OrderStatuses;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders.Orders;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -32,6 +35,7 @@ public class ClientNotificationsTask
     private static final Logger _logger = LogManager.getLogger();
 
     private final String CHECK_ICON_URL = "https://img.icons8.com/emoji/48/check-mark-emoji.png";
+    private final String CROSS_ICON_URL = "https://icons8.com/icon/79023/multiply.png";
     private Users _currentlyLoggedUser;
 
     //-------------------------
@@ -63,6 +67,7 @@ public class ClientNotificationsTask
     {
         final List<Notifications> notificationsList = new ArrayList<>();
         final NotificationsTable notificationsTable = new NotificationsTable();
+        final OrdersTable ordersTable = new  OrdersTable();
 
         SQLQuery sqlQuery = new SQLQuery(notificationsTable.getTableName(), LockTypes.READ_ONLY);
         sqlQuery.addCriteria(new SQLCriteria(NotificationsTable.NotificationsTableColumns.USER_ID.getColumnName(),
@@ -75,7 +80,18 @@ public class ClientNotificationsTask
 
         for(Notifications notification : notificationsList)
         {
-            Image notificationIcon = new Image(CHECK_ICON_URL);
+            Orders currentOrder = new Orders();
+            if(!ordersTable.selectRecordByID(currentOrder, notification.getOrderID()))
+                continue;
+
+            Image notificationIcon = null;
+            if(currentOrder.getStatus() == OrderStatuses.DELIVERED.getID())
+                notificationIcon =  new Image(CHECK_ICON_URL);
+            else if(currentOrder.getStatus() == OrderStatuses.REJECTED.getID())
+                notificationIcon =  new Image(CROSS_ICON_URL);
+            else
+                continue;
+
             org.controlsfx.control.Notifications notifications = org.controlsfx.control.Notifications.create()
                     .text(notification.getMessage())
                     .graphic(new ImageView(notificationIcon))

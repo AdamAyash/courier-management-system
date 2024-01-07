@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class ClientDialogController extends DialogController
     protected void setControls()
     {
         super.setControls();
+        _companiesComboBox.setDisable(true);
         if(_dialogMode == DialogMode.DIALOG_MODE_PREVIEW)
         {
             _firstName.setDisable(true);
@@ -84,7 +86,6 @@ public class ClientDialogController extends DialogController
             _phoneNumber.setDisable(true);
             _username.setDisable(true);
             _password.setDisable(true);
-            _companiesComboBox.setDisable(true);
             _address.setDisable(true);
         }
     }
@@ -132,7 +133,6 @@ public class ClientDialogController extends DialogController
     @Override
     public boolean setDataToControls()
     {
-
         List<Companies> companiesList = _companiesComboBox.getItems();
 
         Companies companyRecord = new Companies();
@@ -141,7 +141,6 @@ public class ClientDialogController extends DialogController
             if(company.getID() == _clientsDetails.getClientRecord().getCompanyID())
                 companyRecord = company;
         }
-
 
         _companiesComboBox.setValue(companyRecord);
 
@@ -180,6 +179,22 @@ public class ClientDialogController extends DialogController
             return false;
 
         _companiesComboBox.getItems().addAll(_companiesList);
+        return true;
+    }
+
+    @Override
+    public boolean InitializeController()
+    {
+        setControls();
+
+        if(!LoadData())
+            return false;
+
+        if(!setDataToControls())
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return false;
+        }
 
         return true;
     }

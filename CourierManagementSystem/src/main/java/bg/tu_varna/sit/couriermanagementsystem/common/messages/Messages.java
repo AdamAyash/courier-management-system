@@ -37,5 +37,6 @@ public class Messages
     public static final String SUCCESSFUL_CONNECTION_TEST_MESSAGE = "Connection test successfully passed";
     public static final String INVALID_EMAIL_ADDRESS_MESSAGE = "You have entered and invalid email address, please try again.";
     public static final String INVALID_NAME__MESSAGE = "You have entered and invalid name, please try again.";
+    public static final String REJECT_ORDER_QUESTION = "Are you sure you wish to reject the selected order?";
 
 }

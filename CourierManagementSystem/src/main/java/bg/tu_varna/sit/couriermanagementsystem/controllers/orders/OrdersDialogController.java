@@ -51,6 +51,7 @@ public class OrdersDialogController extends DialogController
     private DatePicker _deliveryDate;
 
     private Orders _orderRecord;
+    private Employees _currentlyLoggedEmployeeRecord;
 
     //-------------------------
     //Properties:
@@ -159,20 +160,7 @@ public class OrdersDialogController extends DialogController
     @Override
     public void setControlsToData()
     {
-        UserAuthentication userAuthentication = UserAuthentication.getInstance();
-        Users currentlyLoggedUser = userAuthentication.getCurrentlyLoggedUser();
 
-        Employees currentlyLoggedEmployeeRecord = new Employees();
-        EmployeesTable employeesTable = new EmployeesTable();
-
-        SQLQuery sqlQuery = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
-        sqlQuery.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(), ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
-
-        if(!employeesTable.selectRecordWhere(currentlyLoggedEmployeeRecord, sqlQuery))
-        {
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
-            return;
-        }
 
         _orderRecord.setClientID(_clientComboBox.getSelectionModel().getSelectedItem().getID());
         _orderRecord.setOfficeID(_officeComboBox.getSelectionModel().getSelectedItem().getID());
@@ -180,8 +168,8 @@ public class OrdersDialogController extends DialogController
         _orderRecord.setStatus((short)_statusComboBox.getSelectionModel().getSelectedItem().getID());
         _orderRecord.setDateRegistered(Date.valueOf(_dateRegistered.getValue()));
         _orderRecord.setDeliveryDate(Date.valueOf(_deliveryDate.getValue()));
-        _orderRecord.setEmployeeID(currentlyLoggedEmployeeRecord.getID());
-        _orderRecord.setCompanyID(currentlyLoggedEmployeeRecord.getCompanyID());
+        _orderRecord.setEmployeeID(_currentlyLoggedEmployeeRecord.getID());
+        _orderRecord.setCompanyID(_currentlyLoggedEmployeeRecord.getCompanyID());
     }
 
     @Override
@@ -193,10 +181,29 @@ public class OrdersDialogController extends DialogController
     @Override
     public boolean LoadData()
     {
+        UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        Users currentlyLoggedUser = userAuthentication.getCurrentlyLoggedUser();
+
+         _currentlyLoggedEmployeeRecord = new Employees();
+        final EmployeesTable employeesTable = new EmployeesTable();
+
+        SQLQuery sqlQuery = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
+        sqlQuery.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(), ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
+
+        if(!employeesTable.selectRecordWhere(_currentlyLoggedEmployeeRecord, sqlQuery))
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return false;
+        }
+
         final OfficesTable officesTable  = new OfficesTable();
         final List<Offices> officesList = new ArrayList<>();
 
-        if(!officesTable.selectAllRecords(officesList))
+        SQLQuery selectCompanyOffices = new SQLQuery(officesTable.getTableName(), LockTypes.READ_ONLY);
+        selectCompanyOffices.addCriteria(new SQLCriteria(OfficesTable.OfficesTableColumns.COMPANY_ID.getColumnName(),ComparisonTypes.EQUALS
+                , _currentlyLoggedEmployeeRecord.getCompanyID()));
+
+        if(!officesTable.selectAllRecordsWhere(officesList, selectCompanyOffices))
             return false;
 
         final OrderTypesTable orderTypesTable = new OrderTypesTable();
@@ -208,8 +215,15 @@ public class OrdersDialogController extends DialogController
         final ClientsTable clientsTable = new ClientsTable();
         final List<Clients> clientsList = new ArrayList<>();
 
-        if(!clientsTable.selectAllRecords(clientsList))
+
+        SQLQuery selectAllCompanyClients = new  SQLQuery(clientsTable.getTableName(), LockTypes.READ_ONLY);
+        selectAllCompanyClients.addCriteria(new SQLCriteria(ClientsTable.ClientsTableColumns.COMPANY_ID.getColumnName(), ComparisonTypes.EQUALS,
+                _currentlyLoggedEmployeeRecord.getCompanyID()));
+
+        if(!clientsTable.selectAllRecordsWhere(clientsList, selectAllCompanyClients))
             return false;
+
+
 
         _officeComboBox.getItems().addAll(officesList);
         _clientComboBox.getItems().addAll(clientsList);

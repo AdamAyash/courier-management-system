@@ -136,6 +136,9 @@ public class ClientOrdersTableViewController extends OrdersTableViewController
                 return;
             }
 
+            if(!MessageBox.confirmation(Messages.REJECT_ORDER_QUESTION))
+                return;
+
             final UserAuthentication userAuthentication = UserAuthentication.getInstance();
 
             StoredProcedure storedProcedure = new StoredProcedure(SP_REJECT_ORDER);
@@ -147,6 +150,9 @@ public class ClientOrdersTableViewController extends OrdersTableViewController
                 MessageBox.error(Messages.UPDATE_RECORD_FAILED_MESSAGE);
                 return;
             }
+
+            if(!refreshTableView())
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
         });
     }
 
