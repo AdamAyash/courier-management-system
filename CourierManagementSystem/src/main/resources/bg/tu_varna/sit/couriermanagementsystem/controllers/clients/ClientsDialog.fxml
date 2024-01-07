@@ -19,7 +19,7 @@
             <ComboBox fx:id="_companiesComboBox" layoutX="129.0" layoutY="214.0" prefHeight="25.0" prefWidth="197.0" />
             <Button fx:id="_applyButton" layoutX="157.0" layoutY="323.0" mnemonicParsing="false" onAction="#OnApplyClicked" prefHeight="25.0" prefWidth="100.0" text="Apply" />
             <Button fx:id="_closeButton" layoutX="267.0" layoutY="323.0" mnemonicParsing="false" onAction="#OnCloseClicked" prefHeight="25.0" prefWidth="100.0" text="Close" />
-            <Label layoutX="14.0" layoutY="282.0" prefHeight="17.0" prefWidth="100.0" text="Phone Number:" />
+            <Label layoutX="19.0" layoutY="282.0" prefHeight="17.0" prefWidth="100.0" text="Phone Number:" />
             <Label layoutX="19.0" layoutY="86.0" prefHeight="17.0" prefWidth="79.0" text="Last Name:" />
             <Label layoutX="19.0" layoutY="53.0" prefHeight="17.0" prefWidth="79.0" text="Middle Name:" />
             <Label layoutX="19.0" layoutY="21.0" prefHeight="17.0" prefWidth="79.0" text="First Name:" />
