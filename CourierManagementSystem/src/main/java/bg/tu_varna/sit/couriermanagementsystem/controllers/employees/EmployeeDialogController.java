@@ -171,8 +171,9 @@ public class EmployeeDialogController extends DialogController
         validator.addValidationRule(new NameValidationRule(_firstName.getText()));
         validator.addValidationRule(new NameValidationRule(_middleName.getText()));
         validator.addValidationRule(new NameValidationRule(_lastName.getText()));
-        validator.validate();
 
+        if(!validator.validate())
+            return false;
 
         if(_userName.getText().isBlank())
         {

@@ -99,6 +99,9 @@ public class ClientDialogController extends DialogController
         validator.addValidationRule(new UCNValidationRule(_UCN.getText()));
         validator.addValidationRule(new PhoneNumberValidationRule(_phoneNumber.getText()));
 
+        if(!validator.validate())
+            return false;
+
         if(_username.getText().isBlank())
         {
             MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Username.\"");

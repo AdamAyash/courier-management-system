@@ -37,6 +37,12 @@ public abstract class BaseController
         System.exit(0);
     }
 
+    @FXML
+    private void OnMinimizeButton()
+    {
+        sceneManager.getStage().setIconified(true);
+    }
+
     //-------------------------
     //Overrides:
     //-------------------------

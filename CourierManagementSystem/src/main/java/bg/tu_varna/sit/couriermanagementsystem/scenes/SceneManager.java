@@ -102,6 +102,11 @@ public class SceneManager
         rootStage.setScene(scene);
     }
 
+    public Stage getStage()
+    {
+        return rootStage;
+    }
+
     public void exitStage()
     {
         rootStage.close();
