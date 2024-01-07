@@ -3,7 +3,7 @@ package bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validatio
 import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 
-public class NameValidationRule extends ValidationRule<String>
+public class EmailAddressValidationRule extends ValidationRule<String>
 {
     //-------------------------
     //Constants:
@@ -20,7 +20,8 @@ public class NameValidationRule extends ValidationRule<String>
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
-    public NameValidationRule(String validationValue)
+
+    public EmailAddressValidationRule(String validationValue)
     {
         super(validationValue);
     }
@@ -35,12 +36,11 @@ public class NameValidationRule extends ValidationRule<String>
     @Override
     public boolean validate()
     {
-        if(!_validationValue.matches("[A-Z][a-z]*") || _validationValue.isBlank())
+        if(!_validationValue.matches("^.*@.*mail.*$") || _validationValue.isBlank())
         {
-            MessageBox.information(Messages.INVALID_NAME__MESSAGE);
+            MessageBox.information(Messages.INVALID_EMAIL_ADDRESS_MESSAGE);
             return false;
         }
         return true;
     }
-
 }

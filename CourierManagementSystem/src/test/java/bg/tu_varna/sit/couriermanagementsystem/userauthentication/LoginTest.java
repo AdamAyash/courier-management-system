@@ -1,14 +1,9 @@
-package bg.tu_varna.sit.couriermanagementsystem.database;
-
+package bg.tu_varna.sit.couriermanagementsystem.userauthentication;
 import bg.tu_varna.sit.couriermanagementsystem.database.connection.DatabaseConnectionPool;
 import org.junit.jupiter.api.Test;
-import java.io.IOException;
-import java.sql.SQLException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-/*Клас за тестване на връзката към базата данни*/
-class DatabaseConnectionPoolTest
+class LoginTest
 {
     //-------------------------
     //Constants:
@@ -27,23 +22,24 @@ class DatabaseConnectionPoolTest
     //-------------------------
 
     @Test
-    public void connectToDatabaseTest()
+    public void loginAsAdminExpectingSuccessTest()
     {
-        DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
-        assertTrue(databaseConnectionPool.connectToDatabase());
-    }
-
-    @Test
-    public void getConnectionTest() throws SQLException, IOException
-    {
-        final int CONNECTION_TIMEOUT = 10;
         DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
 
-        assertTrue(databaseConnectionPool.getConnection().isValid(CONNECTION_TIMEOUT));
+        UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        assertTrue(userAuthentication.authenticateUser("admin", "password123"));
     }
 
+    @Test
+    public void loginAsAdminExpectingFalseTest()
+    {
+        DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
+        databaseConnectionPool.connectToDatabase();
 
+        UserAuthentication userAuthentication = UserAuthentication.getInstance();
+        assertFalse(userAuthentication.authenticateUser("admin1", "password123"));
+    }
 
 
     //-------------------------

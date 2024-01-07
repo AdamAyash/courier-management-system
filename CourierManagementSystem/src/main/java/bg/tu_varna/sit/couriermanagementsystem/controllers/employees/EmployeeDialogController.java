@@ -4,6 +4,11 @@ import bg.tu_varna.sit.couriermanagementsystem.common.MessageBox;
 import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.Validator;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.EmailAddressValidationRule;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.NameValidationRule;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.PhoneNumberValidationRule;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.UCNValidationRule;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
@@ -159,23 +164,15 @@ public class EmployeeDialogController extends DialogController
     @Override
     public boolean validateControls()
     {
-        if(_firstName.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"First name.\"");
-            return false;
-        }
+        Validator validator = new Validator();
+        validator.addValidationRule(new EmailAddressValidationRule(_emailAddress.getText()));
+        validator.addValidationRule(new UCNValidationRule(_UCN.getText()));
+        validator.addValidationRule(new PhoneNumberValidationRule(_phoneNumber.getText()));
+        validator.addValidationRule(new NameValidationRule(_firstName.getText()));
+        validator.addValidationRule(new NameValidationRule(_middleName.getText()));
+        validator.addValidationRule(new NameValidationRule(_lastName.getText()));
+        validator.validate();
 
-        if(_middleName.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Middle name.\"");
-            return false;
-        }
-
-        if(_lastName.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Last name.\"");
-            return false;
-        }
 
         if(_userName.getText().isBlank())
         {
@@ -189,25 +186,7 @@ public class EmployeeDialogController extends DialogController
             return false;
         }
 
-        if(_UCN.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"UCN.\"");
-            return false;
-        }
-
-        if(_phoneNumber.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Phone number.\"");
-            return false;
-        }
-
-        if(_emailAddress.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Email address.\"");
-            return false;
-        }
-
-        if(_gender.getSelectionModel().getSelectedItem().isEmpty())
+        if(_gender.getSelectionModel().getSelectedItem().isBlank())
         {
             MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Gender.\"");
             return false;

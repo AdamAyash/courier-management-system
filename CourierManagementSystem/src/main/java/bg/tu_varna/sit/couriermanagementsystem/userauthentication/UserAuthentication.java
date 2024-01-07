@@ -1,5 +1,9 @@
 package bg.tu_varna.sit.couriermanagementsystem.userauthentication;
 
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.ComparisonTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.LockTypes;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLCriteria;
+import bg.tu_varna.sit.couriermanagementsystem.database.queries.SQLQuery;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.userstable.UsersTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.users.Users;
 import com.password4j.Hash;
@@ -75,7 +79,16 @@ public class UserAuthentication
        Users searchedUser = _usersIdentityMap.get(username);
 
        if(searchedUser == null)
-           return  false;
+       {
+           searchedUser = new Users();
+           final UsersTable usersTable = new UsersTable();
+
+           SQLQuery sqlQuery = new SQLQuery(usersTable.getTableName(), LockTypes.READ_ONLY);
+           sqlQuery.addCriteria(new SQLCriteria(UsersTable.UsersTableColumns.USERNAME.getColumnName(), ComparisonTypes.EQUALS,username));
+
+           if(!usersTable.selectRecordWhere(searchedUser, sqlQuery))
+               return  false;
+       }
 
        if(!verifyPassword(password, searchedUser.getPassword()))
            return false;

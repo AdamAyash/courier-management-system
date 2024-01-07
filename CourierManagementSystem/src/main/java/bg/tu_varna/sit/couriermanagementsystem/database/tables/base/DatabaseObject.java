@@ -43,7 +43,7 @@ public class DatabaseObject
     //-------------------------
     //Methods:
     //-------------------------
-    protected void StartTransaction() throws SQLException
+    public void StartTransaction() throws SQLException
     {
         _databaseConnection.setAutoCommit(false);
         _isTransactionActive = true;

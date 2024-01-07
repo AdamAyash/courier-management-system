@@ -87,8 +87,6 @@ public final class DatabaseConnectionPool
             _logger.error(exception.getMessage());
             return false;
         }
-        _logger.debug(Messages.SUCCESSFUL_CONNECTION_TEST_MESSAGE);
-
         return true;
     }
 

@@ -7,6 +7,7 @@ import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogResult;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.companies.offices.OfficeDialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.Validator;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.EmailAddressValidationRule;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.PhoneNumberValidationRule;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.validation.validationrules.UCNValidationRule;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
@@ -262,6 +263,7 @@ public class CompanyDialogController extends DialogController
         Validator validator = new Validator();
         validator.addValidationRule(new UCNValidationRule(_EGFN.getText()));
         validator.addValidationRule(new PhoneNumberValidationRule(_phoneNumber.getText()));
+        validator.addValidationRule(new EmailAddressValidationRule(_email.getText()));
 
         if(!validator.validate())
             return false;
@@ -271,24 +273,6 @@ public class CompanyDialogController extends DialogController
             MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Company name.\"");
             return false;
         }
-
-        if(_EGFN.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"EGFN.\"");
-            return false;
-        }
-
-        if(_email.getText().isBlank())
-        {
-            MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Email address.\"");
-            return false;
-        }
-
-        //if(_phoneNumber.getText().isBlank())
-       // {
-           // MessageBox.warning(Messages.INVALID_FIELD_MESSAGE + "\"Phone number.\"");
-           // return false;
-        //}
 
         if(_citiesComboBox.getSelectionModel().isEmpty())
         {

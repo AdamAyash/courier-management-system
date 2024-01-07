@@ -115,7 +115,6 @@ public class UsersTableTest
 
         assertTrue(usersTable.deleteRecord(newUser));
     }
-
     //-------------------------
     //Overrides:
     //-------------------------

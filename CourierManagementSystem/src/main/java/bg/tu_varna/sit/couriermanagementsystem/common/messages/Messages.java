@@ -35,5 +35,7 @@ public class Messages
     public static final String CANNOT_REJECT_DELIVERED_ORDER_MESSAGE = "You're trying to reject an already delivered order.";
     public static final String CANNOT_REJECT_REJECTED_ORDER_MESSAGE = "You're trying to reject an already rejected order.";
     public static final String SUCCESSFUL_CONNECTION_TEST_MESSAGE = "Connection test successfully passed";
+    public static final String INVALID_EMAIL_ADDRESS_MESSAGE = "You have entered and invalid email address, please try again.";
+    public static final String INVALID_NAME__MESSAGE = "You have entered and invalid name, please try again.";
 
 }
