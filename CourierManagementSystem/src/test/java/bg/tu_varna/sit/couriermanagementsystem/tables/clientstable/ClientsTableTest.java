@@ -17,10 +17,12 @@ public class ClientsTableTest
     //-------------------------
     //Constants:
     //-------------------------
-
+    private final ClientsTable _clientsTable = new ClientsTable();
+    private final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
     //-------------------------
     //Members:
     //-------------------------
+    private Clients _clientRecord;
 
     //-------------------------
     //Properties:
@@ -29,6 +31,10 @@ public class ClientsTableTest
     //-------------------------
     //Constructor/Destructor:
     //-------------------------
+    public ClientsTableTest()
+    {
+        
+    }
 
     //-------------------------
     //Methods:
@@ -37,13 +43,26 @@ public class ClientsTableTest
     @Test
     public void selectAllClientsTest()
     {
+
+        databaseConnectionPool.connectToDatabase();
+
+        List<Clients> clientsList = new ArrayList<>();
+
+        assertTrue(_clientsTable.selectAllRecords(clientsList));
+    }
+
+    @Test
+    public void insertClientTest()
+    {
         final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
         databaseConnectionPool.connectToDatabase();
 
-        ClientsTable clientsTable = new ClientsTable();
         List<Clients> clientsList = new ArrayList<>();
-        assertTrue(clientsTable.selectAllRecords(clientsList));
+
+        assertTrue(_clientsTable.selectAllRecords(clientsList));
     }
+
+
 
     //-------------------------
     //Overrides:

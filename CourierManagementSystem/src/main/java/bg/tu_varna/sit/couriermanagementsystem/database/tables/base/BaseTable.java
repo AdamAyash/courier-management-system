@@ -198,7 +198,6 @@ public abstract class BaseTable<RecordType extends DomainObject> extends Databas
             if(!CloseLocalConnection())
                 return false;
         }
-
         return true;
     }
 

@@ -49,6 +49,20 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
     public ClientsTableViewController()
     {
         super(new ClientsTable());
+    }
+
+    //-------------------------
+    //Methods:
+    //-------------------------
+
+    //-------------------------
+    //Overrides:
+    //-------------------------
+
+    @Override
+    public void setContextMenu()
+    {
+        super.setContextMenu();
 
         _menuItemPreview.setOnAction(action ->
         {
@@ -212,23 +226,6 @@ public class ClientsTableViewController extends SmartTableViewController<Clients
             }
 
         });
-    }
-
-    //-------------------------
-    //Methods:
-    //-------------------------
-
-    //-------------------------
-    //Overrides:
-    //-------------------------
-
-    @Override
-    public void setContextMenu()
-    {
-        super.setContextMenu();
-
-        if(!refreshTableView())
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
     }
 
     @Override

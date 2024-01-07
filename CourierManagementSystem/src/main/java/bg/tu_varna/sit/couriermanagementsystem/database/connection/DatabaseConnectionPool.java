@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.couriermanagementsystem.database.connection;
 
+import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.configmanager.ConfigManager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -86,6 +87,8 @@ public final class DatabaseConnectionPool
             _logger.error(exception.getMessage());
             return false;
         }
+        _logger.debug(Messages.SUCCESSFUL_CONNECTION_TEST_MESSAGE);
+
         return true;
     }
 

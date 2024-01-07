@@ -43,6 +43,22 @@ public class CompaniesTableTest
         assertTrue(companiesTable.selectAllRecords(companiesList));
     }
 
+    @Test
+    public void insertCompaniesTest()
+    {
+        final DatabaseConnectionPool databaseConnectionPool = DatabaseConnectionPool.getInstance();
+        databaseConnectionPool.connectToDatabase();
+
+        final CompaniesTable companiesTable = new CompaniesTable();
+
+        List<Companies> companiesList = new ArrayList<>();
+        companiesTable.selectAllRecords(companiesList);
+
+        final String phoneNumber = "0882712568";
+
+        Companies company = new Companies();
+        assertTrue(companiesTable.updateRecord(company));
+    }
 
     @Test
     public void updateCompaniesTest()
@@ -55,11 +71,17 @@ public class CompaniesTableTest
         List<Companies> companiesList = new ArrayList<>();
         companiesTable.selectAllRecords(companiesList);
 
+        final String phoneNumber = "0882712568";
+
         Companies company = companiesList.get(0);
-        company.setPhoneNumber("0882712568");
+        company.setPhoneNumber(phoneNumber);
 
         assertTrue(companiesTable.updateRecord(company));
     }
+
+
+
+
 
     //-------------------------
     //Overrides:

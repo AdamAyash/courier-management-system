@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn" name="CourierManagementSystem">
     <Appenders>
-        <RollingFile name="ErrorLog" fileName="C:\CourierManagementSystem\Logs\CourierManagementSystem.log"
+        <RollingFile name="ErrorLog" fileName="C:\CourierManagementSystem\Logs\CourierManagementSystemErrorLog.log"
+                     filePattern="C:\CourierManagementSystem\Logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.txt">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%F] [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Appenders>
+        <RollingFile name="DebugLog" fileName="C:\CourierManagementSystem\Logs\CourierManagementSystemDebugLog.log"
                      filePattern="C:\CourierManagementSystem\Logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.txt">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} [%F] [%t] %m%n</Pattern>
@@ -15,6 +27,11 @@
     <Loggers>
         <Root level="error">
             <AppenderRef ref="ErrorLog"/>
+        </Root>
+    </Loggers>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="DebugLog"/>
         </Root>
     </Loggers>
 </Configuration>
