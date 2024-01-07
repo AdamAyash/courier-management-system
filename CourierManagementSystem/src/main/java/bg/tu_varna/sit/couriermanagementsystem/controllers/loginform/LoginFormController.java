@@ -67,13 +67,13 @@ public class LoginFormController extends BaseController
         switch (currentUser.getAccessID())
         {
             case 0:
-                sceneManager.switchScene("CourierManagementSystemAdminView.fxml", CourierManagementSystemAdminController.class);
+                sceneManager.reloadScene("CourierManagementSystemAdminView.fxml", CourierManagementSystemAdminController.class);
                 break;
             case 1:
-                sceneManager.switchScene("CourierManagementSystemEmployeeView.fxml", CourierManagementSystemEmployeeController.class);
+                sceneManager.reloadScene("CourierManagementSystemEmployeeView.fxml", CourierManagementSystemEmployeeController.class);
                 break;
             case 2:
-                sceneManager.switchScene("CourierManagementSystemClientView.fxml", CourierManagementSystemClientController.class);
+                sceneManager.reloadScene("CourierManagementSystemClientView.fxml", CourierManagementSystemClientController.class);
                 break;
             default:
                 throw new RuntimeException();

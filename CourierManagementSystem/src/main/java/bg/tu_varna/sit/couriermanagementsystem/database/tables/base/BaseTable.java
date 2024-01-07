@@ -26,9 +26,6 @@ public abstract class BaseTable<RecordType extends DomainObject> extends Databas
     //Members:
     //-------------------------
 
-    //Дали сме в активна транзакция
-    private boolean _isTransactionActive;
-
     //Дали използваме локална сесия
     protected DataMap _dataMap;
 
