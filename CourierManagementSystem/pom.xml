@@ -92,9 +92,13 @@
                 </executions>
                 <configuration>
                     <archive>
+                        <manifestEntries>
+                            <Multi-Release>true</Multi-Release>
+                        </manifestEntries>
                         <manifest>
                             <mainClass>bg.tu_varna.sit.couriermanagementsystem.Launcher</mainClass>
                         </manifest>
+                            <addMavenDescriptor>false</addMavenDescriptor>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>

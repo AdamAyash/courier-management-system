@@ -10,7 +10,7 @@ public  class ConfigManager
     //-------------------------
     //Constants:
     //-------------------------
-    private final String _CONFIG_FILE_NAME = "Properties.properties";
+    private final String _CONFIG_FILE_PATH = "C:\\CourierManagementSystem" + "\\Data\\Properties.properties";
 
     //-------------------------
     //Members:
@@ -39,7 +39,7 @@ public  class ConfigManager
     //-------------------------
     private String getConfigFile()
     {
-        return System.getProperty("user.dir") + "\\data\\" + _CONFIG_FILE_NAME;
+        return _CONFIG_FILE_PATH;
     }
 
     //-------------------------
