@@ -28,8 +28,10 @@ module bg.tu_varna.sit.couriermanagementsystem {
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.admin to javafx.fxml;
     opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.clients to javafx.base;
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.clients to  javafx.fxml;
+    opens bg.tu_varna.sit.couriermanagementsystem.controllers.notifications to  javafx.fxml;
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.orders to  javafx.fxml;
     opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.orders to javafx.base;
+    opens bg.tu_varna.sit.couriermanagementsystem.domainobjects.notifications to javafx.base;
     opens bg.tu_varna.sit.couriermanagementsystem.controllers.common to  javafx.fxml;
 
 

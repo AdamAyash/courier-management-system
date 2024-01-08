@@ -6,6 +6,7 @@ import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.CourierManagementSystemController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogResult;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.common.PeriodDialogController;
+import bg.tu_varna.sit.couriermanagementsystem.controllers.notifications.NotificationsTableViewController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.orders.OrdersDialogController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.orders.OrdersTableViewController;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.orders.TrackOrderDialogController;
@@ -86,6 +87,26 @@ public class CourierManagementSystemClientController extends CourierManagementSy
         Tab newTab = new Tab();
         newTab.setText(Messages.ORDERS_TITLE);
         newTab.setContent(ordersTableViewController.getTableView());
+
+        _listControl.getTabs().add(newTab);
+
+    }
+
+
+    @FXML
+    private void OnNotificationsClicked()
+    {
+
+        NotificationsTableViewController notificationsTableViewController = new NotificationsTableViewController();
+        if(!notificationsTableViewController.loadData())
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return;
+        }
+
+        Tab newTab = new Tab();
+        newTab.setText(Messages.NOTIFICATIONS_TITLE);
+        newTab.setContent(notificationsTableViewController.getTableView());
 
         _listControl.getTabs().add(newTab);
 

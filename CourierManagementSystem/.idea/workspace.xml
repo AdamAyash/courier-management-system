@@ -11,7 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/orders/OrdersDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/common/messages/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/CourierManagementSystemClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/CourierManagementSystemClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/CourierManagementSystemClientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/CourierManagementSystemClientView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../~$кументация.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Презентация.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../Презентация.pptx" afterDir="false" />
     </list>
@@ -366,6 +370,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/clients/ClientOrdersTableViewController.java</url>
           <line>110</line>
           <option name="timeStamp" value="225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/notifications/NotificationsTableViewController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="226" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/notifications/NotificationsTableViewController.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="227" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/notifications/NotificationsTableViewController.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="229" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />

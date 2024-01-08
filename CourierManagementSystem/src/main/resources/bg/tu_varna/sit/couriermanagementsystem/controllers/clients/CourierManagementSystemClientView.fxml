@@ -78,6 +78,18 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <Button id="menu-button" graphicTextGap="10.0" layoutY="470.0" mnemonicParsing="false" onAction="#OnNotificationsClicked" prefHeight="68.0" prefWidth="263.0" text="Notifications" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0">
+                                       <image>
+                                          <Image url="@../../images/common/notification-icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                                     </children>
                                 </AnchorPane>
                             </children>

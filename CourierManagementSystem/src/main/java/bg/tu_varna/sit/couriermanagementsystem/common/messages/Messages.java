@@ -20,6 +20,7 @@ public class Messages
     public static final String COMPANIES_REPORT = "Companies report";
     public static final String CLIENTS_TITLE = "Clients";
     public static final String ORDERS_TITLE = "Orders";
+    public static final String NOTIFICATIONS_TITLE = "Notifications";
     public static final String MALE_MESSAGE = "Male";
     public static final String FEMALE_MESSAGE = "Female";
     public static final String PERIOD_TITLE = "Period";
