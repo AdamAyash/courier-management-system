@@ -115,7 +115,7 @@
                                     <Image url="@../../images/loginform/close-button.png" />
                                  </image>
                               </ImageView>
-                              <ImageView layoutX="1125.0" layoutY="4.0" onMouseClicked="#OnMinimizeButton">
+                              <ImageView id="close-button" layoutX="1125.0" layoutY="4.0" onMouseClicked="#OnMinimizeButton">
                                  <image>
                                     <Image url="@../../images/common/minimize-icon.png" />
                                  </image>
