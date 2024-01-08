@@ -181,27 +181,33 @@ public class OrdersDialogController extends DialogController
     @Override
     public boolean LoadData()
     {
-        UserAuthentication userAuthentication = UserAuthentication.getInstance();
-        Users currentlyLoggedUser = userAuthentication.getCurrentlyLoggedUser();
-
-         _currentlyLoggedEmployeeRecord = new Employees();
-        final EmployeesTable employeesTable = new EmployeesTable();
-
-        SQLQuery sqlQuery = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
-        sqlQuery.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(), ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
-
-        if(!employeesTable.selectRecordWhere(_currentlyLoggedEmployeeRecord, sqlQuery))
+        _currentlyLoggedEmployeeRecord = new Employees();
+        if(_orderRecord.getCompanyID() <= 0)
         {
-            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
-            return false;
+            UserAuthentication userAuthentication = UserAuthentication.getInstance();
+            Users currentlyLoggedUser = userAuthentication.getCurrentlyLoggedUser();
+
+            final EmployeesTable employeesTable = new EmployeesTable();
+
+            SQLQuery sqlQuery = new SQLQuery(employeesTable.getTableName(), LockTypes.READ_ONLY);
+            sqlQuery.addCriteria(new SQLCriteria(EmployeesTable.EmployeesTableColumns.USER_ID.getColumnName(), ComparisonTypes.EQUALS, currentlyLoggedUser.getID()));
+
+            if(!employeesTable.selectRecordWhere(_currentlyLoggedEmployeeRecord, sqlQuery))
+            {
+                MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+                return false;
+            }
         }
+
+        final int companyID = _orderRecord.getCompanyID() <= 0  ? _currentlyLoggedEmployeeRecord.getCompanyID() : _orderRecord.getCompanyID();
 
         final OfficesTable officesTable  = new OfficesTable();
         final List<Offices> officesList = new ArrayList<>();
 
+
         SQLQuery selectCompanyOffices = new SQLQuery(officesTable.getTableName(), LockTypes.READ_ONLY);
         selectCompanyOffices.addCriteria(new SQLCriteria(OfficesTable.OfficesTableColumns.COMPANY_ID.getColumnName(),ComparisonTypes.EQUALS
-                , _currentlyLoggedEmployeeRecord.getCompanyID()));
+                ,companyID));
 
         if(!officesTable.selectAllRecordsWhere(officesList, selectCompanyOffices))
             return false;
@@ -218,11 +224,10 @@ public class OrdersDialogController extends DialogController
 
         SQLQuery selectAllCompanyClients = new  SQLQuery(clientsTable.getTableName(), LockTypes.READ_ONLY);
         selectAllCompanyClients.addCriteria(new SQLCriteria(ClientsTable.ClientsTableColumns.COMPANY_ID.getColumnName(), ComparisonTypes.EQUALS,
-                _currentlyLoggedEmployeeRecord.getCompanyID()));
+                companyID));
 
         if(!clientsTable.selectAllRecordsWhere(clientsList, selectAllCompanyClients))
             return false;
-
 
 
         _officeComboBox.getItems().addAll(officesList);
