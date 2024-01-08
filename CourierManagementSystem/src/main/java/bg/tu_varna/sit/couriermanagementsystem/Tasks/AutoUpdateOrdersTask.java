@@ -18,7 +18,6 @@ public class AutoUpdateOrdersTask extends Thread
     //Members:
     //-------------------------
 
-
     //-------------------------
     //Properties:
     //-------------------------
