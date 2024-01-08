@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/InitDatabseScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/InitDatabseScript.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Презентация.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../Презентация.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +138,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CourierManagementSystem">
     <configuration name="CourierManagementSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bg.tu_varna.sit.couriermanagementsystem.CourierManagementSystem" />
       <module name="CourierManagementSystem" />
@@ -395,6 +390,7 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CourierManagementSystem$database_in_CourierManagementSystem.ic" NAME="database in CourierManagementSystem Coverage Results" MODIFIED="1698614484201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CourierManagementSystem$java_in_CourierManagementSystem.ic" NAME="java in CourierManagementSystem Coverage Results" MODIFIED="1704642166184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CourierManagementSystem$UsersTableTest.ic" NAME="UsersTableTest Coverage Results" MODIFIED="1702053531883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>bg.tu_varna.sit.couriermanagementsystem.tables.userstable.*</FILTER>
@@ -402,6 +398,5 @@
     <SUITE FILE_PATH="coverage/CourierManagementSystem$DatabaseConnectionPoolTest__1_.ic" NAME="DatabaseConnectionPoolTest (1) Coverage Results" MODIFIED="1697382624990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>bg.tu_varna.sit.couriermanagementsystem.database.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CourierManagementSystem$database_in_CourierManagementSystem.ic" NAME="database in CourierManagementSystem Coverage Results" MODIFIED="1698614484201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
