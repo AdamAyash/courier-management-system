@@ -35,7 +35,7 @@ public class ClientNotificationsTask
     private static final Logger _logger = LogManager.getLogger();
 
     private final String CHECK_ICON_URL = "https://img.icons8.com/emoji/48/check-mark-emoji.png";
-    private final String CROSS_ICON_URL = "https://icons8.com/icon/OZuepOQd0omj/close.png";
+    private final String CROSS_ICON_URL = "https://img.icons8.com/color/48/delete-sign--v1.png";
     private Users _currentlyLoggedUser;
 
     //-------------------------

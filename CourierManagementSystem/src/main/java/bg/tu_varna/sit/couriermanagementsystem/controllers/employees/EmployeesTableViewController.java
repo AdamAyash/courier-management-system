@@ -6,9 +6,11 @@ import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogMode;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.DialogResult;
 import bg.tu_varna.sit.couriermanagementsystem.controllers.base.SmartTableViewController;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.citiestable.CitiesTable;
+import bg.tu_varna.sit.couriermanagementsystem.database.tables.companiestable.CompaniesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.employees.EmployeesTable;
 import bg.tu_varna.sit.couriermanagementsystem.database.tables.userstable.UsersTable;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.cities.Cities;
+import bg.tu_varna.sit.couriermanagementsystem.domainobjects.companies.Companies;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.employees.EmployeeDetails;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.employees.Employees;
 import bg.tu_varna.sit.couriermanagementsystem.domainobjects.employees.EmployeesData;
@@ -31,6 +33,7 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
     //Members:
     //-------------------------
     private List<Cities> _citiesList;
+    private List<Companies> _companiesList;
 
     //-------------------------
     //Properties:
@@ -234,6 +237,16 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
 
             return new SimpleStringProperty(filteredCitiesList.get(0).toString());
         });
+        TableColumn<Employees, String> employeeCompanyNameColumn = new TableColumn<>("Company");
+        employeeCompanyNameColumn.setCellValueFactory(employee->
+        {
+            var filteredCompaniesList= _companiesList.stream().filter(company -> employee.getValue().getCompanyID() == company.getID()).toList();
+
+            if(filteredCompaniesList.size() != 1)
+                throw new RuntimeException();
+
+            return new SimpleStringProperty(filteredCompaniesList.get(0).toString());
+        });
 
         TableColumn<Employees, String> employeeTelephoneNumberColumn= new TableColumn<>("Telephone number");
         employeeTelephoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
@@ -247,6 +260,7 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
         _tableView.getColumns().add(employeeLastNameColumn);
         _tableView.getColumns().add(employeeDateOfBirthColumn);
         _tableView.getColumns().add(employeeCityColumn);
+        _tableView.getColumns().add(employeeCompanyNameColumn);
         _tableView.getColumns().add(employeeTelephoneNumberColumn);
         _tableView.getColumns().add(employeeEmailAddressColumn);
     }
@@ -257,6 +271,14 @@ public class EmployeesTableViewController extends SmartTableViewController<Emplo
         CitiesTable citiesTable = new CitiesTable();
         _citiesList = new ArrayList<>();
         if(!citiesTable.selectAllRecords(_citiesList))
+        {
+            MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
+            return false;
+        }
+
+        _companiesList = new ArrayList<>();
+        CompaniesTable companiesTable = new CompaniesTable();
+        if(!companiesTable.selectAllRecords(_companiesList))
         {
             MessageBox.error(Messages.LOAD_RECORDS_FAILED_MESSAGE);
             return false;

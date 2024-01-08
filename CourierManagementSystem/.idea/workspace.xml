@@ -11,9 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/configmanager/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/configmanager/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../~$кументация.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/Tasks/ClientNotificationsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/InitDatabseScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/InitDatabseScript.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/SQL Scripts/InsertDataScript.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Презентация.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../Презентация.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,11 +263,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
           <line>158</line>
           <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/employees/EmployeesTableViewController.java</url>
-          <line>259</line>
-          <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/domainobjects/employees/EmployeesData.java</url>
