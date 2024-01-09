@@ -390,7 +390,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CourierManagementSystem$database_in_CourierManagementSystem.ic" NAME="database in CourierManagementSystem Coverage Results" MODIFIED="1698614484201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CourierManagementSystem$java_in_CourierManagementSystem.ic" NAME="java in CourierManagementSystem Coverage Results" MODIFIED="1704642166184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CourierManagementSystem$UsersTableTest.ic" NAME="UsersTableTest Coverage Results" MODIFIED="1702053531883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>bg.tu_varna.sit.couriermanagementsystem.tables.userstable.*</FILTER>
@@ -398,5 +397,6 @@
     <SUITE FILE_PATH="coverage/CourierManagementSystem$DatabaseConnectionPoolTest__1_.ic" NAME="DatabaseConnectionPoolTest (1) Coverage Results" MODIFIED="1697382624990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>bg.tu_varna.sit.couriermanagementsystem.database.database.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/CourierManagementSystem$database_in_CourierManagementSystem.ic" NAME="database in CourierManagementSystem Coverage Results" MODIFIED="1698614484201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
