@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9365ecc6-d442-4002-b441-903613204aa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/connection/DatabaseConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/database/connection/DatabaseConnectionPool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +79,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.CourierManagementSystem.executor&quot;: &quot;Run&quot;,
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CompaniesTableTest.selectAllCompaniesTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -83,7 +87,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mobir/Documents/Projects/courier-management-system/CourierManagementSystem&quot;,
@@ -95,7 +99,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.53908044&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -234,6 +238,14 @@
       <option name="presentableId" value="Default" />
       <updated>1696526072633</updated>
       <workItem from="1704554959351" duration="7541000" />
+      <workItem from="1706807157872" duration="981000" />
+      <workItem from="1706808157265" duration="2000" />
+      <workItem from="1706808167720" duration="671000" />
+      <workItem from="1706809078477" duration="154000" />
+      <workItem from="1706895343899" duration="900000" />
+      <workItem from="1707050023588" duration="673000" />
+      <workItem from="1709460031671" duration="658000" />
+      <workItem from="1709549156692" duration="227000" />
     </task>
     <servers />
   </component>
@@ -256,7 +268,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>158</line>
+          <line>159</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -266,7 +278,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>120</line>
+          <line>121</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -276,12 +288,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>132</line>
+          <line>133</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>178</line>
+          <line>179</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -306,7 +318,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bg/tu_varna/sit/couriermanagementsystem/controllers/companies/CompanyDialogController.java</url>
-          <line>267</line>
+          <line>269</line>
           <option name="timeStamp" value="208" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

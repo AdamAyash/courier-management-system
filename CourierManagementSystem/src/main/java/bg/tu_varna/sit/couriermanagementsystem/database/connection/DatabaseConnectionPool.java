@@ -1,6 +1,5 @@
 package bg.tu_varna.sit.couriermanagementsystem.database.connection;
 
-import bg.tu_varna.sit.couriermanagementsystem.common.messages.Messages;
 import bg.tu_varna.sit.couriermanagementsystem.configmanager.ConfigManager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
